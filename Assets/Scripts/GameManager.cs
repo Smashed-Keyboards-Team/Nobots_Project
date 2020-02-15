@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 		{
 			trailEmissionModule.rateOverDistance = 20f;
 			trailMainModule.startLifetime = 1f;
-			damageParticleEmissionModule.rateOverDistance = 10f;
+			damageParticleEmissionModule.rateOverDistance = 5f;
 		}
 		else if (playerController.velocidad >= 14f && playerController.velocidad < 15f)
 		{
