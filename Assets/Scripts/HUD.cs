@@ -1,0 +1,48 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class HUD : MonoBehaviour
+{
+	public GameObject pausePanel;
+	public GameObject settingsPanel;
+	public GameObject exitPanel;
+	public GameObject gameOverPanel;
+	
+	// Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+	// Funcion para abrir y cerrar panel de pausa
+	public void OpenPausePanel(bool open)                           
+    {
+        pausePanel.SetActive(open);
+    }
+
+	// Funcion para abrir y cerrar panel de opciones
+	public void OpenSettingsPanel(bool open)                           
+    {
+        settingsPanel.SetActive(open);
+    }
+
+	// Funcion para abrir y cerrar panel de exit
+	public void OpenExitPanel(bool open)                           
+    {
+        exitPanel.SetActive(open);
+    }
+
+	// Funcion para abrir y cerrar panel de game over
+	public void OpenGameOverPanel(bool open)                           
+    {
+        gameOverPanel.SetActive(open);
+    }
+}
