@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2011162685697299028
+--- !u!1 &32096673426486617
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2011162685697299031}
+  - component: {fileID: 32096673426486618}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -16,21 +16,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2011162685697299031
+--- !u!4 &32096673426486618
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2011162685697299028}
+  m_GameObject: {fileID: 32096673426486617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.66, z: 0}
+  m_LocalPosition: {x: 0, y: 4.714, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2078179513418480768}
-  m_RootOrder: 2
+  m_Father: {fileID: 525864860806929293}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2078179513418309792
+--- !u!1 &525864860807219117
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,10 +38,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2078179513418480768}
-  - component: {fileID: 2078179513411015524}
-  - component: {fileID: 2011162686299637703}
-  - component: {fileID: 2011162686299637700}
+  - component: {fileID: 525864860806929293}
+  - component: {fileID: 525864860816716905}
+  - component: {fileID: 32096672970809546}
+  - component: {fileID: 32096672970809545}
+  - component: {fileID: 525864860807219114}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -49,31 +50,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2078179513418480768
+--- !u!4 &525864860806929293
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078179513418309792}
+  m_GameObject: {fileID: 525864860807219117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -25.92, y: 0, z: -27.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2078179513418480772}
-  - {fileID: 2078179513418480770}
-  - {fileID: 2011162685697299031}
+  - {fileID: 6596995318307887383}
+  - {fileID: 32096673426486618}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2078179513411015524
+--- !u!95 &525864860816716905
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078179513418309792}
+  m_GameObject: {fileID: 525864860807219117}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0912e57c2807acc4dbd353b8bfac71ec, type: 3}
   m_Controller: {fileID: 0}
@@ -85,26 +85,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &2011162686299637703
+--- !u!135 &32096672970809546
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078179513418309792}
+  m_GameObject: {fileID: 525864860807219117}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 25
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2011162686299637700
+--- !u!114 &32096672970809545
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078179513418309792}
+  m_GameObject: {fileID: 525864860807219117}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d7fe53a0d57ef54bab9637e5958483d, type: 3}
@@ -117,10 +117,24 @@ MonoBehaviour:
   projectile: {fileID: 7082807481587476954, guid: 8a0268aea4007334a8899aebef028f86,
     type: 3}
   projectileSpawns:
-  - {fileID: 2011162685697299028}
+  - {fileID: 32096673426486617}
   cannonTurnSpeed: 90
-  cannonAim: {fileID: 2011162685697299028}
---- !u!1 &2078179513418309794
+  cannonAim: {fileID: 32096673426486617}
+--- !u!64 &525864860807219114
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525864860807219117}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
+--- !u!1 &6596995318308373809
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,36 +142,97 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2078179513418480770}
-  - component: {fileID: 2078179513406746020}
+  - component: {fileID: 6596995318307887377}
   m_Layer: 0
-  m_Name: TorreTesla_LOW
+  m_Name: StaticBaseBone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2078179513418480770
+--- !u!4 &6596995318307887377
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078179513418309794}
+  m_GameObject: {fileID: 6596995318308373809}
+  m_LocalRotation: {x: 0.5021581, y: 0.49783254, z: -0.49782923, w: 0.5021614}
+  m_LocalPosition: {x: -0.024053916, y: -6.0000873e-18, z: -44.736874}
+  m_LocalScale: {x: 7.650638, y: 7.650638, z: 7.650638}
+  m_Children: []
+  m_Father: {fileID: 6596995318307887379}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6596995318308373811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6596995318307887379}
+  m_Layer: 0
+  m_Name: CC_Static
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6596995318307887379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6596995318308373811}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 6.307578, z: 0}
+  m_LocalScale: {x: 0.130708, y: 0.130708, z: 0.130708}
+  m_Children:
+  - {fileID: 6596995318307887377}
+  m_Father: {fileID: 6596995318307887383}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6596995318308373813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6596995318307887381}
+  - component: {fileID: 6596995318305196083}
+  m_Layer: 0
+  m_Name: TorreTesla_LOW_TorreTesla_LOW
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6596995318307887381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6596995318308373813}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2078179513418480768}
+  m_Father: {fileID: 6596995318307887383}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &2078179513406746020
+--- !u!137 &6596995318305196083
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078179513418309794}
+  m_GameObject: {fileID: 6596995318308373813}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -195,14 +270,14 @@ SkinnedMeshRenderer:
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 4300000, guid: 0912e57c2807acc4dbd353b8bfac71ec, type: 3}
   m_Bones:
-  - {fileID: 2078179513418480774}
+  - {fileID: 6596995318307887377}
   m_BlendShapeWeights: []
-  m_RootBone: {fileID: 2078179513418480774}
+  m_RootBone: {fileID: 6596995318307887377}
   m_AABB:
     m_Center: {x: -2.1287084, y: 0.0032795668, z: 0}
     m_Extent: {x: 2.2607207, y: 1.1998549, z: 1.1999003}
   m_DirtyAABB: 0
---- !u!1 &2078179513418309796
+--- !u!1 &6596995318308373815
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,56 +285,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2078179513418480772}
+  - component: {fileID: 6596995318307887383}
+  - component: {fileID: 6596995318300997363}
   m_Layer: 0
-  m_Name: CC_Static
+  m_Name: TorreTesla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2078179513418480772
+--- !u!4 &6596995318307887383
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078179513418309796}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 6.307578, z: 0}
-  m_LocalScale: {x: 0.130708, y: 0.130708, z: 0.130708}
+  m_GameObject: {fileID: 6596995318308373815}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2078179513418480774}
-  m_Father: {fileID: 2078179513418480768}
+  - {fileID: 6596995318307887379}
+  - {fileID: 6596995318307887381}
+  m_Father: {fileID: 525864860806929293}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2078179513418309798
-GameObject:
+--- !u!95 &6596995318300997363
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2078179513418480774}
-  m_Layer: 0
-  m_Name: StaticBaseBone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2078179513418480774
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078179513418309798}
-  m_LocalRotation: {x: 0.5021581, y: 0.49783254, z: -0.49782923, w: 0.5021614}
-  m_LocalPosition: {x: 0.01, y: 0, z: -47.55}
-  m_LocalScale: {x: 7.650638, y: 7.650638, z: 7.650638}
-  m_Children: []
-  m_Father: {fileID: 2078179513418480772}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 6596995318308373815}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 0912e57c2807acc4dbd353b8bfac71ec, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

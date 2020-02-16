@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     private PlayerController playerController;
 	private GameManager gm;
 	private AudioManager audioManager;
+	private HUD hud;
 
 	// Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class InputManager : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
 		playerController = FindObjectOfType<PlayerController>();
 		audioManager = FindObjectOfType<AudioManager>();
+		hud = FindObjectOfType<HUD>();
     }
 
     void Update()
@@ -35,6 +37,13 @@ public class InputManager : MonoBehaviour
 		if (Input.GetButtonDown("Jump"))
 		{
 			playerController.Jump();
+		}
+
+		// Activar GodMode
+		if (Input.GetButtonDown("GodMode"))
+		{
+			gm.godPanel =! gm.godPanel;
+			hud.OpenGodPanel(gm.godPanel);
 		}
     }
 }

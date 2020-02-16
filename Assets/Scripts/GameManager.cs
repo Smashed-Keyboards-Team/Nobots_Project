@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     private PlayerController playerController;
 
+	// Variable de ganar
+	public bool win = false;
+	public bool gameOver = false;
+	public bool godPanel = false;
+
 	// Partículas
 	public ParticleSystem trail;
 	ParticleSystem.MainModule trailMainModule;
@@ -53,7 +58,7 @@ public class GameManager : MonoBehaviour
 		"\nGravedad: ", Physics.gravity.y);
         textForTesting.text += "\nDash: " + playerController.propActiva;
 
-        if (pause == true)
+        if (pause == true || gameOver == true || win == true || godPanel == true)
 		{
 			Time.timeScale = 0f;
 		}
@@ -114,5 +119,21 @@ public class GameManager : MonoBehaviour
 		hud.OpenPausePanel(pause);
 		hud.settingsPanel.SetActive(false);
 		hud.exitPanel.SetActive(false);
+	}
+
+	// Funcion para entrar en game over
+	public void GameOver()
+	{
+		gameOver = true;
+		hud.OpenGameOverPanel(true);
+		Time.timeScale = 0f;
+	}
+
+	// Funcion para ganar
+	public void Win()
+	{
+		win = true;
+		hud.OpenWinPanel(true);
+		Time.timeScale = 0f;
 	}
 }

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public float maxAngularSpeed = 55;
 
     // Una referencia al Rigidbody del personaje
-    private Rigidbody rb;
+    public Rigidbody rb;
 
     // VARIABLES para acelerar las caídas
     public float fallMultiplier = 2.5f;
@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
 	// Detectar si se esta tocando el suelo
 	private bool isGrounded;
 
+	// Funcion para determinar si el jugador esta afectado por la invulnerabilidad del godmode
+	public bool godInvulnerable = false; 
 
     // FOR TESTING __________________________________
     public float velocidad;                        //
@@ -158,12 +160,18 @@ public class PlayerController : MonoBehaviour
 	// Funcion de dolor
 	private void OnTriggerEnter(Collider collision)
 	{
-        if (collision.tag == "Pain"/* && gm.win == false && godInvulnerable == false*/)
-        {
-			gm.pause = true;
-			hud.OpenGameOverPanel(true);
-			mesh.SetActive(false);
-        } 
+		if (gm.win = false)	
+		{
+			if (godInvulnerable = false) 
+			{
+				if (collision.tag == "Pain")
+				{
+					gm.pause = true;
+					gm.GameOver();
+					mesh.SetActive(false);
+				} 
+			}
+		}
 	}
 
 	// Funcion de propulsion

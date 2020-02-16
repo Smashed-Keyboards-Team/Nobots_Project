@@ -9,6 +9,8 @@ public class HUD : MonoBehaviour
 	public GameObject settingsPanel;
 	public GameObject exitPanel;
 	public GameObject gameOverPanel;
+	public GameObject winPanel;
+	public GameObject godPanel;
 	
 	// Start is called before the first frame update
     void Start()
@@ -44,5 +46,17 @@ public class HUD : MonoBehaviour
 	public void OpenGameOverPanel(bool open)                           
     {
         gameOverPanel.SetActive(open);
+    }
+
+	// Funcion para abrir y cerrar panel de win
+	public void OpenWinPanel(bool open)                           
+    {
+        winPanel.SetActive(open);
+    }
+
+	// Funcion para abrir y cerrar panel de win
+	public void OpenGodPanel(bool open)                           
+    {
+        godPanel.SetActive(open);
     }
 }
