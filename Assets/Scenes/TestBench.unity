@@ -667,7 +667,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376215421}
-  m_LocalRotation: {x: -0.27965426, y: 0, z: 0, w: 0.96010077}
+  m_LocalRotation: {x: -0.27965465, y: 0, z: 0, w: 0.96010065}
   m_LocalPosition: {x: 0, y: 3.0700002, z: -31.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -901,7 +901,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559121444}
-  m_LocalRotation: {x: -0.2796545, y: -0.000019928506, z: -0.0000056556805, w: 0.9601007}
+  m_LocalRotation: {x: -0.27965465, y: -0.000019931182, z: -0.000005656018, w: 0.9601007}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1681,12 +1681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &794190830 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1925161661195033683, guid: 8a09817d99efabe418a26680719a1663,
-    type: 3}
-  m_PrefabInstance: {fileID: 3346399985533426918}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &903490430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,7 +2079,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212778299}
-  m_LocalRotation: {x: 0.12966831, y: 0.000018095923, z: 0.0000023668629, w: -0.9915574}
+  m_LocalRotation: {x: 0.12966841, y: 0.00001809726, z: 0.000002366855, w: -0.9915574}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3270,70 +3264,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3346399985515938631, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: godPanel
-      value: 
-      objectReference: {fileID: 794190830}
-    - target: {fileID: 3346399986987147739, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3346399987350276733, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3346399986375818645, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3346399986229286074, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5691060620686094564, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 949493944, guid: 8a09817d99efabe418a26680719a1663, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1281384315485179519, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5519173606503152767, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1925161661195033683, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3475694408621549955, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8256301760171808653, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1386199448241472676, guid: 8a09817d99efabe418a26680719a1663,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: God_TestBench
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a09817d99efabe418a26680719a1663, type: 3}

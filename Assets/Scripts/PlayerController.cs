@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
 	// Funcion para determinar si el jugador esta afectado por la invulnerabilidad del godmode
 	public bool godInvulnerable = false; 
+	public bool godFreeMovement = false;
 
     // FOR TESTING __________________________________
     public float velocidad;                        //
@@ -68,15 +69,46 @@ public class PlayerController : MonoBehaviour
     // Para las físicas
     void FixedUpdate()
     {
-        // Pues eso, mueve la bola. duh!
-        MueveLaBola();
+		if (godFreeMovement == false)
+		{
+			// Pues eso, mueve la bola. duh!
+			MueveLaBola();
+		}
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        // LOG FOR TESTING ONLY_______________
+        if (godFreeMovement == true)
+		{
+			if (Input.GetKey("w"))
+			{
+				transform.position += Vector3.forward * 10f * Time.deltaTime;
+			}
+			else if (Input.GetKey("s"))
+			{
+				transform.position += Vector3.back * 10f * Time.deltaTime;
+			}
+			else if (Input.GetKey("d"))
+			{
+				transform.position += Vector3.right * 10f * Time.deltaTime;
+			}
+			else if (Input.GetKey("a"))
+			{
+				transform.position += Vector3.left * 10f * Time.deltaTime;
+			}
+			else if (Input.GetKey("space"))
+			{
+				transform.position += Vector3.up * 10f * Time.deltaTime;
+			}
+			else if (Input.GetKey("c"))
+			{
+				transform.position += Vector3.down * 10f * Time.deltaTime;
+			}
+		}
+		
+		// LOG FOR TESTING ONLY_______________
         velocidad = rb.velocity.magnitude;  //
         Vector3 vel = rb.velocity;          //
         vel.y = 0;                          //
@@ -160,18 +192,15 @@ public class PlayerController : MonoBehaviour
 	// Funcion de dolor
 	private void OnTriggerEnter(Collider collision)
 	{
-		if (gm.win = false)	
+		if (collision.tag == "Pain")
 		{
-			if (godInvulnerable = false) 
+			if (gm.win == false && godInvulnerable == false)
 			{
-				if (collision.tag == "Pain")
-				{
-					gm.pause = true;
-					gm.GameOver();
-					mesh.SetActive(false);
-				} 
+				gm.pause = true;
+				gm.GameOver();
+				mesh.SetActive(false);
 			}
-		}
+		} 
 	}
 
 	// Funcion de propulsion

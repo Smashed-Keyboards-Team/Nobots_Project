@@ -20,16 +20,19 @@ public class GodMode : MonoBehaviour
 	public void God_Logo()
     {
         SceneManager.LoadScene(0); //Cargar logo
+		God_ExitGodMenu();
     }
 
 	public void God_MainMenu()
     {
         SceneManager.LoadScene(1); //Cargar menu principal
+		God_ExitGodMenu();
     }
 
     public void God_TestBench()
     {
         SceneManager.LoadScene("TestBench"); // Cargar TestBench
+		God_ExitGodMenu();
     }
 
 	public void God_Win() //Ganar partida
@@ -52,9 +55,27 @@ public class GodMode : MonoBehaviour
 
 	public void God_FreeMovement() //Movimiento sin restricciones
     {
-		pc.godInvulnerable = true;
+		pc.godFreeMovement = true;
 		pc.rb.useGravity = false;
 		pc.rb.isKinematic = true;
+		God_ExitGodMenu();
+    }
+
+	public void God_Mode() //Movimiento sin restricciones y playr invulnerable
+    {
+		pc.godInvulnerable = true;
+		pc.godFreeMovement = true;
+		pc.rb.useGravity = false;
+		pc.rb.isKinematic = true;
+		God_ExitGodMenu();
+    }
+
+	public void God_DeactivateCheats() //Desactiva los chetos
+    {
+		pc.godInvulnerable = false;
+		pc.godFreeMovement = false;
+		pc.rb.useGravity = true;
+		pc.rb.isKinematic = false;
 		God_ExitGodMenu();
     }
 
