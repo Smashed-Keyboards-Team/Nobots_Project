@@ -61,10 +61,12 @@ public class GameManager : MonoBehaviour
         if (pause == true || gameOver == true || win == true || godPanel == true)
 		{
 			Time.timeScale = 0f;
+			Screen.lockCursor = false;
 		}
 		else
 		{
 			Time.timeScale = 1;
+			Screen.lockCursor = true;
 		}
 
 
