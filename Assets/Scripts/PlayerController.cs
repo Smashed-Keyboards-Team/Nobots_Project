@@ -36,9 +36,16 @@ public class PlayerController : MonoBehaviour
     private float originalAcel;         // Para guardar el valor original de la aceleración
 
 	public float jumpStrength = 5000;       // Fuerza de salto
+	private bool ableToJump;   // Funcion para indicar si se puede saltar
+
+	public bool shieldActive;
 
 	// Detectar si se esta tocando el suelo
 	private bool isGrounded;
+
+	// Particulas del player
+	public GameObject electricityMesh;
+	public GameObject shieldMesh;
 
 	// Funcion para determinar si el jugador esta afectado por la invulnerabilidad del godmode
 	public bool godInvulnerable = false; 
@@ -107,6 +114,8 @@ public class PlayerController : MonoBehaviour
 				transform.position += Vector3.down * 10f * Time.deltaTime;
 			}
 		}
+
+		shieldMesh.SetActive(shieldActive);
 		
 		// LOG FOR TESTING ONLY_______________
         velocidad = rb.velocity.magnitude;  //
@@ -189,6 +198,24 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	// Indicar si se esta en contacto con una superficie para saltar
+	private void OnTriggerStay(Collider collision)
+	{
+		if (collision.tag == "Playground")
+		{
+			ableToJump = true;
+		} 
+	}
+
+	// Indicar si sales de una superficie en la que se puede saltar
+	private void OnTriggerExit(Collider collision)
+	{
+		if (collision.tag == "Playground")
+		{
+			ableToJump = false;
+		} 
+	}
+
 	// Funcion de dolor
 	private void OnTriggerEnter(Collider collision)
 	{
@@ -218,7 +245,7 @@ public class PlayerController : MonoBehaviour
 	// Funcion de salto
 	public void Jump()
 	{
-		if (isGrounded)
+		if (ableToJump == true)
 		{
 			print("Salto");
 			rb.AddForce(new Vector3(0.0f, jumpStrength, 0.0f));

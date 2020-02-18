@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 54de85ec88fe0ca4a96f1715ba3982c1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: B_EndLeg_001
+    100004: B_EndLeg_002
+    100006: B_EndLeg_003
+    100008: B_EndLeg_004
+    100010: B_Leg_001
+    100012: B_Leg_002
+    100014: B_Leg_003
+    100016: B_Leg_004
+    100018: B_MidLeg_001
+    100020: B_MidLeg_002
+    100022: B_MidLeg_003
+    100024: B_MidLeg_004
+    100026: B_Nucleus
+    100028: B_ParteInferior
+    100030: B_ParteInferior_END
+    100032: B_ParteSuperior
+    100034: B_ParteSuperior_END
+    100036: B_StartLeg_001
+    100038: B_StartLeg_002
+    100040: B_StartLeg_003
+    100042: B_StartLeg_004
+    100044: CC_Enemy
+    100046: CC_Enemy_Head
+    100048: CC_Enemy_Nuceo
+    100050: CC_Legs1
+    100052: CC_Legs2
+    100054: EnemigoTerrestre_Low
+    100056: IK Chain001
+    100058: IK Chain002
+    100060: IK Chain004
+    100062: IK Chain005
+    100064: Nucleus
+    400000: //RootNode
+    400002: B_EndLeg_001
+    400004: B_EndLeg_002
+    400006: B_EndLeg_003
+    400008: B_EndLeg_004
+    400010: B_Leg_001
+    400012: B_Leg_002
+    400014: B_Leg_003
+    400016: B_Leg_004
+    400018: B_MidLeg_001
+    400020: B_MidLeg_002
+    400022: B_MidLeg_003
+    400024: B_MidLeg_004
+    400026: B_Nucleus
+    400028: B_ParteInferior
+    400030: B_ParteInferior_END
+    400032: B_ParteSuperior
+    400034: B_ParteSuperior_END
+    400036: B_StartLeg_001
+    400038: B_StartLeg_002
+    400040: B_StartLeg_003
+    400042: B_StartLeg_004
+    400044: CC_Enemy
+    400046: CC_Enemy_Head
+    400048: CC_Enemy_Nuceo
+    400050: CC_Legs1
+    400052: CC_Legs2
+    400054: EnemigoTerrestre_Low
+    400056: IK Chain001
+    400058: IK Chain002
+    400060: IK Chain004
+    400062: IK Chain005
+    400064: Nucleus
+    2100000: No Name
+    4300000: EnemigoTerrestre_Low
+    9500000: //RootNode
+    13700000: EnemigoTerrestre_Low
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.2
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
