@@ -8,6 +8,8 @@ public class TurretAI : EnemyBase
 
     public GameObject cannonAim; // Cañon que apuntara al target
 
+	public GameObject lightning;
+
     protected override void Update()
     {
         base.Update();
@@ -42,5 +44,27 @@ public class TurretAI : EnemyBase
         }
 
         Debug.DrawLine(cannonAim.transform.position, targetPos.position, Color.red);  //Linea entre enemigo y jugador a rango Temporal
+    }
+
+	// Colisiones para detectar cuando el jugador esta a rango
+    protected override void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            targetPos = other.transform;
+            target = other.gameObject;
+			lightning.SetActive(true);
+        }
+    }
+
+    // Detectar cuando el jugador sale de rango
+    protected override void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            targetPos = null;
+            fireTimer = 0.0f;
+			lightning.SetActive(false);
+        }
     }
 }
