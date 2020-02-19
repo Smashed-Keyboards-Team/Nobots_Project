@@ -47,6 +47,14 @@ public class EnemyBase : MonoBehaviour
             target = other.gameObject;
         }
     }
+    protected virtual void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            targetPos = other.transform;
+            target = other.gameObject;
+        }
+    }
 
     // Detectar cuando el jugador sale de rango
     protected virtual void OnTriggerExit(Collider other)
