@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
 	// Pillar mesh
 	public GameObject mesh;
+
+	[SerializeField] GameObject GOD;
 	
 	// VARIABLES para aceleración del personaje
     public float aceleracion;
@@ -114,6 +116,11 @@ public class PlayerController : MonoBehaviour
 			{
 				transform.position += Vector3.down * 10f * Time.deltaTime;
 			}
+			GOD.SetActive(true);
+		}
+		else
+		{
+			GOD.SetActive(false);
 		}
 
 		shieldMesh.SetActive(shieldActive);
