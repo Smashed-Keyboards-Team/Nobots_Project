@@ -10,11 +10,16 @@ public class MineAI : EnemyBase
 	[SerializeField] GameObject lightning;
 	[SerializeField] GameObject explosion;
 	[SerializeField] GameObject mesh;
+
+	private bool mineActive = false;
 	
 	void Update()
 	{
 		base.Update();
-		
+		if(mineActive == true)
+		{
+			currentTime += Time.deltaTime;
+		}
 		if(currentTime >= disappearTime)
 		{
 			Destroy(gameObject);
@@ -29,10 +34,12 @@ public class MineAI : EnemyBase
     {
         if (other.tag == "Player")
         {
-            currentTime += Time.deltaTime;
+            mineActive = true;
+			//currentTime += Time.deltaTime;
 			lightning.SetActive(true);
         }
     }
+	/*
 	protected override void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
@@ -40,6 +47,7 @@ public class MineAI : EnemyBase
             currentTime += Time.deltaTime;
         }
     }
+	
 	protected override void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
@@ -48,10 +56,18 @@ public class MineAI : EnemyBase
 			lightning.SetActive(false);
         }
     }
+	*/
 
 	private void Explode()
 	{
 		explosion.SetActive(true);
 		mesh.SetActive(false);
 	}
+	protected void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player" && gm.destroyMode == true)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
