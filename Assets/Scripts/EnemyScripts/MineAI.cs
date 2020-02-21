@@ -56,11 +56,18 @@ public class MineAI : EnemyBase
 			lightning.SetActive(false);
         }
     }
-	/*
+	*/
 
 	private void Explode()
 	{
 		explosion.SetActive(true);
 		mesh.SetActive(false);
 	}
+	protected void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player" && gm.destroyMode == true)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
