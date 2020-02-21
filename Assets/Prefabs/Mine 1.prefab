@@ -54,7 +54,7 @@ MonoBehaviour:
   projectile: {fileID: 0}
   projectileSpawns: []
   explosionTime: 5
-  disappearTime: 7
+  disappearTime: 5.5
   lightning: {fileID: 2520255496433911033}
   explosion: {fileID: 7604205137193198492}
   mesh: {fileID: 9204558678285558087}
