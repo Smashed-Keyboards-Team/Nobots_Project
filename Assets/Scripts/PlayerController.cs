@@ -40,9 +40,6 @@ public class PlayerController : MonoBehaviour
 
 	public bool shieldActive;
 
-	// Detectar si se esta tocando el suelo
-	private bool isGrounded;
-
 	// Particulas del player
 	public GameObject electricityMesh;
 	public GameObject shieldMesh;
@@ -54,10 +51,14 @@ public class PlayerController : MonoBehaviour
     // FOR TESTING __________________________________
     public float velocidad;                        //
     public float velocidadLineal;                  //
-    //_____________________________________________//
+	//_____________________________________________//
 
-    // Start is called before the first frame update
-    void Start()
+	Vector3 normal;
+	Collision collision;
+
+
+	// Start is called before the first frame update
+	void Start()
     {
         // Encontrar Game Manager
 		gm = FindObjectOfType<GameManager>();
@@ -122,9 +123,10 @@ public class PlayerController : MonoBehaviour
         Vector3 vel = rb.velocity;          //
         vel.y = 0;                          //
         velocidadLineal = vel.magnitude;    //
-        //__________________________________//
+		//__________________________________//
 
-        if (!propActiva)   // Cooldown: reactiva la propulsión cuando se complete el cooldown
+
+		if (!propActiva)   // Cooldown: reactiva la propulsión cuando se complete el cooldown
         {
             propTimer += Time.deltaTime;
             if (propTimer >= propDuracion)
@@ -180,21 +182,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-	// Detectar si se esta tocando el suelo
-	void OnCollisionEnter(Collision collision)
+	void OnCollisionStay(Collision col)
 	{
-		if (collision.gameObject.tag == "Playground")
+		if (col.gameObject.tag == "Playground")
 		{
-			isGrounded = true;
-		}
-	}
-
-	// Detectar si se deja de tocar el suelo
-	void OnCollisionExit(Collision collision)
-	{
-		if (collision.gameObject.tag == "Playground")
-		{
-			isGrounded = false;
+			normal = col.GetContact(0).normal.normalized;
+			Debug.DrawRay(rb.position, normal * 10, Color.green);
 		}
 	}
 
@@ -245,10 +238,16 @@ public class PlayerController : MonoBehaviour
 	// Funcion de salto
 	public void Jump()
 	{
-		if (ableToJump == true)
+		if (ableToJump)
 		{
 			print("Salto");
-			rb.AddForce(new Vector3(0.0f, jumpStrength, 0.0f));
+			print("Salto con impulso: " + normal * jumpStrength);
+			//rb.AddForce(new Vector3(0.0f, jumpStrength, 0.0f));
+			rb.AddForce(normal * jumpStrength, ForceMode.Impulse);
+
+			normal = Vector3.zero;
 		}
 	}
+
+	
 }
