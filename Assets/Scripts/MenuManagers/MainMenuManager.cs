@@ -55,6 +55,18 @@ public class MainMenuManager : MonoBehaviour
 		settingsPanel.SetActive(true);
 		audioManager.PlaySound(0, 1, 1);
     }
+	public void ClosePlayPanel()                           
+    {
+		playPanelOpen = false;
+        playPanel.SetActive(playPanelOpen);
+		audioManager.PlaySound(0, 1, 1);
+    }
+	public void CloseExtrasPanel()                           
+    {
+		extrasPanelOpen = false;
+        extrasPanel.SetActive(extrasPanelOpen);
+		audioManager.PlaySound(0, 1, 1);
+    }
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	// Botones para ir a gameplay
@@ -62,6 +74,11 @@ public class MainMenuManager : MonoBehaviour
 	public void Play_TestBench()
     {
         SceneManager.LoadScene("TestBench");
+		audioManager.PlaySound(0, 1, 1);
+    }
+	public void Play_Level01()
+    {
+        SceneManager.LoadScene("Level01");
 		audioManager.PlaySound(0, 1, 1);
     }
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------
