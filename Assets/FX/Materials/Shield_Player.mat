@@ -46,4 +46,4 @@ Material:
     m_Colors:
     - Color_6EE5C60F: {r: 0.3019608, g: 0.25106534, b: 0, a: 0.5764706}
     - Color_81F1F53C: {r: 0.9866247, g: 1, b: 0, a: 0}
-    - Vector2_F1D16E6D: {r: 10, g: 10, b: 0, a: 0}
+    - Vector2_F1D16E6D: {r: 1, g: 1, b: 0, a: 0}
