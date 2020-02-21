@@ -47,4 +47,13 @@ public class NormalProjectile : BaseProjectile
 		if(other.gameObject.GetComponent<BaseProjectile>() == null)
 			Destroy(gameObject);
 	}
+	/*
+	void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Playground")
+        {
+            Destroy(gameObject);
+        }
+    }
+	*/
 }

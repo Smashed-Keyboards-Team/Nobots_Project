@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     private PlayerController pc;
 
+	public bool destroyMode = false;
+
 	// Variable de ganar
 	public bool win = false;
 	public bool gameOver = false;
@@ -59,6 +61,14 @@ public class GameManager : MonoBehaviour
 		"\nGravedad: ", Physics.gravity.y);
         textForTesting.text += "\nDash: " + pc.propActive;
 		*/
+		if (pc.velocidad >= 16f)
+		{
+			destroyMode = true;
+		}
+		else
+		{
+			destroyMode = false;
+		}
 
         if (pause == true || gameOver == true || win == true || godPanel == true)
 		{

@@ -7,6 +7,8 @@ public class EnemyBase : MonoBehaviour
     protected GameObject target;
     protected Transform targetPos = null;
 
+	protected GameManager gm;
+
     public int minRange; // Rango al que se ataca / rango minimo de algo
 
     public float fireRate; // Ratio al que se dispararan proyectiles
@@ -19,6 +21,11 @@ public class EnemyBase : MonoBehaviour
 
     protected Vector3 lastKnownPosition = Vector3.zero;
 	protected Quaternion lookAtRotation; // Quaternio para mirar al target
+
+	protected void Start()
+	{
+		gm = FindObjectOfType<GameManager>();
+	}
 
     protected virtual void Update()
     {

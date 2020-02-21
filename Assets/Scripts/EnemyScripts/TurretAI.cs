@@ -10,6 +10,8 @@ public class TurretAI : EnemyBase
 
 	public GameObject lightning;
 
+	public GameObject mierda;
+
     protected override void Update()
     {
         base.Update();
@@ -65,6 +67,14 @@ public class TurretAI : EnemyBase
             targetPos = null;
             fireTimer = 0.0f;
 			lightning.SetActive(false);
+        }
+    }
+
+	protected void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player" && gm.destroyMode == true)
+        {
+            Destroy(gameObject);
         }
     }
 }

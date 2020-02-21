@@ -6,14 +6,20 @@ public class MineAI : EnemyBase
 {
     private float currentTime = 0f;
 	[SerializeField] float explosionTime = 0.5f;
+	[SerializeField] float disappearTime = 1f;
 	[SerializeField] GameObject lightning;
 	[SerializeField] GameObject explosion;
+	[SerializeField] GameObject mesh;
 	
 	void Update()
 	{
 		base.Update();
 		
-		if(currentTime >= explosionTime)
+		if(currentTime >= disappearTime)
+		{
+			Destroy(gameObject);
+		}
+		else if(currentTime >= explosionTime)
 		{
 			Explode();
 		}
@@ -45,7 +51,7 @@ public class MineAI : EnemyBase
 
 	private void Explode()
 	{
-		SpawnProjectiles();
-		Destroy(gameObject);
+		explosion.SetActive(true);
+		mesh.SetActive(false);
 	}
 }
