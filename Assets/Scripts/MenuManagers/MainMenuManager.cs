@@ -12,12 +12,14 @@ public class MainMenuManager : MonoBehaviour
 	private bool playPanelOpen = false;
 	private bool extrasPanelOpen = false;
 	private bool settingsPanelOpen = false;
+	private bool tutorialOpen = false;
 
 	// Paneles
 	public GameObject mainMenuPanel;
 	public GameObject playPanel;
 	public GameObject extrasPanel;
 	public GameObject settingsPanel;
+	public GameObject tutorial;
 
 	// Audio
 	public AudioManager audioManager;
@@ -66,9 +68,16 @@ public class MainMenuManager : MonoBehaviour
     }
 	private void CloseExtrasPanel()                           
     {
+		tutorialOpen = false;
 		extrasPanelOpen = false;
         extrasPanel.SetActive(extrasPanelOpen);
     }
+	public void OpenTutorial()
+	{
+		tutorialOpen =! tutorialOpen;
+        tutorial.SetActive(tutorialOpen);
+		audioManager.PlaySound(0, 1, 1);
+	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	// Botones para ir a gameplay
