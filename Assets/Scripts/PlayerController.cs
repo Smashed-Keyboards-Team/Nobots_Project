@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
 		if (col.gameObject.tag == "Playground")
 		{
 			normal = col.GetContact(0).normal.normalized;
-			Debug.DrawRay(rb.position, normal * 10, Color.green);
+			//Debug.DrawRay(rb.position, normal * 10, Color.green);
 		}
 	}
 
