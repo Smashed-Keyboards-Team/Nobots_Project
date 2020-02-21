@@ -11,17 +11,27 @@ public class HUD : MonoBehaviour
 	public GameObject gameOverPanel;
 	public GameObject winPanel;
 	public GameObject godPanel;
+
+	private PlayerController pc;
+	[SerializeField] GameObject propOnCd;
 	
 	// Start is called before the first frame update
     void Start()
     {
-        
+        pc = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+		if (pc.propActive == false)
+		{
+			propOnCd.SetActive(true);
+		}
+		else
+		{
+			propOnCd.SetActive(false);
+		}
     }
 
 	// Funcion para abrir y cerrar panel de pausa

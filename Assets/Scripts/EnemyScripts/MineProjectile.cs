@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalProjectile : BaseProjectile 
+public class MineProjectile : BaseProjectile 
 
 {
 	Vector3 direction;
@@ -19,7 +19,7 @@ public class NormalProjectile : BaseProjectile
 	{
         if(fired)
 		{
-            transform.position += direction * (speed * Time.deltaTime);
+            transform.localScale += new Vector3(10, 10, 10);
 			currentTime += Time.deltaTime;
 			if(currentTime >= disappearTime)
 			{
@@ -41,10 +41,4 @@ public class NormalProjectile : BaseProjectile
             Destroy(gameObject, 10.0f);
         }
     }
-
-	void OnCollisionEnter(Collision other)
-	{
-		if(other.gameObject.GetComponent<BaseProjectile>() == null)
-			Destroy(gameObject);
-	}
 }

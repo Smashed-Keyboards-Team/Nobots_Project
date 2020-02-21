@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
     public float propFuerza = 2;  // Multiplicador de fuerza para la propulsión
     public float propDuracion = 2;   // Duración en segundos del efecto de la propulsión
     public float propCd = 5;          // Tiempo en segundos que tarda en regenerarse la propulsión
-    public bool propActiva = true;     // Indica si se puede usar la propulsión.
-    private float propTimer;            // Tiempo transcurrido desde la propulsión anterior (sólo se actualiza mientras propActiva es FALSE)
+    public bool propActive = true;     // Indica si se puede usar la propulsión.
+    private float propTimer;            // Tiempo transcurrido desde la propulsión anterior (sólo se actualiza mientras propActive es FALSE)
     private float originalAcel;         // Para guardar el valor original de la aceleración
 
 	public float jumpStrength = 5000;       // Fuerza de salto
@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
 		//__________________________________//
 
 
-		if (!propActiva)   // Cooldown: reactiva la propulsión cuando se complete el cooldown
+		if (!propActive)   // Cooldown: reactiva la propulsión cuando se complete el cooldown
         {
             propTimer += Time.deltaTime;
             if (propTimer >= propDuracion)
@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
                 aceleracion = originalAcel; // Restaura el valor de la aceleración original
             }
             if (propTimer >= propCd)
-                propActiva = true;
+                propActive = true;
         }
 
         // Acelera la caída para una experiencia más crispy
@@ -226,12 +226,12 @@ public class PlayerController : MonoBehaviour
 	// Funcion de propulsion
 	public void Boost()
 	{
-		if (propActiva)
+		if (propActive)
 		{
 			print("Propulsión!");   //  ¡Propulsión!
 			aceleracion *= propFuerza;  // Aumenta la aceleración del personaje
 			propTimer = 0;          // Activa el cooldown
-			propActiva = false;
+			propActive = false;
 		}   
 	}
 

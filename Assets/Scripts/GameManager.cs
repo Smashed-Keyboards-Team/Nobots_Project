@@ -50,13 +50,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Mostrar velocidad del personaje en pantalla
+        /*
+		// Mostrar velocidad del personaje en pantalla
         string velocidad = System.Math.Round (pc.velocidad, 2).ToString();
         string velLin = System.Math.Round(pc.velocidadLineal, 2).ToString();
         textForTesting.text = string.Concat("Velocidad: ", velocidad, " m/s", 
 		"\nVelocidad Lineal: ", velLin, " m/s",
 		"\nGravedad: ", Physics.gravity.y);
-        textForTesting.text += "\nDash: " + pc.propActiva;
+        textForTesting.text += "\nDash: " + pc.propActive;
+		*/
 
         if (pause == true || gameOver == true || win == true || godPanel == true)
 		{
