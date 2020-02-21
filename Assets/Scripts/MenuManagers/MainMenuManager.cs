@@ -41,31 +41,33 @@ public class MainMenuManager : MonoBehaviour
 	public void OpenPlayPanel()                           
     {
         playPanelOpen =! playPanelOpen;
+		CloseExtrasPanel();
         playPanel.SetActive(playPanelOpen);
 		audioManager.PlaySound(0, 1, 1);
     }
 	public void OpenExtrasPanel()                           
     {
         extrasPanelOpen =! extrasPanelOpen;
+		ClosePlayPanel();
         extrasPanel.SetActive(extrasPanelOpen);
 		audioManager.PlaySound(0, 1, 1);
     }
 	public void OpenSettingsPanel()                           
     {
+		CloseExtrasPanel();
+		ClosePlayPanel();
 		settingsPanel.SetActive(true);
 		audioManager.PlaySound(0, 1, 1);
     }
-	public void ClosePlayPanel()                           
+	private void ClosePlayPanel()                           
     {
 		playPanelOpen = false;
         playPanel.SetActive(playPanelOpen);
-		audioManager.PlaySound(0, 1, 1);
     }
-	public void CloseExtrasPanel()                           
+	private void CloseExtrasPanel()                           
     {
 		extrasPanelOpen = false;
         extrasPanel.SetActive(extrasPanelOpen);
-		audioManager.PlaySound(0, 1, 1);
     }
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
