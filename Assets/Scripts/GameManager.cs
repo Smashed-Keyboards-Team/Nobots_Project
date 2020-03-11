@@ -105,55 +105,52 @@ public class GameManager : MonoBehaviour
 			TimeOut();
 		}
 
+		if(pc.paralized == true)
+		{
+			damageParticleEmissionModule.rateOverTime = 2f;
+			pc.electricityMesh.SetActive(true);
+		}
+		else
+		{
+			damageParticleEmissionModule.rateOverTime = 0f;
+			pc.electricityMesh.SetActive(false);
+		}
 
 		// Funcionamiento del trail
 		if (pc.velocidad >= 15f)
 		{
 			trailEmissionModule.rateOverDistance = 20f;
 			trailMainModule.startLifetime = 1f;
-			damageParticleEmissionModule.rateOverDistance = 1f;
-			pc.electricityMesh.SetActive(true);
+		
 		}
 		else if (pc.velocidad >= 14f && pc.velocidad < 15f)
 		{
 			trailEmissionModule.rateOverDistance = 20f;
 			trailMainModule.startLifetime = 0.9f;
-			damageParticleEmissionModule.rateOverDistance = 0.5f;
-			pc.electricityMesh.SetActive(true);
 		}
 		else if (pc.velocidad >= 13f && pc.velocidad < 14f)
 		{
 			trailEmissionModule.rateOverDistance = 20f;
 			trailMainModule.startLifetime = 0.8f;
-			damageParticleEmissionModule.rateOverDistance = 0.1f;
-			pc.electricityMesh.SetActive(false);
 		}
 		else if (pc.velocidad >= 12f && pc.velocidad < 13f)
 		{
 			trailEmissionModule.rateOverDistance = 20f;
 			trailMainModule.startLifetime = 0.7f;
-			damageParticleEmissionModule.rateOverDistance = 0f;
-			pc.electricityMesh.SetActive(false);
 		}
 		else if (pc.velocidad >= 11f && pc.velocidad < 12f)
 		{
 			trailEmissionModule.rateOverDistance = 20f;
 			trailMainModule.startLifetime = 0.6f;
-			damageParticleEmissionModule.rateOverDistance = 0f;
-			pc.electricityMesh.SetActive(false);
 		}
 		else if (pc.velocidad >= 10f && pc.velocidad < 11f)
 		{
 			trailEmissionModule.rateOverDistance = 20f;
 			trailMainModule.startLifetime = 0.5f;
-			damageParticleEmissionModule.rateOverDistance = 0f;
-			pc.electricityMesh.SetActive(false);
 		}
 		else if (pc.velocidad < 10)
 		{
 			trailEmissionModule.rateOverDistance = 0f;
-			damageParticleEmissionModule.rateOverDistance = 0f;
-			pc.electricityMesh.SetActive(false);
 		}
     }
 
@@ -178,6 +175,7 @@ public class GameManager : MonoBehaviour
 	public void Respawn()
 	{
 		player.transform.position = spawn.transform.position;
+		pc.paralized = false;
 	}
 
 	// Funcion para entrar en game over
