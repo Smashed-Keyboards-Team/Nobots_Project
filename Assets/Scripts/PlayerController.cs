@@ -40,13 +40,13 @@ public class PlayerController : MonoBehaviour
 	public float jumpStrength = 5000;       // Fuerza de salto
 	private bool ableToJump;   // Funcion para indicar si se puede saltar
 
-	public bool shieldActive;
-
 	// Particulas del player
 	public GameObject electricityMesh;
 
-	// Controlable
+	// Paralizacion
 	public bool paralized = false;
+	public float paralisisTime = 2.5f;
+	private float currentParalisis = 0;
 
 	// Funcion para determinar si el jugador esta afectado por la invulnerabilidad del godmode
 	public bool godInvulnerable = false; 
@@ -125,6 +125,15 @@ public class PlayerController : MonoBehaviour
 			GOD.SetActive(false);
 		}
 
+		if (paralized)
+		{		
+			currentParalisis += Time.deltaTime;
+		}
+		if(currentParalisis >= paralisisTime)
+		{
+			paralized = false;
+			currentParalisis = 0f;
+		}
 		
 		// LOG FOR TESTING ONLY_______________
         velocidad = rb.velocity.magnitude;  //
@@ -240,7 +249,7 @@ public class PlayerController : MonoBehaviour
 	// Funcion de propulsion
 	public void Boost()
 	{
-		if (propActive)
+		if (propActive && paralized == false)
 		{
 			print("Propulsión!");   //  ¡Propulsión!
 			aceleracion *= propFuerza;  // Aumenta la aceleración del personaje

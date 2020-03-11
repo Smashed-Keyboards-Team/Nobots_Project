@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
 			TimeOut();
 		}
 
+		// Paralisis 
 		if(pc.paralized == true)
 		{
 			damageParticleEmissionModule.rateOverTime = 2f;
