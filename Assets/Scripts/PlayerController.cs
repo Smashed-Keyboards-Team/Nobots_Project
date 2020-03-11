@@ -44,7 +44,9 @@ public class PlayerController : MonoBehaviour
 
 	// Particulas del player
 	public GameObject electricityMesh;
-	public GameObject shieldMesh;
+
+	// Controlable
+	public bool paralized = false;
 
 	// Funcion para determinar si el jugador esta afectado por la invulnerabilidad del godmode
 	public bool godInvulnerable = false; 
@@ -123,7 +125,6 @@ public class PlayerController : MonoBehaviour
 			GOD.SetActive(false);
 		}
 
-		shieldMesh.SetActive(shieldActive);
 		
 		// LOG FOR TESTING ONLY_______________
         velocidad = rb.velocity.magnitude;  //
@@ -163,30 +164,33 @@ public class PlayerController : MonoBehaviour
     // Esta funcion controla el movimiento de la bola.
     private void MueveLaBola()
     {
-        // Lectura input del jugador
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-        if (horizontal != 0 || vertical != 0)
-        {
-            // Crea un Vector3 con los valores del input normalizado a magnitud 1.
-            Vector3 movimiento = new Vector3(horizontal, 0.0f, vertical).normalized;
-            Vector3 rotacion = new Vector3(vertical, 0.0f, -horizontal).normalized;
+        if (paralized == false)
+		{
+			// Lectura input del jugador
+			float horizontal = Input.GetAxis("Horizontal");
+			float vertical = Input.GetAxis("Vertical");
+			if (horizontal != 0 || vertical != 0)
+			{
+				// Crea un Vector3 con los valores del input normalizado a magnitud 1.
+				Vector3 movimiento = new Vector3(horizontal, 0.0f, vertical).normalized;
+				Vector3 rotacion = new Vector3(vertical, 0.0f, -horizontal).normalized;
 
-            // Modifica el Vector3 creado anteriormente según la orientación de la cámara
-            movimiento = Camera.main.transform.TransformDirection(movimiento);
-            movimiento.y = 0;
-            movimiento = movimiento.normalized;
+				// Modifica el Vector3 creado anteriormente según la orientación de la cámara
+				movimiento = Camera.main.transform.TransformDirection(movimiento);
+				movimiento.y = 0;
+				movimiento = movimiento.normalized;
 
-            rotacion = Camera.main.transform.TransformDirection(rotacion);
-            rotacion.y = 0;
-            rotacion = rotacion.normalized;
+				rotacion = Camera.main.transform.TransformDirection(rotacion);
+				rotacion.y = 0;
+				rotacion = rotacion.normalized;
 
 
-            // Añade una fuerza al Rigidbody usando el Vector3 recién creado.
-            // multiplicando por la variable pública "aceleracion"
-            rb.AddForce(movimiento * aceleracion);
-            rb.AddTorque(rotacion * aceleracionAngular);
-        }
+				// Añade una fuerza al Rigidbody usando el Vector3 recién creado.
+				// multiplicando por la variable pública "aceleracion"
+				rb.AddForce(movimiento * aceleracion);
+				rb.AddTorque(rotacion * aceleracionAngular);
+			}
+		}
     }
 
 	void OnCollisionStay(Collision col)
@@ -223,9 +227,12 @@ public class PlayerController : MonoBehaviour
 		{
 			if (gm.win == false && godInvulnerable == false)
 			{
+				paralized = true;
+				/*
 				gm.pause = true;
 				gm.GameOver();
 				mesh.SetActive(false);
+				*/
 			}
 		} 
 	}
@@ -245,7 +252,7 @@ public class PlayerController : MonoBehaviour
 	// Funcion de salto
 	public void Jump()
 	{
-		if (ableToJump)
+		if (ableToJump && paralized == false)
 		{
 			print("Salto");
 			print("Salto con impulso: " + normal * jumpStrength);
@@ -254,7 +261,5 @@ public class PlayerController : MonoBehaviour
 
 			normal = Vector3.zero;
 		}
-	}
-
-	
+	}	
 }
