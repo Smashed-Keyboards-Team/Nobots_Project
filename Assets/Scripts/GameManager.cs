@@ -15,11 +15,19 @@ public class GameManager : MonoBehaviour
 	// Variable de pausa
 	public bool pause = false;
 
+	// Puntuación
+	public int score;
+
     // Referencias al personaje
     private GameObject player;
     private PlayerController pc;
+	private GameObject spawn;
 
 	public bool destroyMode = false;
+
+	// Temporizador
+	[SerializeField] float timer = 30;
+	private float originalTimer;
 
 	// Variable de ganar
 	public bool win = false;
@@ -37,7 +45,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        originalTimer = timer;
+		
+		player = GameObject.FindGameObjectWithTag("Player");
+		spawn = GameObject.FindGameObjectWithTag("Spawn");
         pc = player.GetComponent<PlayerController>();
 
 		// Encontrar HUD
@@ -47,6 +58,8 @@ public class GameManager : MonoBehaviour
 		trailEmissionModule = trail.emission;
 		trailMainModule = trail.main;
 		damageParticleEmissionModule = damageParticle.emission;
+
+		score = 0;
     }
 
     // Update is called once per frame
@@ -61,6 +74,12 @@ public class GameManager : MonoBehaviour
 		"\nGravedad: ", Physics.gravity.y);
         textForTesting.text += "\nDash: " + pc.propActive;
 		*/
+		timer -= 1 * Time.deltaTime;
+		
+		string timeLeft = System.Math.Round (timer, 2).ToString();
+		textForTesting.text = string.Concat(timeLeft);
+
+
 		if (pc.velocidad >= 16f)
 		{
 			destroyMode = true;
@@ -79,6 +98,11 @@ public class GameManager : MonoBehaviour
 		{
 			Time.timeScale = 1;
 			Screen.lockCursor = true;
+		}
+
+		if (timer <= 0)
+		{
+			TimeOut();
 		}
 
 
@@ -140,6 +164,20 @@ public class GameManager : MonoBehaviour
 		hud.OpenPausePanel(pause);
 		hud.settingsPanel.SetActive(false);
 		hud.exitPanel.SetActive(false);
+	}
+
+	// Funcion para detectar limite de tiempo
+	public void TimeOut()
+	{
+		Respawn();
+		timer = originalTimer;
+
+	}
+
+	// Funcion para repawnear
+	public void Respawn()
+	{
+		player.transform.position = spawn.transform.position;
 	}
 
 	// Funcion para entrar en game over
