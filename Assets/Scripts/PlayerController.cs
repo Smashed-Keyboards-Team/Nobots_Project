@@ -249,7 +249,7 @@ public class PlayerController : MonoBehaviour
 	// Funcion de propulsion
 	public void Boost()
 	{
-		if (propActive && paralized == false)
+		if (propActive == true && paralized == false)
 		{
 			print("Propulsión!");   //  ¡Propulsión!
 			aceleracion *= propFuerza;  // Aumenta la aceleración del personaje
