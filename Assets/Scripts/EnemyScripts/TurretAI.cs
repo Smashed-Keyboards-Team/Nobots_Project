@@ -10,8 +10,6 @@ public class TurretAI : EnemyBase
 
 	public GameObject lightning;
 
-	public GameObject mierda;
-
     protected override void Update()
     {
         base.Update();

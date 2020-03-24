@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
 	public bool destroyMode = false;
 
 	// Temporizador
-	[SerializeField] float timer = 30;
-	private float originalTimer;
+	public float timer = 30;
+	public float originalTimer;
 
 	// Variable de ganar
 	public bool win = false;
