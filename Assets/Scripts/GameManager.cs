@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 	public bool destroyMode = false;
 
 	// Temporizador
+	public bool lockTimer;
 	public float timer = 30;
 	public float originalTimer;
 
@@ -58,6 +59,8 @@ public class GameManager : MonoBehaviour
 		trailEmissionModule = trail.emission;
 		trailMainModule = trail.main;
 		damageParticleEmissionModule = damageParticle.emission;
+
+		lockTimer = false;
 
 		score = 0;
     }
@@ -100,7 +103,7 @@ public class GameManager : MonoBehaviour
 			Screen.lockCursor = true;
 		}
 
-		if (timer <= 0)
+		if (timer <= 0 && lockTimer == false)
 		{
 			TimeOut();
 		}
