@@ -35,6 +35,18 @@ public class GodMode : MonoBehaviour
 		God_ExitGodMenu();
     }
 
+	public void God_LevelNico1()
+    {
+        SceneManager.LoadScene("Level_Nico"); // Cargar Level_Nico
+		God_ExitGodMenu();
+    }
+
+	public void God_LevelNico2()
+    {
+        SceneManager.LoadScene("Level_Nico2"); // Cargar Level_Nico2
+		God_ExitGodMenu();
+    }
+
 	public void God_Win() //Ganar partida
     {
 		gm.Win();
