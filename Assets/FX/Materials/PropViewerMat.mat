@@ -10,12 +10,13 @@ Material:
   m_Name: PropViewerMat
   m_Shader: {fileID: -6465566751694194690, guid: 7c704cc17c7c6e74c8a0e4b0a3af5a4f,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _ALPHATEST_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: TransparentCutout
   disabledShaderPasses:
   - TransparentBackface
   m_SavedProperties:
@@ -57,12 +58,14 @@ Material:
     - Vector1_2872E0EE: 1
     - Vector1_48746F1C: 0.85
     - Vector1_8662D1B8: 1
+    - Vector1_8F1CCFDB: 1
+    - Vector1_944FBD5B: 0
     - Vector1_A9F5B8D7: 1
     - Vector1_B7C10683: 0.9
     - Vector1_C74BC1BF: 0
     - _AlphaClip: 0
     - _AlphaCutoff: 0.5
-    - _AlphaCutoffEnable: 0
+    - _AlphaCutoffEnable: 1
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
     - _Blend: 0
@@ -84,7 +87,7 @@ Material:
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _ReceivesSSR: 0
+    - _ReceivesSSR: 1
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _SampleGI: 0
@@ -95,15 +98,15 @@ Material:
     - _SpecSource: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _StencilRef: 0
-    - _StencilRefDepth: 32
+    - _StencilRef: 2
+    - _StencilRefDepth: 0
     - _StencilRefDistortionVec: 64
     - _StencilRefGBuffer: 2
-    - _StencilRefMV: 160
+    - _StencilRefMV: 128
     - _StencilWriteMask: 3
     - _StencilWriteMaskDepth: 48
     - _StencilWriteMaskDistortionVec: 64
-    - _StencilWriteMaskGBuffer: 3
+    - _StencilWriteMaskGBuffer: 51
     - _StencilWriteMaskMV: 176
     - _Surface: 0
     - _SurfaceType: 0
@@ -113,7 +116,7 @@ Material:
     - _UseShadowThreshold: 0
     - _WorkflowMode: 1
     - _ZTestDepthEqualForOpaque: 3
-    - _ZTestGBuffer: 4
+    - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
