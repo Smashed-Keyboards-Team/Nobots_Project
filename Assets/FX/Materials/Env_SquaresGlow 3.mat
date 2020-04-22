@@ -16,9 +16,11 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap:
+    MotionVector: User
     RenderType: TransparentCutout
   disabledShaderPasses:
   - TransparentBackface
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -29,12 +31,12 @@ Material:
     m_Floats:
     - Vector1_2872E0EE: 0.95
     - Vector1_48746F1C: 0.85
-    - Vector1_8662D1B8: 3
+    - Vector1_8662D1B8: 1
     - Vector1_8F1CCFDB: 1
     - Vector1_944FBD5B: 0
-    - Vector1_A9F5B8D7: 10
+    - Vector1_A9F5B8D7: 1
     - Vector1_B7C10683: 0.9
-    - Vector1_C74BC1BF: 1
+    - Vector1_C74BC1BF: 0
     - _AlphaCutoff: 0.5
     - _AlphaCutoffEnable: 1
     - _AlphaDstBlend: 0
