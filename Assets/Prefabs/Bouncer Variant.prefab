@@ -27,6 +27,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounciness: 875
+--- !u!65 &7435879102697171052
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516246162730627674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.2158747, y: 5.2093344, z: 7.4927173}
+  m_Center: {x: -0.11171211, y: 0.09670697, z: -13.331268}
 --- !u!1001 &3820424640864235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37,7 +50,7 @@ PrefabInstance:
     - target: {fileID: 515523076489457073, guid: 4c8d8f704c4240347b2dc7b07d20856d,
         type: 3}
       propertyPath: m_Name
-      value: Bouncer
+      value: Bouncer Variant
       objectReference: {fileID: 0}
     - target: {fileID: 515523076489457073, guid: 4c8d8f704c4240347b2dc7b07d20856d,
         type: 3}
