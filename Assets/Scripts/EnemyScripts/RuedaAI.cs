@@ -21,7 +21,7 @@ public class RuedaAI : MonoBehaviour
 
 		myTransform = transform;
     }
-
+	/*
     void Update()
     {
 		switch (currentState)
@@ -40,7 +40,7 @@ public class RuedaAI : MonoBehaviour
 			}
 		}
     }
-
+	*/
 	protected virtual void OnTriggerEnter(Collider other)
     {
 		if (other.tag == "Player")

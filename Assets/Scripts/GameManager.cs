@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     //FOR TESTING
     public Text textForTesting;
 
+	public Text scoreText;
+
 	// Variable del HUD
 	private HUD hud;
 
@@ -16,7 +18,7 @@ public class GameManager : MonoBehaviour
 	public bool pause = false;
 
 	// Puntuación
-	public int score;
+	public float score;
 
     // Referencias al personaje
     private GameObject player;
@@ -81,6 +83,9 @@ public class GameManager : MonoBehaviour
 		
 		string timeLeft = System.Math.Round (timer, 2).ToString();
 		textForTesting.text = string.Concat(timeLeft);
+
+		score = timer * 10000;
+		scoreText.text = string.Concat(score);
 
 
 		if (pc.velocidad >= 16f)
