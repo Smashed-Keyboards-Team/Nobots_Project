@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     // Referencias al personaje
     private GameObject player;
     private PlayerController pc;
+	private AudioManager am;
 	private GameObject spawn;
 
 	public bool destroyMode = false;
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
 		spawn = GameObject.FindGameObjectWithTag("Spawn");
         pc = player.GetComponent<PlayerController>();
+		am = FindObjectOfType<AudioManager>();
 
 		// Encontrar HUD
 		hud = FindObjectOfType<HUD>();
