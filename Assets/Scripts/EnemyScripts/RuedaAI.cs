@@ -28,7 +28,7 @@ public class RuedaAI : MonoBehaviour
     {
         gm = FindObjectOfType<GameManager>();
 		rb = GetComponent<Rigidbody>();
-		det = detector.GetComponentInChildren<RuedaFrontDetection>();
+		det = GetComponentInChildren<RuedaFrontDetection>();
 
 		myTransform = transform;
     }

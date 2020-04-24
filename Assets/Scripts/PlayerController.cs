@@ -254,7 +254,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (propActive == true && paralized == false)
 		{
-			am.PlaySound(1, 1, 1);
+			//am.PlaySound(1, 1, 1);
 			print("Propulsión!");   //  ¡Propulsión!
 			aceleracion *= propFuerza;  // Aumenta la aceleración del personaje
 			propTimer = 0;          // Activa el cooldown
