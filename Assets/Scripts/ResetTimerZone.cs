@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ResetTimer : MonoBehaviour
 {
-    public GameManager gm;
+    private GameManager gm;
+
+	public float addTime = 5;
 
 	void Start()
 	{
@@ -15,7 +17,8 @@ public class ResetTimer : MonoBehaviour
 	{
 		if (collision.tag == "Player")
 		{
-		    gm.timer = gm.originalTimer;
+		    gm.timer += addTime;
+			Destroy(gameObject);
 		} 
 	}
 }

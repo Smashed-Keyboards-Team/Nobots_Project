@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: fa87130fbb0e3bc419735112e0bc04bb
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Multivac
+  fontNames:
+  - Multivac
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 048ccf520db9b1b45ac3e91155b64b05, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
