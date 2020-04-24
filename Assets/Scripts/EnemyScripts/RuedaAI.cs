@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RuedaAI : MonoBehaviour
 {
+	public GameObject player;
+	public float distanceSearch;
+
     public float rotSpeed = 60;
 
 	public float speed = 2;
@@ -18,9 +21,10 @@ public class RuedaAI : MonoBehaviour
 
 	private Vector3 direction;
 
-	private WheelState currentState;
+	private WheelState currentState = WheelState.Waitin;
 
 	private float counter;
+	public float timer = 2.0f;
 
 	//private RuedaFrontDetection det;
 
@@ -29,21 +33,32 @@ public class RuedaAI : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
 		rb = GetComponent<Rigidbody>();
 		//det = GetComponentInChildren<RuedaFrontDetection>();
-
+		counter = timer;
 		myTransform = transform;
     }
 	
     void Update()
     {
+		// busca al jugador
+		target = player.transform;
+		if (currentState != WheelState.Rollin)
+		{
+			if (Vector3.Distance(transform.position, target.position) < distanceSearch) currentState = WheelState.Aimin;
+			else currentState = WheelState.Waitin;
+		}
+		
+
+
 		switch (currentState)
 		{
 			case WheelState.Waitin :  // Estado de esperar y detectar al jugador
 			{
+					/*
 				if (target != null);
 				{
 					currentState = WheelState.Aimin;
-				}
-				counter = 2f;
+				}*/
+				counter = timer;
 			}
 			break;
 			case WheelState.Aimin : // Estado de apuntar al jugador
@@ -66,19 +81,19 @@ public class RuedaAI : MonoBehaviour
 					Quaternion rot = Quaternion.AngleAxis(rotSpeed * Time.deltaTime, Vector3.up);
 					transform.rotation = rot * transform.rotation;
 				}
-
+				/*
 				if (target == null)
 				{
 					currentState = WheelState.Waitin;
 				}
 				else
-				{
+				{*/
 					counter -= Time.deltaTime;     // bajar el contador, si baja mucho entra en Rollin
 					if (counter <= 0f)
 					{
 						currentState = WheelState.Rollin;
 					}
-				}		
+						
 			}
 			break;
 			case WheelState.Rollin :
@@ -94,10 +109,10 @@ public class RuedaAI : MonoBehaviour
 			break;
 		}
     }
-	
+	/*
 	private void OnTriggerEnter(Collider other)
     {
-		Debug.Log("WACHI");
+		Debug.Log(other.name);
 		if (other.tag == "Player")
         {
             target = other.transform;
@@ -106,6 +121,7 @@ public class RuedaAI : MonoBehaviour
 	
 	protected virtual void OnTriggerStay(Collider other)
     {
+		Debug.Log(other.name);
 		if (other.tag == "Player")
         {
             target = other.transform;
@@ -119,7 +135,7 @@ public class RuedaAI : MonoBehaviour
             target = null;
         }
     }
-	
+	*/
 	public enum WheelState
 	{
 		Waitin,
@@ -129,7 +145,9 @@ public class RuedaAI : MonoBehaviour
 
 	public void Choque()
 	{
+		Debug.Log("choque");
 		currentState = WheelState.Waitin;
+		counter = timer;
 	}
 	
 
