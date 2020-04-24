@@ -93,8 +93,9 @@ public class RuedaAI : MonoBehaviour
 		}
     }
 	
-	protected virtual void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter(Collider other)
     {
+		Debug.Log("WACHI");
 		if (other.tag == "Player")
         {
             target = other.transform;
