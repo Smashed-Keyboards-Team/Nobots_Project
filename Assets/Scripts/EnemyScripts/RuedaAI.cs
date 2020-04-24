@@ -127,4 +127,10 @@ public class RuedaAI : MonoBehaviour
 		Rollin
 	}
 
+	public void Choque()
+	{
+		currentState = WheelState.Waitin;
+	}
+	
+
 }
