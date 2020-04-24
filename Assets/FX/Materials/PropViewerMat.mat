@@ -16,9 +16,11 @@ Material:
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap:
+    MotionVector: User
     RenderType: TransparentCutout
   disabledShaderPasses:
   - TransparentBackface
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -121,7 +123,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_1DC807E7: {r: 0, g: 0, b: 0, a: 1}
-    - Color_520203C5: {r: 0.24180031, g: 0, b: 1, a: 0}
+    - Color_520203C5: {r: 0, g: 0.6612811, b: 1, a: 0}
     - Color_587265FB: {r: 1, g: 1, b: 1, a: 1}
     - Color_BA553157: {r: 0, g: 0.917882, b: 1, a: 0}
     - Color_D6075BC: {r: 1, g: 0.01415092, b: 0.8767689, a: 0}
