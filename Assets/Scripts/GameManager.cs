@@ -185,8 +185,10 @@ public class GameManager : MonoBehaviour
 	// Funcion para repawnear
 	public void Respawn()
 	{
-		player.transform.position = spawn.transform.position;
-		pc.paralized = false;
+		Scene scene = SceneManager.GetActiveScene(); 
+		SceneManager.LoadScene(scene.name);
+		//player.transform.position = spawn.transform.position;
+		//pc.paralized = false;
 	}
 
 	// Funcion para entrar en game over
