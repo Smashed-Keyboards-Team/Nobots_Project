@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetTimer : MonoBehaviour
+public class ResetTimerZone : MonoBehaviour
 {
     private GameManager gm;
 
-	public float addTime = 5;
+    public float addTime = 5f;
 
 	void Start()
 	{
