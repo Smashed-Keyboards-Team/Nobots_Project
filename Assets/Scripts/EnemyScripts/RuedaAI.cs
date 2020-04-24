@@ -22,12 +22,13 @@ public class RuedaAI : MonoBehaviour
 
 	private float counter;
 
-	public GameObject detector;
+	private RuedaFrontDetection det;
 
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
 		rb = GetComponent<Rigidbody>();
+		det = detector.GetComponentInChildren<RuedaFrontDetection>();
 
 		myTransform = transform;
     }
@@ -83,14 +84,10 @@ public class RuedaAI : MonoBehaviour
 			case WheelState.Rollin :
 			{
 				rb.MovePosition(transform.position + (transform.forward * speed * Time.deltaTime)); // Moverse hacia alante sin pausa
-				/*
-				new RuedaFrontDetection det = detector.GetComponent<RuedaFrontDetection>();
 				if (det.detect = true)
 				{
 					currentState = WheelState.Waitin;
 				}
-				*/
-
 			}
 			break;
 		}
