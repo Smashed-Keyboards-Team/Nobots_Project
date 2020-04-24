@@ -89,7 +89,7 @@ public class MainMenuManager : MonoBehaviour
     }
 	public void Play_Level01()
     {
-        SceneManager.LoadScene("Bloque_01");
+        SceneManager.LoadScene("Bloque_02");
 		audioManager.PlaySound(0, 1, 1);
     }
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------
