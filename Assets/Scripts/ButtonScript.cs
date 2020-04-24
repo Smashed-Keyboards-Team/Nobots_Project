@@ -6,14 +6,13 @@ public class ButtonScript : MonoBehaviour
 {
     public GameObject door;
 	public int numBoton;
-	AudioSource tuit;
 
+	public Tuiter tuiter;
 	DoorScript ds;
 
 	private void Start()
 	{
 		ds = door.GetComponent<DoorScript>();
-		tuit = this.GetComponent<AudioSource>();
 	}
 
 	private void OnTriggerEnter(Collider collision)
@@ -21,7 +20,7 @@ public class ButtonScript : MonoBehaviour
 		if (collision.tag == "Player")
 		{
 			ds.SetBut(numBoton, true);
-			tuit.Play();
+			tuiter.Tuit();
 			this.gameObject.SetActive(false);
 		}
 	}

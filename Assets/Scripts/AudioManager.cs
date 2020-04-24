@@ -17,6 +17,6 @@ public class AudioManager : MonoBehaviour
 
         source.Play();
 
-        Destroy(go, clips[index].length);
+        //Destroy(go, clips[index].length);
     }
 }
