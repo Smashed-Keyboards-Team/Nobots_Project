@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     // Variables del GameManger y el HUD
 	private GameManager gm;
     private HUD hud;
+	private AudioManager am;
 
 	// Pillar mesh
 	public GameObject mesh;
@@ -68,6 +69,7 @@ public class PlayerController : MonoBehaviour
 		gm = FindObjectOfType<GameManager>();
 		// Encontrar HUD
 		hud = FindObjectOfType<HUD>();
+		am = FindObjectOfType<AudioManager>();
 		
 		rb = GetComponent<Rigidbody>();     // Asignar referencia al Rigidbody del jugador
         rb.maxAngularVelocity = maxAngularSpeed;
@@ -236,6 +238,7 @@ public class PlayerController : MonoBehaviour
 		{
 			if (gm.win == false && godInvulnerable == false)
 			{
+				am.PlaySound(2, 1, 1);
 				paralized = true;
 				/*
 				gm.pause = true;
@@ -251,6 +254,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (propActive == true && paralized == false)
 		{
+			//am.PlaySound(1, 1, 1);
 			print("Propulsión!");   //  ¡Propulsión!
 			aceleracion *= propFuerza;  // Aumenta la aceleración del personaje
 			propTimer = 0;          // Activa el cooldown
