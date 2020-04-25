@@ -88,14 +88,24 @@ public class MainMenuManager : MonoBehaviour
 		audioManager.PlaySound(0, 1, 1);
     }
 	public void Play_Level01()
-    {
-        SceneManager.LoadScene("Bloque_02");
+	{
+		SceneManager.LoadScene("Bloque_01");
 		audioManager.PlaySound(0, 1, 1);
-    }
+	}
+	public void Play_Level02()
+	{
+		SceneManager.LoadScene("Bloque_02");
+		audioManager.PlaySound(0, 1, 1);
+	}
+	public void Play_Level03()
+	{
+		SceneManager.LoadScene("Bloque_03");
+		audioManager.PlaySound(0, 1, 1);
+	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------
-	
+
 	// Boton para salir del juego
-    public void ExitGame()
+	public void ExitGame()
     {
         Application.Quit();
 		audioManager.PlaySound(0, 1, 1);
