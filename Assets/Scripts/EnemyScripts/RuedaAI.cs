@@ -30,6 +30,7 @@ public class RuedaAI : MonoBehaviour
 
     void Start()
     {
+		player = GameObject.FindGameObjectWithTag("Player");
         gm = FindObjectOfType<GameManager>();
 		rb = GetComponent<Rigidbody>();
 		//det = GetComponentInChildren<RuedaFrontDetection>();
@@ -43,8 +44,12 @@ public class RuedaAI : MonoBehaviour
 		target = player.transform;
 		if (currentState != WheelState.Rollin)
 		{
-			if (Vector3.Distance(transform.position, target.position) < distanceSearch) currentState = WheelState.Aimin;
-			else currentState = WheelState.Waitin;
+			currentState = WheelState.Waitin;
+			if (Vector3.Distance(transform.position, target.position) < distanceSearch)
+			{
+
+			}
+				currentState = WheelState.Aimin;
 		}
 		
 
@@ -53,11 +58,6 @@ public class RuedaAI : MonoBehaviour
 		{
 			case WheelState.Waitin :  // Estado de esperar y detectar al jugador
 			{
-					/*
-				if (target != null);
-				{
-					currentState = WheelState.Aimin;
-				}*/
 				counter = timer;
 			}
 			break;
@@ -81,61 +81,23 @@ public class RuedaAI : MonoBehaviour
 					Quaternion rot = Quaternion.AngleAxis(rotSpeed * Time.deltaTime, Vector3.up);
 					transform.rotation = rot * transform.rotation;
 				}
-				/*
-				if (target == null)
+
+				counter -= Time.deltaTime;     // bajar el contador, si baja mucho entra en Rollin
+				if (counter <= 0f)
 				{
-					currentState = WheelState.Waitin;
+					currentState = WheelState.Rollin;
 				}
-				else
-				{*/
-					counter -= Time.deltaTime;     // bajar el contador, si baja mucho entra en Rollin
-					if (counter <= 0f)
-					{
-						currentState = WheelState.Rollin;
-					}
 						
 			}
 			break;
 			case WheelState.Rollin :
 			{
 				rb.MovePosition(transform.position + (transform.forward * speed * Time.deltaTime)); // Moverse hacia alante sin pausa
-				/*
-				if (det.detect = true)
-				{
-					currentState = WheelState.Waitin;
-				}
-				*/
 			}
 			break;
 		}
     }
-	/*
-	private void OnTriggerEnter(Collider other)
-    {
-		Debug.Log(other.name);
-		if (other.tag == "Player")
-        {
-            target = other.transform;
-        }
-    }
-	
-	protected virtual void OnTriggerStay(Collider other)
-    {
-		Debug.Log(other.name);
-		if (other.tag == "Player")
-        {
-            target = other.transform;
-        }
-    } 
 
-	protected virtual void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            target = null;
-        }
-    }
-	*/
 	public enum WheelState
 	{
 		Waitin,

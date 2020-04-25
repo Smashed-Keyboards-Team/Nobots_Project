@@ -6,17 +6,19 @@ using UnityEngine.SceneManagement;
 public class LogoManager : MonoBehaviour
 {
     // Contador de tiempo que pasa y tiempo que tarda en pasar al main menu
-    private float counter;
+    public float counter;
     public int sceneChange;
 
+    private void Start()
+    {
+        counter = Time.time;
+    }
 
     void Update()
     {
-        // Linea de contador
-        counter += Time.deltaTime;
-
+        Debug.Log("Tiempo> " + Time.time);
         // Cambio de escena al pasar el tiempo o pulsar escape
-        if (counter >= sceneChange || Input.GetButtonDown("Cancel"))
+        if (Time.time >= counter + sceneChange || Input.GetButtonDown("Cancel"))
         {
             SceneManager.LoadScene("MainMenu");
         }

@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
 {
     //FOR TESTING
     public Text textForTesting;
-
 	public Text scoreText;
+	public float countdown;
+	private float countdownStart;
 
 	// Variable del HUD
 	private HUD hud;
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
 	public bool win = false;
 	public bool gameOver = false;
 	public bool godPanel = false;
+
+	public bool menu = true;
 
 	// Partículas
 	public ParticleSystem trail;
@@ -72,6 +75,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		/*
+		if (Time.time > countdown + countdownStart)
+		{
+			Time.timeScale = 1;
+			pause = false;
+		}*/
+			 
+
         /*
 		// Mostrar velocidad del personaje en pantalla
         string velocidad = System.Math.Round (pc.velocidad, 2).ToString();
@@ -84,7 +95,7 @@ public class GameManager : MonoBehaviour
 		timer -= 1 * Time.deltaTime;
 		
 		string timeLeft = System.Math.Round (timer, 2).ToString();
-		textForTesting.text = string.Concat(timeLeft);
+		//textForTesting.text = string.Concat(timeLeft);
 
 		score = timer * 10000;
 		scoreText.text = string.Concat(score);
@@ -99,15 +110,23 @@ public class GameManager : MonoBehaviour
 			destroyMode = false;
 		}
 
-        if (pause == true || gameOver == true || win == true || godPanel == true)
+		if (pause == true || gameOver == true || win == true || godPanel == true)
 		{
 			Time.timeScale = 0f;
-			Screen.lockCursor = false;
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.Confined;
 		}
-		else
+		else if (menu == true)
 		{
 			Time.timeScale = 1;
-			Screen.lockCursor = true;
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.Confined;
+		}
+		else
+		{	// gameplay
+			Time.timeScale = 1;
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
 		}
 
 		if (timer <= 0 && lockTimer == false)
@@ -179,6 +198,7 @@ public class GameManager : MonoBehaviour
 	{
 		Respawn();
 		timer = originalTimer;
+		player.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 	}
 
@@ -205,5 +225,12 @@ public class GameManager : MonoBehaviour
 		win = true;
 		hud.OpenWinPanel(true);
 		Time.timeScale = 0f;
+	}
+
+	void Countdown()
+	{
+		Time.timeScale = 0f;
+		countdownStart = Time.time;
+		pause = true;
 	}
 }
