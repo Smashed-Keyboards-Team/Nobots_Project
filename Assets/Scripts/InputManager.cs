@@ -23,8 +23,7 @@ public class InputManager : MonoBehaviour
         // Activar pausa
 		if (Input.GetButtonDown("Cancel"))
 		{
-			gm.SetPause();
-			//audioManager.transform.GetComponent<AudioSource>().Play(0);
+			if (!hud.noScape) hud.TogglePauseMenu();
 		}
 
 		// Activar boost
@@ -43,7 +42,7 @@ public class InputManager : MonoBehaviour
 		if (Input.GetButtonDown("GodMode"))
 		{
 			gm.godPanel =! gm.godPanel;
-			hud.OpenGodPanel(gm.godPanel);
+			hud.ShowGodPanel(gm.godPanel);
 		}
     }
 }

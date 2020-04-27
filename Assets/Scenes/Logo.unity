@@ -730,6 +730,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1181536594280072615, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181536594434067612, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: countdownDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181536594434067612, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: countdownPanel
+      value: 
+      objectReference: {fileID: 1894603738}
     - target: {fileID: 2686316714944827673, guid: 60c8079ef6372d940b56fd73d84781da,
         type: 3}
       propertyPath: m_IsActive
@@ -770,6 +785,16 @@ PrefabInstance:
       propertyPath: damageParticle
       value: 
       objectReference: {fileID: 1288415109}
+    - target: {fileID: 6152321642065334728, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: countdown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2440061102570956352, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1436316051924381622, guid: 60c8079ef6372d940b56fd73d84781da, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 60c8079ef6372d940b56fd73d84781da, type: 3}
@@ -956,9 +981,33 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!1 &1752149161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 918620039958536689, guid: 60c8079ef6372d940b56fd73d84781da,
+    type: 3}
+  m_PrefabInstance: {fileID: 1457207179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1752149163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752149161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da478636b1a383d4caf91c5d6d6a0fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &1863053913 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5429022060348434608, guid: 60c8079ef6372d940b56fd73d84781da,
+    type: 3}
+  m_PrefabInstance: {fileID: 1457207179}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1894603738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2440061102570956352, guid: 60c8079ef6372d940b56fd73d84781da,
     type: 3}
   m_PrefabInstance: {fileID: 1457207179}
   m_PrefabAsset: {fileID: 0}

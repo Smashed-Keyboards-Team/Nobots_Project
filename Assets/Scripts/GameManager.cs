@@ -23,11 +23,9 @@ public class GameManager : MonoBehaviour
 
     // Referencias al personaje
     public GameObject player;
-    private PlayerController pc;
-	private AudioManager am;
-	private Spawner spawner;
-
-	public bool destroyMode = false;
+    public PlayerController pc;
+	private AudioManager am;		//
+	private Spawner spawner;		//
 
 	// Temporizador
 	public bool lockTimer;
@@ -56,7 +54,7 @@ public class GameManager : MonoBehaviour
 		
 		player = GameObject.FindGameObjectWithTag("Player");
 		//spawn = GameObject.FindGameObjectWithTag("Spawn");
-        pc = player.GetComponent<PlayerController>();
+        //pc = player.GetComponent<PlayerController>();
 		am = FindObjectOfType<AudioManager>();
 
 		// Encontrar HUD
@@ -75,74 +73,25 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-		// Mostrar velocidad del personaje en pantalla
-        string velocidad = System.Math.Round (pc.velocidad, 2).ToString();
-        string velLin = System.Math.Round(pc.velocidadLineal, 2).ToString();
-        textForTesting.text = string.Concat("Velocidad: ", velocidad, " m/s", 
-		"\nVelocidad Lineal: ", velLin, " m/s",
-		"\nGravedad: ", Physics.gravity.y);
-        textForTesting.text += "\nDash: " + pc.propActive;
-		*/
 		timer -= 1 * Time.deltaTime;
-		
+
 		string timeLeft = System.Math.Round (timer, 2).ToString();
-		//textForTesting.text = string.Concat(timeLeft);
+		textForTesting.text = string.Concat(timeLeft);
 
 		score = timer * 10000;
 		scoreText.text = string.Concat(score);
-
-
-		if (pc.velocidad >= 16f)
-		{
-			destroyMode = true;
-		}
-		else
-		{
-			destroyMode = false;
-		}
-
-		if (pause == true || gameOver == true || win == true || godPanel == true)
-		{
-			Time.timeScale = 0f;
-			Cursor.visible = true;
-			Cursor.lockState = CursorLockMode.Confined;
-		}
-		else if (menu == true)
-		{
-			Time.timeScale = 1;
-			Cursor.visible = true;
-			Cursor.lockState = CursorLockMode.Confined;
-		}
-		else
-		{	// gameplay
-			Time.timeScale = 1;
-			Cursor.visible = false;
-			Cursor.lockState = CursorLockMode.Locked;
-		}
 
 		if (timer <= 0 && lockTimer == false)
 		{
 			TimeOut();
 		}
-
-		
     }
 
-	// Funcion para cambiar la variable de pausa
-	public void SetPause()
-	{
-		pause =! pause;
-		hud.OpenPausePanel(pause);
-		hud.settingsPanel.SetActive(false);
-		hud.exitPanel.SetActive(false);
-	}
 
 	// Funcion para detectar limite de tiempo
 	public void TimeOut()
 	{
 		Respawn();
-		timer = originalTimer;
 		player.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 	}
@@ -151,16 +100,14 @@ public class GameManager : MonoBehaviour
 	public void Respawn()
 	{
 		Scene scene = SceneManager.GetActiveScene(); 
-		SceneManager.LoadScene(scene.name);
-		//player.transform.position = spawn.transform.position;
-		//pc.paralized = false;
+		LoadLevel(scene.buildIndex);
 	}
 
 	// Funcion para entrar en game over
 	public void GameOver()
 	{
 		gameOver = true;
-		hud.OpenGameOverPanel(true);
+		hud.OpenGameOverPanel();
 		Time.timeScale = 0f;
 	}
 
@@ -168,7 +115,7 @@ public class GameManager : MonoBehaviour
 	public void Win()
 	{
 		win = true;
-		hud.OpenWinPanel(true);
+		hud.OpenWinPanel();
 		Time.timeScale = 0f;
 	}
 
@@ -182,19 +129,14 @@ public class GameManager : MonoBehaviour
 	public void LoadLevel(int level)
 	{
 		// Carga nueva escena
-		switch (level)
-		{
-			case 1:
-				SceneManager.LoadScene("Bloque_01");
-				break;
-			case 2:
-				SceneManager.LoadScene("Bloque_02");
-				break;
-			case 3:
-				SceneManager.LoadScene("Bloque_03");
-				break;
-		}
+		SceneManager.LoadScene(level);
+		menu = false;
+		hud.CursorClean();
 
+		timer = originalTimer;
+
+		hud.HidePanels();
+		StartCoroutine( hud.StartCountdown() );	// Cuenta atrás
 	}
 
 	public void Refresh()
@@ -204,6 +146,6 @@ public class GameManager : MonoBehaviour
 		// Referencias al personaje
 		player = GameObject.FindGameObjectWithTag("Player");
 		pc = player.GetComponent<PlayerController>();
-		spawner = FindObjectOfType<Spawner>();
+		//spawner = FindObjectOfType<Spawner>();
 	}
 }

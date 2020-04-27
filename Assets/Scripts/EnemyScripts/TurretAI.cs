@@ -70,9 +70,12 @@ public class TurretAI : EnemyBase
 
 	protected void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Player" && gm.destroyMode == true)
+        if (other.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            if (other.gameObject.GetComponent<PlayerController>().destroyMode == true)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

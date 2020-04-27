@@ -11,62 +11,120 @@ public class HUD : MonoBehaviour
 	public GameObject gameOverPanel;
 	public GameObject winPanel;
 	public GameObject godPanel;
+	public GameObject countdownPanel;
 
-	private PlayerController pc;
-	[SerializeField] GameObject propOnCd;
-	
-	// Start is called before the first frame update
-    void Start()
+	public float countdownDuration;
+	public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
+
+	[SerializeField] public GameObject propOnCd;
+
+
+	GameManager gm;
+
+	private void Start()
+	{
+		gm = FindObjectOfType<GameManager>();
+	}
+
+	// Funcion para abrir y cerrar panel de pausa
+	public void TogglePauseMenu()
+	{
+		gm.pause = !gm.pause;
+		pausePanel.SetActive(gm.pause);
+		settingsPanel.SetActive(false);
+		exitPanel.SetActive(false); 
+		godPanel.SetActive(false);
+		CursorClean();
+	}
+
+	// Funcion para abrir panel de opciones
+	public void OpenSettingsPanel()                           
     {
-        pc = FindObjectOfType<PlayerController>();
+        settingsPanel.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+	// Funcion para abrir panel de exit
+	public void OpenExitPanel()                           
     {
-		if (pc.propActive == false)
+        exitPanel.SetActive(true);
+    }
+
+	// Funcion para abrir panel de game over
+	public void OpenGameOverPanel()                           
+    {
+        gameOverPanel.SetActive(true);
+		CursorClean();
+	}
+
+	// Funcion para abrir panel de win
+	public void OpenWinPanel()                           
+    {
+        winPanel.SetActive(true);
+		CursorClean();
+	}
+
+	// Funcion para abrir y cerrar panel de win
+	public void ShowGodPanel(bool show)                           
+    {
+        godPanel.SetActive(show);
+		CursorClean();
+	}
+
+	// Funcion para ocultar el HUD
+	public void HidePanels()	
+	{
+		pausePanel.SetActive(false);
+		settingsPanel.SetActive(false);
+		exitPanel.SetActive(false);
+		godPanel.SetActive(false);
+
+		// IN GAME
+		Time.timeScale = 1;
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
+	}
+
+	// Funcion para activar la cuenta atrás
+	public IEnumerator StartCountdown()
+	{
+		// Pausa el juego
+		Time.timeScale = 0f;
+		countdownPanel.SetActive(true);
+		noScape = true;
+
+		// Espera un ratito
+		float pauseEndTime = Time.realtimeSinceStartup + countdownDuration;
+		while (Time.realtimeSinceStartup < pauseEndTime)
+			yield return 0;
+
+		// Reanuda el juego
+		Time.timeScale = 1f;
+		countdownPanel.SetActive(false);
+		noScape = false;
+	}
+
+
+	public void CursorClean()
+	{
+		if (gm.pause || gm.godPanel || gm.win || gm.gameOver)           // ESTAMOS PAUSADOS :D
 		{
-			propOnCd.SetActive(true);
+			Debug.Log("Te comes los mocos");
+			Time.timeScale = 0f;
+			Cursor.visible = true;
+			Cursor.lockState = CursorLockMode.Confined;
+		}
+		else if (gm.menu)
+		{
+			Time.timeScale = 1;
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Confined;
 		}
 		else
 		{
-			propOnCd.SetActive(false);
+			Debug.Log("Nop");
+			Time.timeScale = 1;
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
 		}
-    }
-
-	// Funcion para abrir y cerrar panel de pausa
-	public void OpenPausePanel(bool open)                           
-    {
-        pausePanel.SetActive(open);
-    }
-
-	// Funcion para abrir y cerrar panel de opciones
-	public void OpenSettingsPanel(bool open)                           
-    {
-        settingsPanel.SetActive(open);
-    }
-
-	// Funcion para abrir y cerrar panel de exit
-	public void OpenExitPanel(bool open)                           
-    {
-        exitPanel.SetActive(open);
-    }
-
-	// Funcion para abrir y cerrar panel de game over
-	public void OpenGameOverPanel(bool open)                           
-    {
-        gameOverPanel.SetActive(open);
-    }
-
-	// Funcion para abrir y cerrar panel de win
-	public void OpenWinPanel(bool open)                           
-    {
-        winPanel.SetActive(open);
-    }
-
-	// Funcion para abrir y cerrar panel de win
-	public void OpenGodPanel(bool open)                           
-    {
-        godPanel.SetActive(open);
-    }
+	}
 }

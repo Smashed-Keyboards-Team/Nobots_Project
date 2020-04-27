@@ -2247,6 +2247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aef2231673849743ae47cbe9a08c926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
   mainMenuPanel: {fileID: 7038134842247217724}
   playPanel: {fileID: 7038134841115526075}
   extrasPanel: {fileID: 7038134841852837258}

@@ -5324,6 +5324,8 @@ MonoBehaviour:
   propActive: 1
   jumpStrength: 100
   electricityMesh: {fileID: 3261256176073373928}
+  trail: {fileID: 4851004808474001729}
+  damageParticle: {fileID: 924843130}
   paralized: 0
   paralisisTime: 1.5
   godInvulnerable: 0

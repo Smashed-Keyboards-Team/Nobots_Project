@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
 
     public float maxAngularSpeed = 55;
 
+	public bool destroyMode = false;
+
+
     // Una referencia al Rigidbody del personaje
     public Rigidbody rb;
 
@@ -69,11 +72,15 @@ public class PlayerController : MonoBehaviour
 	Collision collision;
 
 
+
 	// Start is called before the first frame update
 	void Start()
     {
         // Encontrar Game Manager
 		gm = FindObjectOfType<GameManager>();
+
+		gm.pc = this.GetComponent<PlayerController>();
+
 		// Encontrar HUD
 		hud = FindObjectOfType<HUD>();
 		am = FindObjectOfType<AudioManager>();
@@ -106,7 +113,30 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (godFreeMovement == true)
+		// Actualizar velocidad
+		velocidad = rb.velocity.magnitude;
+
+		// Actualizar DestroyMode
+		if (velocidad >= 16f)
+		{
+			destroyMode = true;
+		}
+		else
+		{
+			destroyMode = false;
+		}
+
+		// Indica en HUD cuando propulsion activa
+		if (propActive == false)
+		{
+			hud.propOnCd.SetActive(true);
+		}
+		else
+		{
+			hud.propOnCd.SetActive(false);
+		}
+
+		if (godFreeMovement == true)
 		{
 			if (Input.GetKey("w"))
 			{
@@ -195,10 +225,6 @@ public class PlayerController : MonoBehaviour
 		{
 			trailEmissionModule.rateOverDistance = 0f;
 		}
-
-		
-		// LOG FOR TESTING ONLY_______________
-        velocidad = rb.velocity.magnitude;  //
 
 
 		if (!propActive)   // Cooldown: reactiva la propulsión cuando se complete el cooldown

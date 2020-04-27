@@ -64,10 +64,13 @@ public class MineAI : EnemyBase
 		mesh.SetActive(false);
 	}
 	protected void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Player" && gm.destroyMode == true)
-        {
-            Destroy(gameObject);
-        }
-    }
+	{
+		if (other.gameObject.tag == "Player")
+		{
+			if (other.gameObject.GetComponent<PlayerController>().destroyMode == true)
+			{
+				Destroy(gameObject);
+			}
+		}
+	}
 }
