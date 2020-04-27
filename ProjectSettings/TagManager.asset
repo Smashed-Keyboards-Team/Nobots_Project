@@ -7,8 +7,6 @@ TagManager:
   - Playground
   - Pain
   - Spawn
-  - PlayerPos
-  - SpawnPos
   layers:
   - Default
   - TransparentFX

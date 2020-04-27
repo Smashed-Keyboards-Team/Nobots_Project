@@ -13,6 +13,7 @@ public class MainMenuManager : MonoBehaviour
 	private bool extrasPanelOpen = false;
 	private bool settingsPanelOpen = false;
 	private bool tutorialOpen = false;
+	GameManager gm;
 
 	// Paneles
 	public GameObject mainMenuPanel;
@@ -30,7 +31,9 @@ public class MainMenuManager : MonoBehaviour
         // Encontrar panel de opciones
         settings = FindObjectOfType<SettingsMenuManager>();
 		audioManager = FindObjectOfType<AudioManager>();
-    }
+		gm = FindObjectOfType<GameManager>();
+
+	}
 
     // Funciones para abrir y cerrar paneles
     //---------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -89,17 +92,17 @@ public class MainMenuManager : MonoBehaviour
     }
 	public void Play_Level01()
 	{
-		SceneManager.LoadScene("Bloque_01");
+		gm.LoadLevel(1);
 		audioManager.PlaySound(0, 1, 1);
 	}
 	public void Play_Level02()
 	{
-		SceneManager.LoadScene("Bloque_02");
+		gm.LoadLevel(2);
 		audioManager.PlaySound(0, 1, 1);
 	}
 	public void Play_Level03()
 	{
-		SceneManager.LoadScene("Bloque_03");
+		gm.LoadLevel(3);
 		audioManager.PlaySound(0, 1, 1);
 	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------

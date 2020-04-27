@@ -22,10 +22,10 @@ public class GameManager : MonoBehaviour
 	public float score;
 
     // Referencias al personaje
-    private GameObject player;
+    public GameObject player;
     private PlayerController pc;
 	private AudioManager am;
-	private GameObject spawn;
+	private Spawner spawner;
 
 	public bool destroyMode = false;
 
@@ -41,21 +41,21 @@ public class GameManager : MonoBehaviour
 
 	public bool menu = true;
 
-	// Partículas
+	/*// Partículas
 	public ParticleSystem trail;
 	ParticleSystem.MainModule trailMainModule;
 	ParticleSystem.EmissionModule trailEmissionModule;
 	public ParticleSystem damageParticle;
 	ParticleSystem.EmissionModule damageParticleEmissionModule;
+	 */
 
 
-    // Start is called before the first frame update
     void Start()
     {
         originalTimer = timer;
 		
 		player = GameObject.FindGameObjectWithTag("Player");
-		spawn = GameObject.FindGameObjectWithTag("Spawn");
+		//spawn = GameObject.FindGameObjectWithTag("Spawn");
         pc = player.GetComponent<PlayerController>();
 		am = FindObjectOfType<AudioManager>();
 
@@ -63,9 +63,9 @@ public class GameManager : MonoBehaviour
 		hud = FindObjectOfType<HUD>();
 
 		// Enlazar modulos de particulas
-		trailEmissionModule = trail.emission;
-		trailMainModule = trail.main;
-		damageParticleEmissionModule = damageParticle.emission;
+		//trailEmissionModule = trail.emission;
+		//trailMainModule = trail.main;
+		//damageParticleEmissionModule = damageParticle.emission;
 
 		lockTimer = false;
 
@@ -75,14 +75,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		/*
-		if (Time.time > countdown + countdownStart)
-		{
-			Time.timeScale = 1;
-			pause = false;
-		}*/
-			 
-
         /*
 		// Mostrar velocidad del personaje en pantalla
         string velocidad = System.Math.Round (pc.velocidad, 2).ToString();
@@ -134,54 +126,7 @@ public class GameManager : MonoBehaviour
 			TimeOut();
 		}
 
-		// Paralisis 
-		if(pc.paralized == true)
-		{
-			damageParticleEmissionModule.rateOverTime = 2f;
-			pc.electricityMesh.SetActive(true);
-		}
-		else
-		{
-			damageParticleEmissionModule.rateOverTime = 0f;
-			pc.electricityMesh.SetActive(false);
-		}
-
-		// Funcionamiento del trail
-		if (pc.velocidad >= 15f)
-		{
-			trailEmissionModule.rateOverDistance = 20f;
-			trailMainModule.startLifetime = 1f;
 		
-		}
-		else if (pc.velocidad >= 14f && pc.velocidad < 15f)
-		{
-			trailEmissionModule.rateOverDistance = 20f;
-			trailMainModule.startLifetime = 0.9f;
-		}
-		else if (pc.velocidad >= 13f && pc.velocidad < 14f)
-		{
-			trailEmissionModule.rateOverDistance = 20f;
-			trailMainModule.startLifetime = 0.8f;
-		}
-		else if (pc.velocidad >= 12f && pc.velocidad < 13f)
-		{
-			trailEmissionModule.rateOverDistance = 20f;
-			trailMainModule.startLifetime = 0.7f;
-		}
-		else if (pc.velocidad >= 11f && pc.velocidad < 12f)
-		{
-			trailEmissionModule.rateOverDistance = 20f;
-			trailMainModule.startLifetime = 0.6f;
-		}
-		else if (pc.velocidad >= 10f && pc.velocidad < 11f)
-		{
-			trailEmissionModule.rateOverDistance = 20f;
-			trailMainModule.startLifetime = 0.5f;
-		}
-		else if (pc.velocidad < 10)
-		{
-			trailEmissionModule.rateOverDistance = 0f;
-		}
     }
 
 	// Funcion para cambiar la variable de pausa
@@ -232,5 +177,33 @@ public class GameManager : MonoBehaviour
 		Time.timeScale = 0f;
 		countdownStart = Time.time;
 		pause = true;
+	}
+
+	public void LoadLevel(int level)
+	{
+		// Carga nueva escena
+		switch (level)
+		{
+			case 1:
+				SceneManager.LoadScene("Bloque_01");
+				break;
+			case 2:
+				SceneManager.LoadScene("Bloque_02");
+				break;
+			case 3:
+				SceneManager.LoadScene("Bloque_03");
+				break;
+		}
+
+	}
+
+	public void Refresh()
+	{
+		Debug.Log("Refresh");
+
+		// Referencias al personaje
+		player = GameObject.FindGameObjectWithTag("Player");
+		pc = player.GetComponent<PlayerController>();
+		spawner = FindObjectOfType<Spawner>();
 	}
 }

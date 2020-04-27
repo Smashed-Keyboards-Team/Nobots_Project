@@ -16,7 +16,6 @@ public class LogoManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Tiempo> " + Time.time);
         // Cambio de escena al pasar el tiempo o pulsar escape
         if (Time.time >= counter + sceneChange || Input.GetButtonDown("Cancel"))
         {

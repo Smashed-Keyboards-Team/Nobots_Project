@@ -44,6 +44,13 @@ public class PlayerController : MonoBehaviour
 	// Particulas del player
 	public GameObject electricityMesh;
 
+	// Partículas
+	public ParticleSystem trail;
+	ParticleSystem.MainModule trailMainModule;
+	ParticleSystem.EmissionModule trailEmissionModule;
+	public ParticleSystem damageParticle;
+	ParticleSystem.EmissionModule damageParticleEmissionModule;
+
 	// Paralizacion
 	public bool paralized = false;
 	public float paralisisTime = 2.5f;
@@ -77,7 +84,12 @@ public class PlayerController : MonoBehaviour
         Physics.gravity = new Vector3(0, -9.81f, 0);
         originalGravity = Physics.gravity;  // Guarda el valor original de la gravedad
         originalAcel = aceleracion;
-    }
+
+		// Enlazar modulos de particulas
+		trailEmissionModule = trail.emission;
+		trailMainModule = trail.main;
+		damageParticleEmissionModule = damageParticle.emission;
+	}
 
 
     // Para las físicas
@@ -127,22 +139,66 @@ public class PlayerController : MonoBehaviour
 			GOD.SetActive(false);
 		}
 
+		// Paralisis 
 		if (paralized)
-		{		
+		{
+			damageParticleEmissionModule.rateOverTime = 2f;
+			electricityMesh.SetActive(true);
+
 			currentParalisis += Time.deltaTime;
 		}
-		if(currentParalisis >= paralisisTime)
+		else
+		{
+			damageParticleEmissionModule.rateOverTime = 0f;
+			electricityMesh.SetActive(false);
+		}
+
+		if (currentParalisis >= paralisisTime)
 		{
 			paralized = false;
 			currentParalisis = 0f;
 		}
+
+		// Funcionamiento del trail
+		if (velocidad >= 15f)
+		{
+			trailEmissionModule.rateOverDistance = 20f;
+			trailMainModule.startLifetime = 1f;
+
+		}
+		else if (velocidad >= 14f && velocidad < 15f)
+		{
+			trailEmissionModule.rateOverDistance = 20f;
+			trailMainModule.startLifetime = 0.9f;
+		}
+		else if (velocidad >= 13f && velocidad < 14f)
+		{
+			trailEmissionModule.rateOverDistance = 20f;
+			trailMainModule.startLifetime = 0.8f;
+		}
+		else if (velocidad >= 12f && velocidad < 13f)
+		{
+			trailEmissionModule.rateOverDistance = 20f;
+			trailMainModule.startLifetime = 0.7f;
+		}
+		else if (velocidad >= 11f && velocidad < 12f)
+		{
+			trailEmissionModule.rateOverDistance = 20f;
+			trailMainModule.startLifetime = 0.6f;
+		}
+		else if (velocidad >= 10f && velocidad < 11f)
+		{
+			trailEmissionModule.rateOverDistance = 20f;
+			trailMainModule.startLifetime = 0.5f;
+		}
+		else if (velocidad < 10)
+		{
+			trailEmissionModule.rateOverDistance = 0f;
+		}
+
 		
 		// LOG FOR TESTING ONLY_______________
         velocidad = rb.velocity.magnitude;  //
-        Vector3 vel = rb.velocity;          //
-        vel.y = 0;                          //
-        velocidadLineal = vel.magnitude;    //
-		//__________________________________//
 
 
 		if (!propActive)   // Cooldown: reactiva la propulsión cuando se complete el cooldown
