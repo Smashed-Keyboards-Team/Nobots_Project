@@ -44,5 +44,11 @@ public class InputManager : MonoBehaviour
 			gm.godPanel =! gm.godPanel;
 			hud.ShowGodPanel(gm.godPanel);
 		}
-    }
+
+		// Respawn rapido
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			gm.Respawn();
+		}
+	}
 }
