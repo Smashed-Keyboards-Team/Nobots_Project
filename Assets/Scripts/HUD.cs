@@ -114,6 +114,8 @@ public class HUD : MonoBehaviour
 		Time.timeScale = 1f;
 		countdownPanel.SetActive(false);
 		noScape = false;
+		gm.pause = false;
+
 	}
 
 	//Boton para ir al menu principal
@@ -133,7 +135,6 @@ public class HUD : MonoBehaviour
 	{
 		if (gm.pause || gm.godPanel || gm.win || gm.gameOver)           // ESTAMOS PAUSADOS :D
 		{
-			Debug.Log("Te comes los mocos");
 			Time.timeScale = 0f;
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.Confined;
@@ -146,7 +147,6 @@ public class HUD : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("Nop");
 			Time.timeScale = 1;
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;

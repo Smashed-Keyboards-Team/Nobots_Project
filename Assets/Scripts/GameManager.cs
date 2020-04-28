@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 	public float countdown;
 	private float countdownStart;
 
-	public int scene;
+	public int scene;		// Mira que variable mas guay 
 
 	// Variable del HUD
 	private HUD hud;
@@ -88,8 +88,8 @@ public class GameManager : MonoBehaviour
 	// Funcion para repawnear
 	public void Respawn()
 	{
-		Scene scene = SceneManager.GetActiveScene(); 
-		LoadLevel(scene.buildIndex);
+		//Scene scene = SceneManager.GetActiveScene(); 
+		LoadLevel(scene);
 	}
 
 	// Funcion para entrar en game over
@@ -108,12 +108,6 @@ public class GameManager : MonoBehaviour
 		Time.timeScale = 0f;
 	}
 
-	void Countdown()
-	{
-		Time.timeScale = 0f;
-		countdownStart = Time.time;
-		pause = true;
-	}
 
 	public void LoadLevel(int level)
 	{
