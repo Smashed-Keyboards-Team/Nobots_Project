@@ -236,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2531215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 52.5, y: 8.11, z: -74.19}
+  m_LocalPosition: {x: 52.5, y: 8.11, z: -72.211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 169413843}
@@ -9229,7 +9229,7 @@ GameObject:
   - component: {fileID: 1270195792}
   - component: {fileID: 1270195791}
   m_Layer: 0
-  m_Name: SueloMapa (3)
+  m_Name: TechoMapa
   m_TagString: Playground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9302,8 +9302,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270195790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 121.1, y: 18.1, z: -29.4}
-  m_LocalScale: {x: 268.4153, y: 1.6067, z: 160.67}
+  m_LocalPosition: {x: 121.1, y: 24.23, z: -29.4}
+  m_LocalScale: {x: 268.4153, y: 12.384796, z: 160.67}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 21
@@ -11518,7 +11518,7 @@ PrefabInstance:
     - target: {fileID: 4085531520562911788, guid: 596afb97907bfad4fbabd1519909b234,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -64.5
+      value: -62.521
       objectReference: {fileID: 0}
     - target: {fileID: 4085531520562911788, guid: 596afb97907bfad4fbabd1519909b234,
         type: 3}
@@ -13065,12 +13065,12 @@ PrefabInstance:
     - target: {fileID: 224385212671366698, guid: 6fe1a819dfd2457439f73d689e61fb11,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -74.19
+      value: -72.211
       objectReference: {fileID: 0}
     - target: {fileID: 224385212671366698, guid: 6fe1a819dfd2457439f73d689e61fb11,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13668656
+      value: 0.13668662
       objectReference: {fileID: 0}
     - target: {fileID: 224385212671366698, guid: 6fe1a819dfd2457439f73d689e61fb11,
         type: 3}
@@ -13106,6 +13106,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224385212671366697, guid: 6fe1a819dfd2457439f73d689e61fb11,
+        type: 3}
+      propertyPath: far clip plane
+      value: 7000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe1a819dfd2457439f73d689e61fb11, type: 3}
@@ -14373,7 +14378,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975913958}
-  m_LocalRotation: {x: -0.13668598, y: -0.0000006934157, z: 0.00000011646043, w: -0.9906145}
+  m_LocalRotation: {x: -0.13668634, y: -0.00000069346527, z: 0.00000011645444, w: -0.9906144}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
