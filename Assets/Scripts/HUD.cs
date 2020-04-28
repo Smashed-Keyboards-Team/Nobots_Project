@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour
 {
@@ -49,6 +50,12 @@ public class HUD : MonoBehaviour
         exitPanel.SetActive(true);
     }
 
+	// Funcion para cerrar panel de exit
+	public void CloseExitPanel()
+	{
+		exitPanel.SetActive(false);
+	}
+
 	// Funcion para abrir panel de game over
 	public void OpenGameOverPanel()                           
     {
@@ -61,6 +68,12 @@ public class HUD : MonoBehaviour
     {
         winPanel.SetActive(true);
 		CursorClean();
+	}
+
+	// Boton para reiniciar escena
+	public void RestartButton()
+	{
+		gm.Respawn();
 	}
 
 	// Funcion para abrir y cerrar panel de win
@@ -103,6 +116,18 @@ public class HUD : MonoBehaviour
 		noScape = false;
 	}
 
+	//Boton para ir al menu principal
+	public void GoToMainMenu()
+	{
+		SceneManager.LoadScene("MainMenu");
+		// falta decirle al GameManager que tranki, que vamos al menú
+	}
+
+	//Boton para salir del juego
+	public void ExitGame()
+	{
+		Application.Quit();
+	}
 
 	public void CursorClean()
 	{

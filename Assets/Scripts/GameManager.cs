@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 	public float countdown;
 	private float countdownStart;
 
+	public int scene;
+
 	// Variable del HUD
 	private HUD hud;
 
@@ -25,7 +27,6 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public PlayerController pc;
 	private AudioManager am;		//
-	private Spawner spawner;		//
 
 	// Temporizador
 	public bool lockTimer;
@@ -53,47 +54,35 @@ public class GameManager : MonoBehaviour
         originalTimer = timer;
 		
 		player = GameObject.FindGameObjectWithTag("Player");
-		//spawn = GameObject.FindGameObjectWithTag("Spawn");
-        //pc = player.GetComponent<PlayerController>();
 		am = FindObjectOfType<AudioManager>();
 
 		// Encontrar HUD
 		hud = FindObjectOfType<HUD>();
 
-		// Enlazar modulos de particulas
-		//trailEmissionModule = trail.emission;
-		//trailMainModule = trail.main;
-		//damageParticleEmissionModule = damageParticle.emission;
-
 		lockTimer = false;
-
 		score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-		timer -= 1 * Time.deltaTime;
+		scene = SceneManager.GetActiveScene().buildIndex;	// Se podria optimizar (?)
 
-		string timeLeft = System.Math.Round (timer, 2).ToString();
-		textForTesting.text = string.Concat(timeLeft);
-
-		score = timer * 10000;
-		scoreText.text = string.Concat(score);
-
-		if (timer <= 0 && lockTimer == false)
+		if (scene > 1)	// Actualiza el tiempo (Solo InGame)
 		{
-			TimeOut();
+			timer -= 1 * Time.deltaTime;
+
+			string timeLeft = System.Math.Round (timer, 1).ToString();
+			textForTesting.text = string.Concat(timeLeft);
+
+			score = timer * 10000;
+			scoreText.text = string.Concat(score);
+
+			if (timer <= 0 && lockTimer == false)
+			{
+				Respawn();
+			}
 		}
-    }
-
-
-	// Funcion para detectar limite de tiempo
-	public void TimeOut()
-	{
-		Respawn();
-		player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
 	}
 
 	// Funcion para repawnear
@@ -137,15 +126,5 @@ public class GameManager : MonoBehaviour
 
 		hud.HidePanels();
 		StartCoroutine( hud.StartCountdown() );	// Cuenta atrás
-	}
-
-	public void Refresh()
-	{
-		Debug.Log("Refresh");
-
-		// Referencias al personaje
-		player = GameObject.FindGameObjectWithTag("Player");
-		pc = player.GetComponent<PlayerController>();
-		//spawner = FindObjectOfType<Spawner>();
 	}
 }
