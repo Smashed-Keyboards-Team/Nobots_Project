@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    private GameManager gm;
 	[SerializeField] GameObject tutorial;
 	[SerializeField] GameObject pressKey;
 	[SerializeField] bool tutoActive = true;
@@ -16,7 +15,6 @@ public class Tutorial : MonoBehaviour
     {
         tutorial.SetActive(false);
 		pressKey.SetActive(false);
-		gm = FindObjectOfType<GameManager>();
 		tutoTimer = 0.0f;
     }
 
@@ -36,7 +34,7 @@ public class Tutorial : MonoBehaviour
 			if (Input.anyKey && tutoActivated == true && tutoTimer >= 1f)
 			{
 				tutoActivated = false;
-				gm.pause = false;
+				GameManager.gm.pause = false;
 				tutorial.SetActive(false);
 				pressKey.SetActive(false);
 				tutoTimer = 0.0f;
@@ -58,7 +56,7 @@ public class Tutorial : MonoBehaviour
 	{
 		if(tutoActive == true && tutoActivated == true)
 		{
-			gm.pause = true;
+			GameManager.gm.pause = true;
 			tutorial.SetActive(true);
 		}
 	}

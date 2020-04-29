@@ -5,14 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GodMode : MonoBehaviour
 {
-    private GameManager gm;
 	private HUD hud;
 	private PlayerController pc;
-	public GameObject godPanel;
 
 	void Start()
     {
-        gm = FindObjectOfType<GameManager>();
 		hud = FindObjectOfType<HUD>();
 		pc = FindObjectOfType<PlayerController>();
     }
@@ -49,13 +46,13 @@ public class GodMode : MonoBehaviour
 
 	public void God_Win() //Ganar partida
     {
-		gm.Win();
+		GameManager.gm.Win();
 		God_ExitGodMenu();
     }
 
 	public void God_Lose() //Perder partida
     {
-        gm.GameOver();
+        GameManager.gm.GameOver();
 		God_ExitGodMenu();
     }
 
@@ -75,13 +72,13 @@ public class GodMode : MonoBehaviour
 
 	public void God_LockTimer() //Parar el temporizador
     {
-		gm.lockTimer = true;
+		GameManager.gm.lockTimer = true;
 		God_ExitGodMenu();
     }
 
 	public void God_UnlockTimer() //Hacer que el tiempo vuelva a fluir
     {
-		gm.lockTimer = false;
+		GameManager.gm.lockTimer = false;
 		God_ExitGodMenu();
     }
 
@@ -91,7 +88,7 @@ public class GodMode : MonoBehaviour
 		pc.godFreeMovement = true;
 		pc.rb.useGravity = false;
 		pc.rb.isKinematic = true;
-		gm.lockTimer = true;
+		GameManager.gm.lockTimer = true;
 		God_ExitGodMenu();
     }
 
@@ -101,13 +98,12 @@ public class GodMode : MonoBehaviour
 		pc.godFreeMovement = false;
 		pc.rb.useGravity = true;
 		pc.rb.isKinematic = false;
-		gm.lockTimer = false;
+		GameManager.gm.lockTimer = false;
 		God_ExitGodMenu();
     }
 
 	public void God_ExitGodMenu() //Salir del menu God
     {
-		gm.godPanel = false;
-		godPanel.SetActive(false);
+		GameManager.gm.godPanel = false;
     }
 }
