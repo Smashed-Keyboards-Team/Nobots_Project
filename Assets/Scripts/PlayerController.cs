@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     // Variables del GameManger y el HUD
-	private GameManager gm;
+	//private GameManager gm;
     private HUD hud;
 	private AudioManager am;
 
@@ -77,9 +77,9 @@ public class PlayerController : MonoBehaviour
 	void Start()
     {
         // Encontrar Game Manager
-		gm = FindObjectOfType<GameManager>();
+		//gm = FindObjectOfType<GameManager>();
 
-		gm.pc = this.GetComponent<PlayerController>();
+		GameManager.gm.pc = this.GetComponent<PlayerController>();
 
 		// Encontrar HUD
 		hud = FindObjectOfType<HUD>();
@@ -318,7 +318,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (collision.tag == "Pain")
 		{
-			if (gm.win == false && godInvulnerable == false)
+			if (GameManager.gm.win == false && godInvulnerable == false)
 			{
 				am.PlaySound(2, 1, 1);
 				paralized = true;

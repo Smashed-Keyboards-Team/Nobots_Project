@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class Win : MonoBehaviour
 {
-    private GameManager gm;
-
-	void Start()
-	{
-		gm = FindObjectOfType<GameManager>();
-	}
-
-	protected void OnCollisionEnter(Collision other)
+	private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Player")
         {
-            gm.Win();
+            GameManager.gm.Win();
         }
     }
 }

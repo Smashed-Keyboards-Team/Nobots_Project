@@ -17,21 +17,13 @@ public class HUD : MonoBehaviour
 	public float countdownDuration;
 	public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
 
-	[SerializeField] public GameObject propOnCd;
-
-
-	GameManager gm;
-
-	private void Start()
-	{
-		gm = FindObjectOfType<GameManager>();
-	}
+	[HideInInspector] public GameObject propOnCd;
 
 	// Funcion para abrir y cerrar panel de pausa
 	public void TogglePauseMenu()
 	{
-		gm.pause = !gm.pause;
-		pausePanel.SetActive(gm.pause);
+		GameManager.gm.pause = !GameManager.gm.pause;
+		pausePanel.SetActive(GameManager.gm.pause);
 		settingsPanel.SetActive(false);
 		exitPanel.SetActive(false); 
 		godPanel.SetActive(false);
@@ -73,7 +65,7 @@ public class HUD : MonoBehaviour
 	// Boton para reiniciar escena
 	public void RestartButton()
 	{
-		gm.Respawn();
+		GameManager.gm.Respawn();
 	}
 
 	// Funcion para abrir y cerrar panel de win
@@ -114,7 +106,7 @@ public class HUD : MonoBehaviour
 		Time.timeScale = 1f;
 		countdownPanel.SetActive(false);
 		noScape = false;
-		gm.pause = false;
+		GameManager.gm.pause = false;
 
 	}
 
@@ -133,20 +125,23 @@ public class HUD : MonoBehaviour
 
 	public void CursorClean()
 	{
-		if (gm.pause || gm.godPanel || gm.win || gm.gameOver)           // ESTAMOS PAUSADOS :D
+		if (GameManager.gm.pause || GameManager.gm.godPanel || GameManager.gm.win || GameManager.gm.gameOver)           // ESTAMOS PAUSADOS :D
 		{
+			Debug.Log("pausa");
 			Time.timeScale = 0f;
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.Confined;
 		}
-		else if (gm.menu)
+		else if (GameManager.gm.menu)
 		{
+			Debug.Log("menu");
 			Time.timeScale = 1;
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Confined;
 		}
 		else
 		{
+			Debug.Log("despausa");
 			Time.timeScale = 1;
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;

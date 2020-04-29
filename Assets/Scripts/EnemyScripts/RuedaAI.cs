@@ -13,8 +13,6 @@ public class RuedaAI : MonoBehaviour
 
 	private Transform target = null;
 
-	private GameManager gm;
-
 	private Rigidbody rb;
 
 	private Transform myTransform;
@@ -31,7 +29,6 @@ public class RuedaAI : MonoBehaviour
     void Start()
     {
 		player = GameObject.FindGameObjectWithTag("Player");
-        gm = FindObjectOfType<GameManager>();
 		rb = GetComponent<Rigidbody>();
 		//det = GetComponentInChildren<RuedaFrontDetection>();
 		counter = timer;
