@@ -694,7 +694,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
@@ -899,7 +899,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: GoToMainMenu
         m_Mode: 1
         m_Arguments:
@@ -1396,7 +1396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2d5c0db39d2d948b18854797d45cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  godPanel: {fileID: 1447248386179191179}
 --- !u!1 &1631323601943814712
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1806,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
@@ -1935,7 +1934,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: GoToMainMenu
         m_Mode: 1
         m_Arguments:
@@ -3189,7 +3188,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: ResumeButton
         m_Mode: 1
         m_Arguments:
@@ -3317,7 +3316,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: CloseExitPanel
         m_Mode: 1
         m_Arguments:
@@ -3711,7 +3710,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: RestartButton
         m_Mode: 1
         m_Arguments:
@@ -4106,7 +4105,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: OpenExitPanel
         m_Mode: 1
         m_Arguments:
@@ -4366,7 +4365,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: GoToMainMenu
         m_Mode: 1
         m_Arguments:
@@ -4494,7 +4493,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: OpenSettingsPanel
         m_Mode: 1
         m_Arguments:
@@ -4921,7 +4920,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2365209934754221726}
+      - m_Target: {fileID: 0}
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
@@ -5099,8 +5098,6 @@ GameObject:
   - component: {fileID: 2365209934754221728}
   - component: {fileID: 2365209934754221731}
   - component: {fileID: 2365209934754221727}
-  - component: {fileID: 2365209934754221726}
-  - component: {fileID: 2365209934754221724}
   m_Layer: 5
   m_Name: GameplayCanvas
   m_TagString: Untagged
@@ -5221,32 +5218,6 @@ MonoBehaviour:
   countdownDuration: 0
   noScape: 0
   propOnCd: {fileID: 2109210297974727775}
---- !u!114 &2365209934754221726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2365209934754221733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f43537aaa81dd4bb7c0598e3d7d983, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2365209934754221724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2365209934754221733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d0d399f3eeaf040a1866661e95eaae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: 61908ce74464a194a8d09c8301933839, type: 3}
 --- !u!1 &3080733602025733149
 GameObject:
   m_ObjectHideFlags: 0
@@ -8694,15 +8665,15 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4b3a9ba2b80b5146927f31c4a51bd57, type: 3}
---- !u!1 &4636615875086630205 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5191593903954526586, guid: f4b3a9ba2b80b5146927f31c4a51bd57,
-    type: 3}
-  m_PrefabInstance: {fileID: 600296741370248263}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4636615875086630204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5191593903954526587, guid: f4b3a9ba2b80b5146927f31c4a51bd57,
+    type: 3}
+  m_PrefabInstance: {fileID: 600296741370248263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4636615875086630205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5191593903954526586, guid: f4b3a9ba2b80b5146927f31c4a51bd57,
     type: 3}
   m_PrefabInstance: {fileID: 600296741370248263}
   m_PrefabAsset: {fileID: 0}

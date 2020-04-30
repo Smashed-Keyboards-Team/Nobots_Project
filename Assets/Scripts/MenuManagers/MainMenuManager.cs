@@ -23,14 +23,14 @@ public class MainMenuManager : MonoBehaviour
 	public GameObject tutorial;
 
 	// Audio
-	public AudioManager audioManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
         // Encontrar panel de opciones
         settings = FindObjectOfType<SettingsMenuManager>();
-		audioManager = FindObjectOfType<AudioManager>();
+
 		gm = FindObjectOfType<GameManager>();
 
 		gm.menu = true;
@@ -42,28 +42,28 @@ public class MainMenuManager : MonoBehaviour
     {
         mainMenuPanelOpen =! mainMenuPanelOpen;
         mainMenuPanel.SetActive(mainMenuPanelOpen);
-		audioManager.PlaySound(0, 1, 1);
+
     }
 	public void OpenPlayPanel()                           
     {
         playPanelOpen =! playPanelOpen;
 		CloseExtrasPanel();
         playPanel.SetActive(playPanelOpen);
-		audioManager.PlaySound(0, 1, 1);
+
     }
 	public void OpenExtrasPanel()                           
     {
         extrasPanelOpen =! extrasPanelOpen;
 		ClosePlayPanel();
         extrasPanel.SetActive(extrasPanelOpen);
-		audioManager.PlaySound(0, 1, 1);
+
     }
 	public void OpenSettingsPanel()                           
     {
 		CloseExtrasPanel();
 		ClosePlayPanel();
 		settingsPanel.SetActive(true);
-		audioManager.PlaySound(0, 1, 1);
+
     }
 	private void ClosePlayPanel()                           
     {
@@ -80,7 +80,7 @@ public class MainMenuManager : MonoBehaviour
 	{
 		tutorialOpen =! tutorialOpen;
         tutorial.SetActive(tutorialOpen);
-		audioManager.PlaySound(0, 1, 1);
+
 	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -89,22 +89,22 @@ public class MainMenuManager : MonoBehaviour
 	public void Play_TestBench()
     {
         SceneManager.LoadScene("TestBench");
-		audioManager.PlaySound(0, 1, 1);
+
     }
 	public void Play_Level01()
 	{
 		gm.LoadLevel(2);
-		audioManager.PlaySound(0, 1, 1);		//
+
 	}
 	public void Play_Level02()
 	{
 		gm.LoadLevel(3);
-		audioManager.PlaySound(0, 1, 1);		//
+
 	}
 	public void Play_Level03()
 	{
 		gm.LoadLevel(4);
-		audioManager.PlaySound(0, 1, 1);		//
+
 	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -112,6 +112,6 @@ public class MainMenuManager : MonoBehaviour
 	public void ExitGame()
     {
         Application.Quit();
-		audioManager.PlaySound(0, 1, 1);
+
     }
 }

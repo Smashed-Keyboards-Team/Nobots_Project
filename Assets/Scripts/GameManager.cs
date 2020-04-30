@@ -27,8 +27,7 @@ public class GameManager : MonoBehaviour
 
     // Referencias al personaje
     [HideInInspector] public GameObject player;
-    [HideInInspector] public PlayerController pc;
-	private AudioManager am;	
+    [HideInInspector] public PlayerController pc;	
 
 	[Header("Variables de Tiempo")]
 	public bool lockTimer;
@@ -85,7 +84,7 @@ public class GameManager : MonoBehaviour
         originalTimer = timer;
 		
 		player = GameObject.FindGameObjectWithTag("Player");
-		am = FindObjectOfType<AudioManager>();
+
 
 		// Encontrar HUD
 		hud = FindObjectOfType<HUD>();

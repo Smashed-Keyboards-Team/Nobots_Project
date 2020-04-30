@@ -5,14 +5,12 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     private PlayerController playerController;
-	private AudioManager audioManager;
 	private HUD hud;
 
 	// Start is called before the first frame update
     void Start()
     {
 		playerController = FindObjectOfType<PlayerController>();
-		audioManager = FindObjectOfType<AudioManager>();
 		hud = FindObjectOfType<HUD>();
     }
 
