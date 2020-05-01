@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LogoManager : MonoBehaviour
 {
     // Contador de tiempo que pasa y tiempo que tarda en pasar al main menu
-    public float counter;
+    private float counter;
     public int sceneChange;
 
     private void Start()
