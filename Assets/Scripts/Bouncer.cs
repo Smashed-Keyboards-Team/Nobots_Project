@@ -9,6 +9,7 @@ public class Bouncer : MonoBehaviour
         
     private void OnCollisionEnter(Collision col)
     {
+        AudioManager.PlaySound(AudioManager.Sound.Bouncer);
         Vector3 normal = -col.GetContact(0).normal;     // Para detectar colisiones múltiples -> iterar en GetContact(i)
         Rigidbody rb = col.collider.attachedRigidbody;
         rb.AddForce(normal * bounciness, ForceMode.Impulse);
