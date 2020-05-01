@@ -34,6 +34,8 @@ public class MainMenuManager : MonoBehaviour
 		gm = FindObjectOfType<GameManager>();
 
 		gm.menu = true;
+
+		AudioManager.PlayMusic(AudioManager.Music.MMM);
 	}
 
     // Funciones para abrir y cerrar paneles
