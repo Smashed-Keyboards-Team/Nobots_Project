@@ -149,6 +149,24 @@ public class GameManager : MonoBehaviour
 		timer = originalTimer;
 
 		hud.HidePanels();
-		StartCoroutine( hud.StartCountdown() );	// Cuenta atrás
+		StartCoroutine( hud.StartCountdown() ); // Cuenta atrás
+
+
+		//AudioManager.PlaySound(AudioManager.Music.XXX);
+		switch (level)
+		{
+			case 1:
+				AudioManager.PlayMusic(AudioManager.Music.MMM);
+				break;
+			case 2:
+				AudioManager.PlayMusic(AudioManager.Music.ML1);
+				break;
+			case 3:
+				AudioManager.PlayMusic(AudioManager.Music.ML2);
+				break;
+			case 4:
+				AudioManager.PlayMusic(AudioManager.Music.ML3);
+				break;
+		}
 	}
 }

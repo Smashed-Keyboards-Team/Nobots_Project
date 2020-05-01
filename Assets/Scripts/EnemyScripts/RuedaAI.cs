@@ -44,9 +44,9 @@ public class RuedaAI : MonoBehaviour
 			currentState = WheelState.Waitin;
 			if (Vector3.Distance(transform.position, target.position) < distanceSearch)
 			{
-
-			}
 				currentState = WheelState.Aimin;
+				//Aqui va el aimin audio
+			}
 		}
 		
 
@@ -83,6 +83,7 @@ public class RuedaAI : MonoBehaviour
 				if (counter <= 0f)
 				{
 					currentState = WheelState.Rollin;
+					AudioManager.PlaySound(AudioManager.Sound.WheelSpin);
 				}
 						
 			}

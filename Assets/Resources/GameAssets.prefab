@@ -88,4 +88,16 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: ac5dcf1599ef39a4da04730d3cedd5be, type: 3}
   - sound: 21
     audioClip: {fileID: 0}
-  musicAudioClipArray: []
+  musicAudioClipArray:
+  - music: 0
+    audioClip: {fileID: 8300000, guid: 01db340bf79d4d744ac0f73c5abdc81c, type: 3}
+  - music: 1
+    audioClip: {fileID: 8300000, guid: 01db340bf79d4d744ac0f73c5abdc81c, type: 3}
+  - music: 2
+    audioClip: {fileID: 0}
+  - music: 3
+    audioClip: {fileID: 8300000, guid: e6043ffef3ddf62429000b33422035ff, type: 3}
+  - music: 4
+    audioClip: {fileID: 8300000, guid: 8aeb6e106f8ee534089814560ab9cb2a, type: 3}
+  - music: 5
+    audioClip: {fileID: 0}

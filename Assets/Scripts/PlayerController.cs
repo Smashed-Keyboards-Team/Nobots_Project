@@ -319,6 +319,7 @@ public class PlayerController : MonoBehaviour
 			if (GameManager.gm.win == false && godInvulnerable == false)
 			{
 				paralized = true;
+				AudioManager.PlaySound(AudioManager.Sound.PlayerShock);
 				/*
 				gm.pause = true;
 				gm.GameOver();
@@ -334,6 +335,7 @@ public class PlayerController : MonoBehaviour
 		if (propActive == true && paralized == false)
 		{
 			print("Propulsión!");   //  ¡Propulsión!
+			AudioManager.PlaySound(AudioManager.Sound.PlayerDash);
 			aceleracion *= propFuerza;  // Aumenta la aceleración del personaje
 			propTimer = 0;          // Activa el cooldown
 			propActive = false;
@@ -347,6 +349,7 @@ public class PlayerController : MonoBehaviour
 		{
 			print("Salto");
 			print("Salto con impulso: " + normal * jumpStrength);
+			AudioManager.PlaySound(AudioManager.Sound.PlayerJump);
 			//rb.AddForce(new Vector3(0.0f, jumpStrength, 0.0f));
 			rb.AddForce(normal * jumpStrength, ForceMode.Impulse);
 

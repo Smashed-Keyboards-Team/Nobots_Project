@@ -1146,7 +1146,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261887266}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1261887268
 Camera:
   m_ObjectHideFlags: 0
@@ -2253,7 +2253,6 @@ MonoBehaviour:
   extrasPanel: {fileID: 7038134841852837258}
   settingsPanel: {fileID: 648009687}
   tutorial: {fileID: 1553211481}
-  audioManager: {fileID: 7038134841202384093}
 --- !u!114 &7038134841202384093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2266,8 +2265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d0d399f3eeaf040a1866661e95eaae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: 61908ce74464a194a8d09c8301933839, type: 3}
 --- !u!1 &7038134841269979392
 GameObject:
   m_ObjectHideFlags: 0

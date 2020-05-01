@@ -38,7 +38,7 @@ public class MainMenuManager : MonoBehaviour
 
     // Funciones para abrir y cerrar paneles
     //---------------------------------------------------------------------------------------------------------------------------------------------------------------
-    public void OpenMainMenuPanel()                           
+    public void OpenMainMenuPanel()				//                          
     {
         mainMenuPanelOpen =! mainMenuPanelOpen;
         mainMenuPanel.SetActive(mainMenuPanelOpen);
@@ -49,22 +49,28 @@ public class MainMenuManager : MonoBehaviour
         playPanelOpen =! playPanelOpen;
 		CloseExtrasPanel();
         playPanel.SetActive(playPanelOpen);
+		if (playPanelOpen) AudioManager.PlaySound(AudioManager.Sound.ButtonClick);
 
-    }
+	}
 	public void OpenExtrasPanel()                           
     {
         extrasPanelOpen =! extrasPanelOpen;
 		ClosePlayPanel();
         extrasPanel.SetActive(extrasPanelOpen);
-
-    }
+		if (extrasPanelOpen) AudioManager.PlaySound(AudioManager.Sound.ButtonClick);
+		else
+		{
+			tutorialOpen = false;
+			tutorial.SetActive(tutorialOpen);
+		}
+	}
 	public void OpenSettingsPanel()                           
     {
 		CloseExtrasPanel();
 		ClosePlayPanel();
 		settingsPanel.SetActive(true);
-
-    }
+		AudioManager.PlaySound(AudioManager.Sound.ButtonClick);
+	}
 	private void ClosePlayPanel()                           
     {
 		playPanelOpen = false;
@@ -80,7 +86,7 @@ public class MainMenuManager : MonoBehaviour
 	{
 		tutorialOpen =! tutorialOpen;
         tutorial.SetActive(tutorialOpen);
-
+		if (tutorialOpen) AudioManager.PlaySound(AudioManager.Sound.ButtonClick);
 	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------------------------
 

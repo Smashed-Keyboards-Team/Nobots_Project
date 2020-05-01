@@ -4,6 +4,9 @@ using UnityEngine;
 
 public static class AudioManager
 {
+    [SerializeField]
+    private static int sueldoDJ;
+    private static GameObject DJ;
 
     public enum Sound
     {
@@ -36,10 +39,9 @@ public static class AudioManager
         SKTLogo,
         MMM,
         Credits,
-        L1,
-        L2,
-        L3,
-        
+        ML1,
+        ML2,
+        ML3, 
     }
     //v  v  v  v  Codigo para usar audios  v  v  v  v
 
@@ -53,6 +55,7 @@ public static class AudioManager
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         audioSource.PlayOneShot(GetAudioClip(sound));
         Debug.Log("Play: " + sound);
+        //Destroy
     }
 
     private static AudioClip GetAudioClip(Sound sound)
@@ -66,6 +69,51 @@ public static class AudioManager
         }
         Debug.LogError("Sound " + sound + " not found");
         return null;
+    }
+
+    public static void PlayMusic(Music music)
+    {
+        if (DJ == null) // Mirar si no tenemos DJ
+        {
+            // Contratar DJ
+            DJ = ContratarDJ(sueldoDJ);
+        }
+
+        // Decirle que ponga el disco "music" con la DJHand
+        AudioSource DJHand = DJ.GetComponent<AudioSource>();
+        if (DJHand.clip != GetMusicClip(music))     //Solo cambiar en caso de cambiar de musica
+        {
+            DJHand.clip = GetMusicClip(music);
+            DJHand.loop = true;
+            DJHand.Play();
+            Debug.Log("Play: " + music);
+        }
+        
+    }
+
+    private static AudioClip GetMusicClip(Music music)
+    {
+        foreach (GameAssets.MusicAudioClip musicAudioClip in GameAssets.i.musicAudioClipArray)
+        {
+            if (musicAudioClip.music == music)
+            {
+                return musicAudioClip.audioClip;
+            }
+        }
+        Debug.LogError("music " + music + " not found");
+        return null;
+    }
+
+    private static GameObject ContratarDJ(int sueldo)
+    {
+        Debug.Log("Contratando DJ...");
+        sueldo = 0; // Fumarse el sueldo
+        GameObject newDJ = new GameObject("DJ");
+        newDJ.AddComponent<AudioSource>();
+        // Anidar a LevelPack
+        GameObject levelPack = GameObject.FindGameObjectWithTag("LevelPack");
+        newDJ.transform.SetParent(levelPack.transform);
+        return newDJ;
     }
 }
  

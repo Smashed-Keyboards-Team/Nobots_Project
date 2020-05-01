@@ -20,7 +20,11 @@ public class DoorScript : MonoBehaviour
         {
             if (botones[i] == false) abre = false;
         }
-        if (abre == true) door.SetActive(false);
+        if (abre == true)
+        {
+            door.SetActive(false);
+            AudioManager.PlaySound(AudioManager.Sound.DoorOpen);
+        }
         else door.SetActive(true);
     }
 }
