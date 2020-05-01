@@ -4,8 +4,7 @@ using UnityEngine;
 
 public static class AudioManager
 {
-    [SerializeField]
-    private static int sueldoDJ;
+    private static int sueldoDJ = 1600;
     private static GameObject DJ;
 
     public enum Sound
