@@ -56,6 +56,20 @@ public static class AudioManager
         Debug.Log("Play: " + sound);
         //Destroy
     }
+    public static void PlaySound(Sound sound, Transform emisor)
+    {
+        GameObject soundGameObject = new GameObject("Sound");
+        soundGameObject.transform.position = emisor.position;
+        soundGameObject.transform.SetParent(emisor);
+        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+        audioSource.clip = GetAudioClip(sound);
+        audioSource.spatialBlend = 1;
+        audioSource.rolloffMode = AudioRolloffMode.Linear;
+        audioSource.dopplerLevel = .8f;
+        audioSource.Play();
+        Debug.Log("Play: " + sound);
+        //Destroy
+    }
 
     private static AudioClip GetAudioClip(Sound sound)
     {

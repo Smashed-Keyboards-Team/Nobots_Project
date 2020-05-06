@@ -83,7 +83,7 @@ public class RuedaAI : MonoBehaviour
 				if (counter <= 0f)
 				{
 					currentState = WheelState.Rollin;
-					AudioManager.PlaySound(AudioManager.Sound.WheelSpin);
+					AudioManager.PlaySound(AudioManager.Sound.WheelSpin, transform);
 				}
 						
 			}

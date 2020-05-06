@@ -7,7 +7,6 @@ public class ButtonScript : MonoBehaviour
     public GameObject door;
 	public int numBoton;
 
-	public Tuiter tuiter;
 	DoorScript ds;
 
 	private void Start()
@@ -20,7 +19,7 @@ public class ButtonScript : MonoBehaviour
 		if (collision.tag == "Player")
 		{
 			ds.SetBut(numBoton, true);
-			tuiter.Tuit();
+			AudioManager.PlaySound(AudioManager.Sound.GeneratorDestroy);
 			this.gameObject.SetActive(false);
 		}
 	}
