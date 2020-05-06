@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour
 {
-	public GameObject pausePanel;
+    #region Variables locales
+    public GameObject pausePanel;
 	public GameObject settingsPanel;
 	public GameObject exitPanel;
 	public GameObject gameOverPanel;
@@ -18,11 +19,21 @@ public class HUD : MonoBehaviour
 	public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
 
 	[HideInInspector] public GameObject propOnCd;
+    #endregion
 
-	// Funcion para abrir y cerrar panel de pausa
-	public void TogglePauseMenu()
+    #region Eventos
+
+    // Evento de Pausa
+    public delegate void Pausa(bool pausado);
+	public static event Pausa onPause;
+	#endregion
+
+    // Funcion para abrir y cerrar panel de pausa
+    public void TogglePauseMenu()
 	{
 		GameManager.gm.pause = !GameManager.gm.pause;
+		if (onPause != null)
+			onPause(GameManager.gm.pause);
 		pausePanel.SetActive(GameManager.gm.pause);
 		settingsPanel.SetActive(false);
 		exitPanel.SetActive(false); 
@@ -127,21 +138,21 @@ public class HUD : MonoBehaviour
 	{
 		if (GameManager.gm.pause || GameManager.gm.godPanel || GameManager.gm.win || GameManager.gm.gameOver)           // ESTAMOS PAUSADOS :D
 		{
-			Debug.Log("pausa");
+			//Debug.Log("pausa");
 			Time.timeScale = 0f;
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.Confined;
 		}
 		else if (GameManager.gm.menu)
 		{
-			Debug.Log("menu");
+			//Debug.Log("menu");
 			Time.timeScale = 1;
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Confined;
 		}
 		else
 		{
-			Debug.Log("despausa");
+			//Debug.Log("despausa");
 			Time.timeScale = 1;
 			Cursor.visible = false;
 			Cursor.lockState = CursorLockMode.Locked;

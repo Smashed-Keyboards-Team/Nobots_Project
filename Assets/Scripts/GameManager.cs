@@ -49,13 +49,6 @@ public class GameManager : MonoBehaviour
 	public KeyCode jump;
 	public KeyCode boost;
 
-	/*// Partículas
-	public ParticleSystem trail;
-	ParticleSystem.MainModule trailMainModule;
-	ParticleSystem.EmissionModule trailEmissionModule;
-	public ParticleSystem damageParticle;
-	ParticleSystem.EmissionModule damageParticleEmissionModule;
-	*/
 
 	void Awake()
 	{

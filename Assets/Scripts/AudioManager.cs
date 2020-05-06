@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class AudioManager
 {
-    private static int sueldoDJ = 1600;
+    private static int sueldoDJ = 1750;
     private static GameObject DJ;
 
     public enum Sound
@@ -42,6 +42,7 @@ public static class AudioManager
         ML2,
         ML3, 
     }
+
     //v  v  v  v  Codigo para usar audios  v  v  v  v
 
     //AudioManager.PlaySound(AudioManager.Sound.XXX);
@@ -52,6 +53,7 @@ public static class AudioManager
     {
         GameObject soundGameObject = new GameObject("Sound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+        soundGameObject.AddComponent<SoundAutoPauser>();    // Auto pauser
         audioSource.PlayOneShot(GetAudioClip(sound));
         Debug.Log("Play: " + sound);
         //Destroy
@@ -62,6 +64,7 @@ public static class AudioManager
         soundGameObject.transform.position = emisor.position;
         soundGameObject.transform.SetParent(emisor);
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+        soundGameObject.AddComponent<SoundAutoPauser>();    // Auto pauser
         audioSource.clip = GetAudioClip(sound);
         audioSource.spatialBlend = 1;
         audioSource.rolloffMode = AudioRolloffMode.Linear;
@@ -122,11 +125,13 @@ public static class AudioManager
         Debug.Log("Contratando DJ...");
         sueldo = 0; // Fumarse el sueldo
         GameObject newDJ = new GameObject("DJ");
-        newDJ.AddComponent<AudioSource>();
+        newDJ.AddComponent<DJBrain>();
         // Anidar a LevelPack
         GameObject levelPack = GameObject.FindGameObjectWithTag("LevelPack");
         newDJ.transform.SetParent(levelPack.transform);
         return newDJ;
     }
+
+
 }
  
