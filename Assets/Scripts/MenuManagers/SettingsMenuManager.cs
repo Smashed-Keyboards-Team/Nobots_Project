@@ -13,6 +13,10 @@ public class SettingsMenuManager : MonoBehaviour
 	// Mezclador de audio
 	public AudioMixer audioMixer;
 
+	public Slider masterSlider;
+	public Slider musicSlider;
+	public Slider soundSlider;
+
 	// Array de resoluciones
 	Resolution[] resolutions;
 
@@ -80,17 +84,20 @@ public class SettingsMenuManager : MonoBehaviour
     }
 
 	// Modificar valores de audio
-	public void SetMasterVolume(float volume)
+	public void SetMasterVolume()  //(float sliderValue)
 	{
-		audioMixer.SetFloat("MasterVol", volume);
+		float sliderValue = masterSlider.value;
+		audioMixer.SetFloat("MasterVol", Mathf.Log10 (sliderValue) * 20);
 	}
-	public void SetMusicVolume(float volume)
+	public void SetMusicVolume()  //(float sliderValue)
 	{
-		audioMixer.SetFloat("MusicVol", volume);
+		float sliderValue = musicSlider.value;
+		audioMixer.SetFloat("MusicVol", Mathf.Log10 (sliderValue) * 20);
 	}
-	public void SetSoundVolume(float volume)
+	public void SetSoundVolume() //(float sliderValue)
 	{
-		audioMixer.SetFloat("SoundVol", volume);
+		float sliderValue = soundSlider.value;
+		audioMixer.SetFloat("SoundVol", Mathf.Log10 (sliderValue) * 20);
 	}
 
 	// Modificar calidad grafica
