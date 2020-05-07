@@ -572,16 +572,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 5191593903019379893}
   m_HandleRect: {fileID: 5191593904517149303}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
-  m_Value: 10
+  m_MinValue: 0.0001
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5191593903954526584}
         m_MethodName: SetMasterVolume
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3115,16 +3115,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 5191593903081057219}
   m_HandleRect: {fileID: 5191593904147237853}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
-  m_Value: 10
+  m_MinValue: 0.0001
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5191593903954526584}
         m_MethodName: SetSoundVolume
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3494,6 +3494,9 @@ MonoBehaviour:
   settingsPanel: {fileID: 5191593903954526586}
   resolutionDropdown: {fileID: 5191593904666914571}
   audioMixer: {fileID: 24100000, guid: 69551d7f489d66741b0fd7e92f3566fe, type: 2}
+  masterSlider: {fileID: 5191593902968730024}
+  musicSlider: {fileID: 5191593904401527190}
+  soundSlider: {fileID: 5191593903777110987}
   videoSettings: {fileID: 5191593903938683888}
   audioSettings: {fileID: 5191593903822484963}
   controlSettings: {fileID: 5191593903793789217}
@@ -4205,16 +4208,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 5191593904107227567}
   m_HandleRect: {fileID: 5191593903645148629}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 10
-  m_WholeNumbers: 1
-  m_Value: 10
+  m_MinValue: 0.0001
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5191593903954526584}
         m_MethodName: SetMusicVolume
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
