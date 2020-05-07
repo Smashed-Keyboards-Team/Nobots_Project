@@ -16,7 +16,7 @@ public class DJBrain : MonoBehaviour
         HUD.onPause -= TogglePause;
     }
 
-    private void Start()
+    private void Awake()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
         lowPass = gameObject.AddComponent<AudioLowPassFilter>();
@@ -24,7 +24,15 @@ public class DJBrain : MonoBehaviour
 
     private void TogglePause(bool pausado)
     {
-        if (pausado) lowPass.cutoffFrequency = 1900f;
-        else lowPass.cutoffFrequency = 22000f;
+        if (pausado)
+        {
+            lowPass.cutoffFrequency = 1900f;
+            //audioSource.pitch = 0.5f;
+        }
+        else
+        {
+            lowPass.cutoffFrequency = 22000f;
+            //audioSource.pitch = 1f;
+        }
     }
 }

@@ -11,8 +11,7 @@ public class GameManager : MonoBehaviour
 	//FOR TESTING
     public Text textForTesting;
 	public Text scoreText;
-	public float countdown;
-	private float countdownStart;
+	//public float countdown;
 
 	public int scene;		// Mira que variable mas guay 
 
@@ -93,15 +92,18 @@ public class GameManager : MonoBehaviour
 
 		if (scene > 1)	// Actualiza el tiempo (Solo InGame)
 		{
-			timer -= 1 * Time.deltaTime;
+			if (!lockTimer)
+			{
+				timer -= 1 * Time.deltaTime;
+			}
 
-			string timeLeft = System.Math.Round (timer, 1).ToString();
-			textForTesting.text = string.Concat(timeLeft);
+			//string timeLeft = System.Math.Round (timer, 1).ToString();
+			//textForTesting.text = string.Concat(timeLeft);
 
 			score = timer * 10000;
 			scoreText.text = string.Concat(score);
 
-			if (timer <= 0 && lockTimer == false)
+			if (timer <= 0)
 			{
 				Respawn();
 			}

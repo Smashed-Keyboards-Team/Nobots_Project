@@ -14,6 +14,7 @@ public class HUD : MonoBehaviour
 	public GameObject winPanel;
 	public GameObject godPanel;
 	public GameObject countdownPanel;
+	public Text textTimer;
 
 	public float countdownDuration;
 	public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
@@ -28,8 +29,21 @@ public class HUD : MonoBehaviour
 	public static event Pausa onPause;
 	#endregion
 
-    // Funcion para abrir y cerrar panel de pausa
-    public void TogglePauseMenu()
+	private void Update()
+	{
+		if (!GameManager.gm.pause)
+		{
+			float timer = (float) System.Math.Round(GameManager.gm.timer, 1);
+			textTimer.text = timer.ToString();
+			if (timer % 1 == 0)
+			{
+				textTimer.text += ",0";
+			}
+		}
+	}
+
+	// Funcion para abrir y cerrar panel de pausa
+	public void TogglePauseMenu()
 	{
 		GameManager.gm.pause = !GameManager.gm.pause;
 		if (onPause != null)
