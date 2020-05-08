@@ -100,12 +100,10 @@ public static class AudioManager
 
         // Decirle que ponga el disco "music" con la DJHand
         AudioSource DJHand = DJ.GetComponent<AudioSource>();
-        if (DJHand.clip != GetMusicClip(music))     //Solo cambiar en caso de cambiar de musica
+        AudioClip musicClip = GetMusicClip(music);
+        if (DJHand.clip != musicClip)     //Solo cambiar en caso de cambiar de musica
         {
-            DJHand.clip = GetMusicClip(music);
-            DJHand.loop = true;
-            DJHand.Play();
-            Debug.Log("Play: " + music);
+            DJ.GetComponent<DJBrain>().ChangeSong(musicClip);
         }
         
     }

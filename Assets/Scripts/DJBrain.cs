@@ -7,6 +7,7 @@ public class DJBrain : MonoBehaviour
 {
     AudioSource audioSource;
     AudioLowPassFilter lowPass;
+    [SerializeField] private float fadeStep = 0.1f;
 
     private void OnEnable()
     {
@@ -37,4 +38,41 @@ public class DJBrain : MonoBehaviour
             //audioSource.pitch = 1f;
         }
     }
+
+    public void ChangeSong(AudioClip newMusic)
+    {
+        // Creamos AudioSource Auxiliar
+        AudioSource auxiliarAudioSource = gameObject.AddComponent<AudioSource>();
+        auxiliarAudioSource.clip = newMusic;
+        auxiliarAudioSource.loop = true;
+
+        // Inicia CrossFade
+        StartCoroutine(FadeIn(auxiliarAudioSource));
+        StartCoroutine(FadeOut(audioSource));
+
+        // Cambiar referencia al nuevo audiosource
+        audioSource = auxiliarAudioSource;
+    }
+
+
+    IEnumerator FadeOut(AudioSource audio)
+    {
+        for (float ft = audio.volume; ft >= 0; ft -= 0.1f)
+        {
+            audio.volume = ft;
+            yield return new WaitForSecondsRealtime(fadeStep);
+        }
+        Destroy(audio);
+        //audio.Stop();
+    }
+    IEnumerator FadeIn(AudioSource audio)
+    {
+        audio.Play();
+        for (float ft = 0; ft < 1; ft += 0.1f)
+        {
+            audio.volume = ft;
+            yield return new WaitForSecondsRealtime(fadeStep);
+        }
+    }
+
 }

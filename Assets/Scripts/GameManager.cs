@@ -129,8 +129,18 @@ public class GameManager : MonoBehaviour
 	public void Win()
 	{
 		win = true;
+		
+		// Feedback sonoro
+		AudioManager.PlaySound(AudioManager.Sound.WinSound);
+
+		// Iniciar FadeIn (HUD) con delay
 		hud.OpenWinPanel();
-		Time.timeScale = 0f;
+
+		// Parar sonidos de InGame
+			// TODO
+
+		// Slow-mo
+		Time.timeScale = .5f;
 	}
 
 

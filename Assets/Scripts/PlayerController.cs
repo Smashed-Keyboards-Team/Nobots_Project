@@ -332,7 +332,7 @@ public class PlayerController : MonoBehaviour
 	// Funcion de propulsion
 	public void Boost()
 	{
-		if (propActive == true && paralized == false)
+		if (propActive && !paralized && !GameManager.gm.pause && !GameManager.gm.godPanel && !GameManager.gm.win && !GameManager.gm.menu)
 		{
 			print("Propulsión!");   //  ¡Propulsión!
 			AudioManager.PlaySound(AudioManager.Sound.PlayerDash);
