@@ -54,6 +54,7 @@ public static class AudioManager
     {
         GameObject soundGameObject = new GameObject("Sound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = Resources.Load<AudioMixer>("AudioMixer").FindMatchingGroups("Sound")[0];    // Asignar output AudioMixer Group "Sound"
         soundGameObject.AddComponent<SoundAutoPauser>();    // Auto pauser
         audioSource.PlayOneShot(GetAudioClip(sound));
         Debug.Log("Play: " + sound);
@@ -65,6 +66,7 @@ public static class AudioManager
         soundGameObject.transform.position = emisor.position;
         soundGameObject.transform.SetParent(emisor);
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = Resources.Load<AudioMixer>("AudioMixer").FindMatchingGroups("Sound")[0];    // Asignar output AudioMixer Group "Sound"
         soundGameObject.AddComponent<SoundAutoPauser>();    // Auto pauser
         audioSource.clip = GetAudioClip(sound);
         audioSource.spatialBlend = 1;

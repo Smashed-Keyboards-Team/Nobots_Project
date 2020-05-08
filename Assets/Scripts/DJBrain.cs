@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class DJBrain : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class DJBrain : MonoBehaviour
     private void Awake()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = Resources.Load<AudioMixer>("AudioMixer").FindMatchingGroups("Music")[0];    // Asignar output AudioMixer Group MUSIC
         lowPass = gameObject.AddComponent<AudioLowPassFilter>();
     }
 
