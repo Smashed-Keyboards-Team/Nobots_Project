@@ -55,7 +55,7 @@ public class RuedaAI : MonoBehaviour
                     AudioSource[] sonidos = myTransform.GetComponentsInChildren<AudioSource>();
                     foreach (AudioSource sonido in sonidos)     // ... para el sonido...
                     {
-                        Destroy(sonido);
+                        sonido.Stop();
                     }
                     counter = timer;        // ... y resetea el contador.
                 }
