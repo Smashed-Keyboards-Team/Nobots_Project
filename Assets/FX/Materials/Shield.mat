@@ -77,6 +77,6 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_6EE5C60F: {r: 0, g: 0.59607846, b: 0.5794237, a: 0.91764706}
-    - Vector2_F1D16E6D: {r: 10, g: 10, b: 0, a: 0}
+    - Vector2_F1D16E6D: {r: 30, g: 30, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
