@@ -37,28 +37,42 @@ public class RuedaAI : MonoBehaviour
 	
     void Update()
     {
-		// busca al jugador
-		target = player.transform;
+		// ACTUALIZA EL ESTADO
+		target = player.transform;  // busca jugador
 		if (currentState != WheelState.Rollin)
 		{
-			currentState = WheelState.Waitin;
-			if (Vector3.Distance(transform.position, target.position) < distanceSearch)
+			if (Vector3.Distance(transform.position, target.position) < distanceSearch) // Jugador detectado! - AIMIN...
 			{
-				currentState = WheelState.Aimin;
-				//Aqui va el aimin audio
+                if (currentState == WheelState.Waitin)  // Si estaba waitin, inicia el sonido de aimin
+                    AudioManager.PlaySound(AudioManager.Sound.WheelDetect, transform);
+                currentState = WheelState.Aimin;
+				
 			}
+            else        // Jugador fuera de rango - WAITIN...
+            {
+                if (currentState == WheelState.Aimin || currentState == WheelState.Rollin)   // Si estaba aimin o rollin...
+                {
+                    AudioSource[] sonidos = myTransform.GetComponentsInChildren<AudioSource>();
+                    foreach (AudioSource sonido in sonidos)     // ... para el sonido...
+                    {
+                        Destroy(sonido);
+                    }
+                    counter = timer;        // ... y resetea el contador.
+                }
+                currentState = WheelState.Waitin;
+            }
 		}
 		
 
 
 		switch (currentState)
 		{
-			case WheelState.Waitin :  // Estado de esperar y detectar al jugador
+			case WheelState.Waitin :  // Esperando...
 			{
-				counter = timer;
+				//counter = timer;
 			}
 			break;
-			case WheelState.Aimin : // Estado de apuntar al jugador
+			case WheelState.Aimin : // Apuntando...
 			{
 				Vector3 direction = target.position - transform.position;  // pillar direccion del jugador
 				float angle = Vector3.SignedAngle(direction, -transform.forward, Vector3.up); // pillar angulo para encarar al jugador
