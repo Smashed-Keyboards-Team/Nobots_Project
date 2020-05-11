@@ -52,11 +52,7 @@ public class RuedaAI : MonoBehaviour
             {
                 if (currentState == WheelState.Aimin || currentState == WheelState.Rollin)   // Si estaba aimin o rollin...
                 {
-                    AudioSource[] sonidos = myTransform.GetComponentsInChildren<AudioSource>();
-                    foreach (AudioSource sonido in sonidos)     // ... para el sonido...
-                    {
-                        sonido.Stop();
-                    }
+                    ShutUp();               // ... para el sonido...
                     counter = timer;        // ... y resetea el contador.
                 }
                 currentState = WheelState.Waitin;
@@ -97,7 +93,8 @@ public class RuedaAI : MonoBehaviour
 				if (counter <= 0f)
 				{
 					currentState = WheelState.Rollin;
-					AudioManager.PlaySound(AudioManager.Sound.WheelSpin, transform);
+                    ShutUp();
+                    AudioManager.PlaySound(AudioManager.Sound.WheelSpin, transform);
 				}
 						
 			}
@@ -120,9 +117,19 @@ public class RuedaAI : MonoBehaviour
 	public void Choque()
 	{
 		Debug.Log("choque");
-		currentState = WheelState.Waitin;
+        // ShutUp();
+        currentState = WheelState.Waitin;
 		counter = timer;
+
 	}
 	
+    private void ShutUp()
+    {
+        AudioSource[] sonidos = myTransform.GetComponentsInChildren<AudioSource>();
+        foreach (AudioSource sonido in sonidos)     
+        {
+            sonido.Stop();
+        }
+    }
 
 }
