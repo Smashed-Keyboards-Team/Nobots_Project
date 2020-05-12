@@ -41,12 +41,14 @@ public class RuedaAI : MonoBehaviour
 		target = player.transform;  // busca jugador
 		if (currentState != WheelState.Rollin)
 		{
-			if (Vector3.Distance(transform.position, target.position) < distanceSearch) // Jugador detectado! - AIMIN...
+			if (Vector3.Distance(transform.position, target.position) < distanceSearch) // Jugador a rango!
 			{
-                if (currentState == WheelState.Waitin)  // Si estaba waitin, inicia el sonido de aimin
-                    AudioManager.PlaySound(AudioManager.Sound.WheelDetect, transform);
-                currentState = WheelState.Aimin;
-				
+                if (!Physics.Linecast(transform.position, target.position))     // Jugador a tiro (sin obstáculos)  - AIMIN...
+                {
+                    if (currentState == WheelState.Waitin)  // Si estaba waitin, inicia el sonido de aimin
+                        AudioManager.PlaySound(AudioManager.Sound.WheelDetect, transform);
+                    currentState = WheelState.Aimin;
+                }
 			}
             else        // Jugador fuera de rango - WAITIN...
             {
