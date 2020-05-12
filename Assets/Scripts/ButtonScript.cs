@@ -18,9 +18,13 @@ public class ButtonScript : MonoBehaviour
 	{
 		if (collision.tag == "Player")
 		{
-			ds.SetBut(numBoton, true);
-			AudioManager.PlaySound(AudioManager.Sound.GeneratorDestroy);
-			this.gameObject.SetActive(false);
+            PlayerController pc = collision.GetComponent<PlayerController>();
+            if (pc.destroyMode)
+            {
+                ds.SetBut(numBoton, true);
+                AudioManager.PlaySound(AudioManager.Sound.GeneratorDestroy);
+                this.gameObject.SetActive(false);
+            }
 		}
 	}
 }
