@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 21449001}
   - component: {fileID: 21449000}
   - component: {fileID: 21448999}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SueloMapa (3)
   m_TagString: Playground
   m_Icon: {fileID: 0}
@@ -812,21 +812,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rueda
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: speed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: distanceSearch
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7758846907464213180, guid: c5be505d904078048812c334238d15bd,
         type: 3}
@@ -2105,21 +2090,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rueda (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: speed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: distanceSearch
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 7758846907464213180, guid: c5be505d904078048812c334238d15bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2221,7 +2191,7 @@ GameObject:
   - component: {fileID: 203849807}
   - component: {fileID: 203849806}
   - component: {fileID: 203849805}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SueloMapa (10)
   m_TagString: Playground
   m_Icon: {fileID: 0}
@@ -3645,7 +3615,7 @@ GameObject:
   - component: {fileID: 381564624}
   - component: {fileID: 381564623}
   - component: {fileID: 381564622}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SueloMapa (2)
   m_TagString: Playground
   m_Icon: {fileID: 0}
@@ -4197,7 +4167,7 @@ GameObject:
   - component: {fileID: 482993805}
   - component: {fileID: 482993804}
   - component: {fileID: 482993803}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SueloMapa (7)
   m_TagString: Playground
   m_Icon: {fileID: 0}
@@ -4288,21 +4258,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rueda (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: speed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: distanceSearch
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7758846907464213180, guid: c5be505d904078048812c334238d15bd,
         type: 3}
@@ -4757,7 +4712,7 @@ GameObject:
   - component: {fileID: 552357120}
   - component: {fileID: 552357119}
   - component: {fileID: 552357118}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SueloMapa (4)
   m_TagString: Playground
   m_Icon: {fileID: 0}
@@ -5089,7 +5044,7 @@ GameObject:
   - component: {fileID: 581380875}
   - component: {fileID: 581380874}
   - component: {fileID: 581380873}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SueloMapa (12)
   m_TagString: Playground
   m_Icon: {fileID: 0}
@@ -5180,21 +5135,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rueda (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: speed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: distanceSearch
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7758846907464213180, guid: c5be505d904078048812c334238d15bd,
         type: 3}
@@ -8053,7 +7993,7 @@ GameObject:
   - component: {fileID: 1140501384}
   - component: {fileID: 1140501383}
   - component: {fileID: 1140501382}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SueloMapa (6)
   m_TagString: Playground
   m_Icon: {fileID: 0}
@@ -8501,21 +8441,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rueda (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: speed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: distanceSearch
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7758846907464213180, guid: c5be505d904078048812c334238d15bd,
         type: 3}
@@ -9065,13 +8990,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2929401
       objectReference: {fileID: 0}
-    - target: {fileID: 721374888, guid: 50e0ef3b2069d93468e7fe7b78ba335e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 721374884, guid: 50e0ef3b2069d93468e7fe7b78ba335e, type: 3}
       propertyPath: bounciness
       value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 721374888, guid: 50e0ef3b2069d93468e7fe7b78ba335e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e0ef3b2069d93468e7fe7b78ba335e, type: 3}
@@ -9504,7 +9429,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326437331}
-  m_LocalRotation: {x: 0.09416555, y: -0.00007029438, z: 0.0000069782786, w: 0.9955566}
+  m_LocalRotation: {x: 0.09416528, y: -0.00007029438, z: 0.0000069782595, w: 0.9955566}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11567,14 +11492,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1770170598, guid: 596afb97907bfad4fbabd1519909b234, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4085531520562911787, guid: 596afb97907bfad4fbabd1519909b234,
         type: 3}
       propertyPath: paralisisTime
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1770170598, guid: 596afb97907bfad4fbabd1519909b234, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 596afb97907bfad4fbabd1519909b234, type: 3}
@@ -13045,7 +12970,7 @@ PrefabInstance:
     - target: {fileID: 224385212671366698, guid: 6fe1a819dfd2457439f73d689e61fb11,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.13668656
+      value: 0.13668576
       objectReference: {fileID: 0}
     - target: {fileID: 224385212671366698, guid: 6fe1a819dfd2457439f73d689e61fb11,
         type: 3}
@@ -13060,7 +12985,7 @@ PrefabInstance:
     - target: {fileID: 224385212671366698, guid: 6fe1a819dfd2457439f73d689e61fb11,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99061435
+      value: 0.9906145
       objectReference: {fileID: 0}
     - target: {fileID: 224385212671366698, guid: 6fe1a819dfd2457439f73d689e61fb11,
         type: 3}
@@ -14009,21 +13934,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rueda (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: speed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7758846907464213182, guid: c5be505d904078048812c334238d15bd,
-        type: 3}
-      propertyPath: distanceSearch
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 7758846907464213180, guid: c5be505d904078048812c334238d15bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14113,7 +14023,7 @@ GameObject:
   - component: {fileID: 1917944992}
   - component: {fileID: 1917944991}
   - component: {fileID: 1917944990}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SueloMapa (1)
   m_TagString: Playground
   m_Icon: {fileID: 0}
@@ -14591,7 +14501,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975913958}
-  m_LocalRotation: {x: -0.13668601, y: -0.0000006944136, z: 0.00000011633568, w: -0.9906145}
+  m_LocalRotation: {x: -0.13668583, y: -0.0000006944215, z: 0.00000011633456, w: -0.9906144}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

@@ -201,7 +201,7 @@ MonoBehaviour:
   player: {fileID: 0}
   distanceSearch: 30
   rotSpeed: 180
-  speed: 50
+  speed: 35
   timer: 1.5
 --- !u!54 &7758846907464213169
 Rigidbody:
