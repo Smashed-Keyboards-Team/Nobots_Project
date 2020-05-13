@@ -21,6 +21,8 @@ public class RuedaAI : MonoBehaviour
 
 	private WheelState currentState = WheelState.Waitin;
 
+	private Animator animator;
+
 	private float counter;
 	public float timer = 2.0f;
 
@@ -33,6 +35,7 @@ public class RuedaAI : MonoBehaviour
 		//det = GetComponentInChildren<RuedaFrontDetection>();
 		counter = timer;
 		myTransform = transform;
+		animator = GetComponentInChildren<Animator>();
     }
 	
     void Update()
@@ -65,11 +68,17 @@ public class RuedaAI : MonoBehaviour
 		{
 			case WheelState.Waitin :  // Esperando...
 			{
+				animator.SetTrigger("anim_Waitin");
+				animator.ResetTrigger("anim_Rollin");
+				animator.ResetTrigger("anim_Aimin");
 				//counter = timer;
 			}
 			break;
 			case WheelState.Aimin : // Apuntando...
 			{
+				animator.SetTrigger("anim_Aimin");
+				animator.ResetTrigger("anim_Waitin");
+				
 				Vector3 direction = target.position - transform.position;  // pillar direccion del jugador
 				float angle = Vector3.SignedAngle(direction, -transform.forward, Vector3.up); // pillar angulo para encarar al jugador
 
@@ -101,6 +110,10 @@ public class RuedaAI : MonoBehaviour
 			break;
 			case WheelState.Rollin :
 			{
+				
+				animator.SetTrigger("anim_Rollin");
+				animator.ResetTrigger("anim_Aimin");
+
 				rb.MovePosition(transform.position + (transform.forward * speed * Time.deltaTime)); // Moverse hacia alante sin pausa
 			}
 			break;
