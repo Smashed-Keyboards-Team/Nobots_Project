@@ -113,7 +113,6 @@ public class GameManager : MonoBehaviour
 	// Funcion para repawnear
 	public void Respawn()
 	{
-		//Scene scene = SceneManager.GetActiveScene(); 
 		LoadLevel(scene);
 	}
 
