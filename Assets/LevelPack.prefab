@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textForTesting: {fileID: 1181536593789283846}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1809844250760667077}
   scene: 0
   pause: 0
   score: 0
@@ -1411,18 +1411,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3510345502109336067}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1181536593789283846 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2365209933037792261, guid: 303cc92ff4c759047887101104590609,
-    type: 3}
-  m_PrefabInstance: {fileID: 3510345502109336067}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1181536594434067612 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2365209934754221727, guid: 303cc92ff4c759047887101104590609,
@@ -1433,6 +1421,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1d419a46bc37ca4891effec454a28ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1809844250760667077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3002382952798707142, guid: 303cc92ff4c759047887101104590609,
+    type: 3}
+  m_PrefabInstance: {fileID: 3510345502109336067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1181536593789283846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2365209933037792261, guid: 303cc92ff4c759047887101104590609,
+    type: 3}
+  m_PrefabInstance: {fileID: 3510345502109336067}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2440061102570956352 stripped
