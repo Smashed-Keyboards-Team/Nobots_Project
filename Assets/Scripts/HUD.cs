@@ -33,7 +33,7 @@ public class HUD : MonoBehaviour
 	{
         if (GameManager.gm.tutorialDone == false && GameManager.gm.scene == 2)  // En el tutorial no muestra timer;
         {
-            textTimer.time = null;
+            textTimer.text = null;
             return;
         }
 		if (!GameManager.gm.pause)
