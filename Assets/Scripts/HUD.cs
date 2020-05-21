@@ -31,6 +31,11 @@ public class HUD : MonoBehaviour
 
 	private void Update()
 	{
+        if (GameManager.gm.tutorialDone == false && GameManager.gm.scene == 2)  // En el tutorial no muestra timer;
+        {
+            textTimer = null;
+            return;
+        }
 		if (!GameManager.gm.pause)
 		{
 			float timer = (float) System.Math.Round(GameManager.gm.timer, 1);
@@ -172,4 +177,10 @@ public class HUD : MonoBehaviour
 			Cursor.lockState = CursorLockMode.Locked;
 		}
 	}
+
+    public static void ShowTimerForFirstTime()
+    {
+        Debug.Log("Showing timer for first time");
+        GameManager.gm.tutorialDone = true;
+    }
 }

@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour
 	[Header("Variables de Tiempo")]
 	public bool lockTimer;
 	public float timer = 30;
-	public float originalTimer;
-	private bool tutorialDone = false;		// Solo usar el tiempo una vez completado el tutorial
+	private float originalTimer;
+	public bool tutorialDone = false;		// Solo usar el tiempo una vez completado el tutorial
 
 	// Variable de ganar
 	[HideInInspector] public bool win = false;
@@ -89,21 +89,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		scene = SceneManager.GetActiveScene().buildIndex;	// Se podria optimizar (?)
+		scene = SceneManager.GetActiveScene().buildIndex;	// Se podria optimizar (!!!)
 
 		if (scene > 1)	// Actualiza el tiempo (Solo InGame)
 		{
 			if (scene == 2 && !tutorialDone)	// en la primera escena, mientras no hayas completado el tutorial, no hay timer
 			{
-				hud.textTimer.text = null;	
+                return;
 			}
-			if (!lockTimer)
+			if (!lockTimer)         // En el resto de escenas, resta tiempo (a no ser que esté bloqueado)
 			{
 				timer -= 1 * Time.deltaTime;
 			}
-
-			//string timeLeft = System.Math.Round (timer, 1).ToString();
-			//textForTesting.text = string.Concat(timeLeft);
 
 			score = timer * 10000;
 			scoreText.text = string.Concat(score);
@@ -119,6 +116,15 @@ public class GameManager : MonoBehaviour
 	public void Respawn()
 	{
 		LoadLevel(scene);
+        if (scene == 2)     // Reposiciona al jugador si está en el primer nivel (para no repetir tutorial)
+        {
+            GameObject spawn = GameObject.FindGameObjectWithTag("Respawn Position");
+            if (spawn)
+            {
+                player.transform.position = spawn.transform.position;
+            }
+            else Debug.LogError("Error 402: Respawn Position not Found!");
+        }
 	}
 
 	// Funcion para entrar en game over
@@ -177,10 +183,5 @@ public class GameManager : MonoBehaviour
 				AudioManager.PlayMusic(AudioManager.Music.ML3);
 				break;
 		}
-	}
-
-	public void TutorialDone()
-	{
-		tutorialDone = true; 
 	}
 }

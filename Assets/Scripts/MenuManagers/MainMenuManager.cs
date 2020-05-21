@@ -101,6 +101,7 @@ public class MainMenuManager : MonoBehaviour
     }
 	public void Play_Level01()
 	{
+        gm.tutorialDone = false;    // para empezar mostrando el tutorial
 		gm.LoadLevel(2);
 
 	}
