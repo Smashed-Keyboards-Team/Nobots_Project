@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 	public bool lockTimer;
 	public float timer = 30;
 	public float originalTimer;
+	private bool tutorialDone = false;		// Solo usar el tiempo una vez completado el tutorial
 
 	// Variable de ganar
 	[HideInInspector] public bool win = false;
@@ -92,6 +93,10 @@ public class GameManager : MonoBehaviour
 
 		if (scene > 1)	// Actualiza el tiempo (Solo InGame)
 		{
+			if (scene == 2 && !tutorialDone)	// en la primera escena, mientras no hayas completado el tutorial, no hay timer
+			{
+				hud.textTimer.text = null;	
+			}
 			if (!lockTimer)
 			{
 				timer -= 1 * Time.deltaTime;
