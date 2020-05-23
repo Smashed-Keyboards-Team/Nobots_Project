@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TimerIntroductor : MonoBehaviour
 {
+    [SerializeField] private HUD hud;
+
+    private void Start()
+    {
+        hud = FindObjectOfType<HUD>();
+    }
 
     private void OnTriggerEnter(Collider collision)
 	{
@@ -11,7 +17,7 @@ public class TimerIntroductor : MonoBehaviour
 		{
             if (GameManager.gm.tutorialDone == false)
             {
-                HUD.ShowTimerForFirstTime();
+                hud.ShowTimerForFirstTime();
                 GameManager.gm.tutorialDone = true;
             }
         } 
