@@ -75,9 +75,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         originalTimer = timer;
-		
-		player = GameObject.FindGameObjectWithTag("Player");
-
 
 		// Encontrar HUD
 		hud = FindObjectOfType<HUD>();
@@ -112,19 +109,27 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	private void OnLevelWasLoaded(int loadedScene)
+	{
+		player = GameObject.FindGameObjectWithTag("Player");
+
+		if (loadedScene == 2 && tutorialDone)     // Reposiciona al jugador si está en el primer nivel (para no repetir tutorial)
+		{
+			Debug.Log("Respawn especial");
+			GameObject spawn = GameObject.FindGameObjectWithTag("Respawn Position");
+			if (spawn)
+			{
+				player.transform.position = spawn.transform.position;
+				Destroy(spawn);
+			}
+			else Debug.LogError("Error 402: Respawn Position not Found!");
+		}
+	}
+
 	// Funcion para repawnear
 	public void Respawn()
 	{
 		LoadLevel(scene);
-        if (scene == 2)     // Reposiciona al jugador si está en el primer nivel (para no repetir tutorial)
-        {
-            GameObject spawn = GameObject.FindGameObjectWithTag("Respawn Position");
-            if (spawn)
-            {
-                player.transform.position = spawn.transform.position;
-            }
-            else Debug.LogError("Error 402: Respawn Position not Found!");
-        }
 	}
 
 	// Funcion para entrar en game over
