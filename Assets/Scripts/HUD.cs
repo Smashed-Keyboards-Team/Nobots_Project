@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class HUD : MonoBehaviour
 {
@@ -17,7 +18,10 @@ public class HUD : MonoBehaviour
 	public Text textTimer;
 
 	public float countdownDuration;
-	public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
+    public float firstTimeTimerDuration;
+    public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
+
+    public RectTransform timerRectTransform;
 
 	[HideInInspector] public GameObject propOnCd;
     #endregion
@@ -178,9 +182,32 @@ public class HUD : MonoBehaviour
 		}
 	}
 
-    public static void ShowTimerForFirstTime()
+    public void ShowTimerForFirstTime()
     {
         Debug.Log("Showing timer for first time");
+        StartCoroutine( FirstTimeTimerCountdown() );    // Pausa y animación
         GameManager.gm.tutorialDone = true;
+    }
+
+    // Funcion para activar la cuenta atrás
+    public IEnumerator FirstTimeTimerCountdown()
+    {
+        // Pausa el juego
+        Time.timeScale = 0.05f;
+        //countdownPanel.SetActive(true);
+        noScape = true;
+
+        timerRectTransform.DOPunchScale(new Vector2(3, 3), firstTimeTimerDuration+1);
+
+        // Espera un ratito
+        float keepGoingTime = Time.realtimeSinceStartup + firstTimeTimerDuration;
+        while (Time.realtimeSinceStartup < keepGoingTime)
+            yield return 0;
+
+        // Reanuda el juego
+        Time.timeScale = 1f;
+        //countdownPanel.SetActive(false);
+        noScape = false;
+
     }
 }
