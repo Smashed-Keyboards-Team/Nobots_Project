@@ -185,19 +185,19 @@ public class HUD : MonoBehaviour
     public void ShowTimerForFirstTime()
     {
         Debug.Log("Showing timer for first time");
-        StartCoroutine( FirstTimeTimerCountdown() );    // Pausa y animación
-        GameManager.gm.tutorialDone = true;
+		GameManager.gm.tutorialDone = true;
+		StartCoroutine( FirstTimeTimerCountdown() );    // Pausa y animación
     }
 
     // Funcion para activar la cuenta atrás
     public IEnumerator FirstTimeTimerCountdown()
     {
         // Pausa el juego
-        Time.timeScale = 0.05f;
+        //Time.timeScale = 0.05f;
         //countdownPanel.SetActive(true);
-        noScape = true;
+        //noScape = true;
 
-        timerRectTransform.DOPunchScale(new Vector2(3, 3), firstTimeTimerDuration+1);
+        timerRectTransform.DOPunchScale(new Vector2(2.5f, 2.5f), firstTimeTimerDuration, 4,0);
 
         // Espera un ratito
         float keepGoingTime = Time.realtimeSinceStartup + firstTimeTimerDuration;
@@ -205,9 +205,8 @@ public class HUD : MonoBehaviour
             yield return 0;
 
         // Reanuda el juego
-        Time.timeScale = 1f;
-        //countdownPanel.SetActive(false);
-        noScape = false;
+        //Time.timeScale = 1f;
+        //noScape = false;
 
     }
 }

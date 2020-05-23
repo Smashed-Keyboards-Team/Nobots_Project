@@ -828,6 +828,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelPack
       objectReference: {fileID: 0}
+    - target: {fileID: 1181536593789283846, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5933503360435542336, guid: 60c8079ef6372d940b56fd73d84781da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -883,6 +888,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1181536593789283840, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181536593789283840, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181536593789283840, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 63.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181536593789283840, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.130047
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181536593789283840, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200.80005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181536593789283840, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005910040277838864, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005910040277838864, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 432
+      objectReference: {fileID: 0}
     - target: {fileID: 1181536594434067612, guid: 60c8079ef6372d940b56fd73d84781da,
         type: 3}
       propertyPath: timerRectTransform
@@ -891,7 +936,7 @@ PrefabInstance:
     - target: {fileID: 1181536594434067612, guid: 60c8079ef6372d940b56fd73d84781da,
         type: 3}
       propertyPath: firstTimeTimerDuration
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c8079ef6372d940b56fd73d84781da, type: 3}
