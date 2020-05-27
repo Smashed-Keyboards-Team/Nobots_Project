@@ -34,10 +34,20 @@ public class WinPanelScript : MonoBehaviour
     public static void ShowPanel() { i.StartCoroutine("Show"); }
     private IEnumerator Show()
     {
+        Debug.Log("ShowWin");
         yield return new WaitForSeconds(preFadeInTime);
         yield return StartCoroutine(FadeI());
         yield return new WaitForSeconds(preScoreTime);
         ShowScore();
+        HUD.i.CursorClean();
+    }
+
+    public static void ClosePanel()
+    {
+        Debug.Log("CloseWin");
+        HUD.i.CursorClean();
+        i.HideScore();
+        GameManager.gm.LoadNext();
     }
 
     /// <summary>
@@ -46,6 +56,7 @@ public class WinPanelScript : MonoBehaviour
     public static void HidePanel() { i.StartCoroutine("Hide"); }
     private IEnumerator Hide()
     {
+        Debug.Log("HideWin");
         HideScore();
         yield return new WaitForSeconds(preFadeOutTime);
         yield return StartCoroutine(FadeO());
@@ -57,6 +68,7 @@ public class WinPanelScript : MonoBehaviour
     public void FadeIn() { StartCoroutine(FadeI()); }
     private IEnumerator FadeI()
     {
+        Debug.Log("FadeInWin");
         background.CrossFadeAlpha(1, fadeInTime, true);
         return new WaitForSecondsRealtime(fadeInTime);
     }
@@ -67,6 +79,7 @@ public class WinPanelScript : MonoBehaviour
     public void FadeOut() { StartCoroutine(FadeO()); }
     private IEnumerator FadeO()
     {
+        Debug.Log("FadeOutWin");
         background.CrossFadeAlpha(0, fadeOutTime, true);
         return new WaitForSecondsRealtime(fadeOutTime);
     }

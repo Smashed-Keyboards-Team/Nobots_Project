@@ -7,8 +7,10 @@ using DG.Tweening;
 
 public class HUD : MonoBehaviour
 {
-    #region Variables locales
-    public GameObject pausePanel;
+	#region Variables locales
+	public static HUD i; 
+	
+	public GameObject pausePanel;
 	public GameObject settingsPanel;
 	public GameObject exitPanel;
 	public GameObject gameOverPanel;
@@ -32,6 +34,11 @@ public class HUD : MonoBehaviour
     public delegate void Pausa(bool pausado);
 	public static event Pausa onPause;
 	#endregion
+
+	private void Awake()
+	{
+		i = this;
+	}
 
 	private void Update()
 	{
@@ -90,10 +97,16 @@ public class HUD : MonoBehaviour
 	}
 
 	// Funcion para abrir panel de win
-	public void OpenWinPanel()                           
-    {
-        winPanel.SetActive(true);
-		CursorClean();
+	public void OpenWinPanel()
+	{
+		//winPanel.SetActive(true);
+		WinPanelScript.ShowPanel();
+		//CursorClean();
+	}
+
+	public void NextLevelLoad()
+	{
+		WinPanelScript.ClosePanel();
 	}
 
 	// Boton para reiniciar escena
@@ -161,7 +174,7 @@ public class HUD : MonoBehaviour
 	{
 		if (GameManager.gm.pause || GameManager.gm.godPanel || GameManager.gm.win || GameManager.gm.gameOver)           // ESTAMOS PAUSADOS :D
 		{
-			//Debug.Log("pausa");
+			Debug.Log("pausa");
 			Time.timeScale = 0f;
 			Cursor.visible = true;
 			Cursor.lockState = CursorLockMode.Confined;

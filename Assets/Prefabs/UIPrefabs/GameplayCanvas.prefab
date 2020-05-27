@@ -4622,7 +4622,9 @@ MonoBehaviour:
   countdownPanel: {fileID: 1255261880728118339}
   textTimer: {fileID: 2365209933037792261}
   countdownDuration: 0
+  firstTimeTimerDuration: 0
   noScape: 0
+  timerRectTransform: {fileID: 0}
   propOnCd: {fileID: 2109210297974727775}
 --- !u!1 &3080733602025733149
 GameObject:
@@ -7900,6 +7902,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2365209934754221730}
     m_Modifications:
+    - target: {fileID: 709394577276662354, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_Name
+      value: WinPanel (new)
+      objectReference: {fileID: 0}
     - target: {fileID: 3673211169674434444, guid: 537fc8b33b398d34690b0dfe6cbd141d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8005,10 +8012,95 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 709394577276662354, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+    - target: {fileID: 922104743629793609, guid: 537fc8b33b398d34690b0dfe6cbd141d,
         type: 3}
       propertyPath: m_Name
-      value: WinPanel (new)
+      value: ExitButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 980358439628680730, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 980358439628680730, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 980358439628680730, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 980358439628680730, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2365209934754221727}
+    - target: {fileID: 980358439628680730, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenExitPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 980358439628680730, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182399046483701623, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182399046483701623, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182399046483701623, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182399046483701623, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2365209934754221727}
+    - target: {fileID: 1182399046483701623, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182399046483701623, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217786779771825172, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217786779771825172, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217786779771825172, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8217786779771825172, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2365209934754221733}
+    - target: {fileID: 1517078480113917340, guid: 537fc8b33b398d34690b0dfe6cbd141d,
+        type: 3}
+      propertyPath: m_Text
+      value: Exit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 537fc8b33b398d34690b0dfe6cbd141d, type: 3}

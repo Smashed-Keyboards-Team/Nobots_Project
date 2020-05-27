@@ -143,6 +143,7 @@ public class GameManager : MonoBehaviour
 	// Funcion para ganar
 	public void Win()
 	{
+		Debug.Log("win");
 		win = true;
 		
 		// Feedback sonoro
@@ -158,7 +159,10 @@ public class GameManager : MonoBehaviour
 		Time.timeScale = .5f;
 	}
 
-
+	public void LoadNext()
+	{
+		LoadLevel(scene + 1);
+	}
 	public void LoadLevel(int level)
 	{
 		// Carga nueva escena
