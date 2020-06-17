@@ -100,14 +100,11 @@ public class HUD : MonoBehaviour
 	public void OpenWinPanel()
 	{
 		//winPanel.SetActive(true);
+		noScape = true;
 		WinPanelScript.ShowPanel();
 		//CursorClean();
 	}
 
-	public void NextLevelLoad()
-	{
-		WinPanelScript.ClosePanel();
-	}
 
 	// Boton para reiniciar escena
 	public void RestartButton()
@@ -141,7 +138,9 @@ public class HUD : MonoBehaviour
 	{
 		// Pausa el juego
 		Time.timeScale = 0f;
-		countdownPanel.SetActive(true);
+		//countdownPanel.SetActive(true);
+		WinPanelScript.i.background.CrossFadeAlpha(1, 0, true);
+		WinPanelScript.i.background.CrossFadeAlpha(0, countdownDuration, true);
 		noScape = true;
 
 		// Espera un ratito
@@ -172,7 +171,7 @@ public class HUD : MonoBehaviour
 
 	public void CursorClean()
 	{
-		if (GameManager.gm.pause || GameManager.gm.godPanel || GameManager.gm.win || GameManager.gm.gameOver)           // ESTAMOS PAUSADOS :D
+		if (GameManager.gm.pause || GameManager.gm.godPanel || GameManager.gm.gameOver)           // ESTAMOS PAUSADOS :D
 		{
 			Debug.Log("pausa");
 			Time.timeScale = 0f;

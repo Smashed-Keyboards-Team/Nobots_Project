@@ -284,6 +284,7 @@ public class PlayerController : MonoBehaviour
 		}
     }
 
+	
 	void OnCollisionStay(Collision col)
 	{
 		if (col.gameObject.tag == "Playground")

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Win : MonoBehaviour
 {
+    bool won = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag.Equals("Player") && !won)
         {
             GameManager.gm.Win();
+            won = true;
         }
     }
 }

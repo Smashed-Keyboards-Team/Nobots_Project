@@ -7,14 +7,12 @@ public class WinPanelScript : MonoBehaviour
 {
     #region Variables
     public static WinPanelScript i;
-    [SerializeField] private Image background;          // TODO: Pasar a HUD
-    [SerializeField] private GameObject scorePanel;     // TODO: Cambiar a CanvasGroup
+    public Image background;          // TODO: Pasar a HUD
+    public GameObject scorePanel;                       // TODO: Cambiar a CanvasGroup
     [Header("Parámetros temporales")]
-    [SerializeField] private float preFadeInTime = 1;
+    [SerializeField] private float preFadeInTime = 0;
     [SerializeField] private float fadeInTime;
     [SerializeField] private float preScoreTime;
-    [SerializeField] private float preFadeOutTime;
-    [SerializeField] private float fadeOutTime;
 
     #endregion
     private void Awake()
@@ -40,26 +38,10 @@ public class WinPanelScript : MonoBehaviour
         yield return new WaitForSeconds(preScoreTime);
         ShowScore();
         HUD.i.CursorClean();
-    }
 
-    public static void ClosePanel()
-    {
-        Debug.Log("CloseWin");
-        HUD.i.CursorClean();
-        i.HideScore();
-        GameManager.gm.LoadNext();
-    }
 
-    /// <summary>
-    /// Oculta el WinPanel con un fundido wachi.
-    /// </summary>
-    public static void HidePanel() { i.StartCoroutine("Hide"); }
-    private IEnumerator Hide()
-    {
-        Debug.Log("HideWin");
-        HideScore();
-        yield return new WaitForSeconds(preFadeOutTime);
-        yield return StartCoroutine(FadeO());
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     /// <summary>
@@ -73,24 +55,10 @@ public class WinPanelScript : MonoBehaviour
         return new WaitForSecondsRealtime(fadeInTime);
     }
 
-    /// <summary>
-    /// Hace un fadeout quitando la negrura de la pantalla.
-    /// </summary>
-    public void FadeOut() { StartCoroutine(FadeO()); }
-    private IEnumerator FadeO()
-    {
-        Debug.Log("FadeOutWin");
-        background.CrossFadeAlpha(0, fadeOutTime, true);
-        return new WaitForSecondsRealtime(fadeOutTime);
-    }
-
     private void ShowScore()
     {
         scorePanel.SetActive(true);
-    }
-
-    private void HideScore()
-    {
-        scorePanel.SetActive(false);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }

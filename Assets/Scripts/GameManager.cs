@@ -167,7 +167,11 @@ public class GameManager : MonoBehaviour
 	{
 		// Carga nueva escena
 		SceneManager.LoadScene(level);
+		WinPanelScript.i.scorePanel.SetActive(false);
+		
 		menu = false;
+		win = false;
+		pause = false;
 		hud.CursorClean();
 
 		timer = originalTimer;
