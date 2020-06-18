@@ -33,10 +33,10 @@ public class PlayerController : MonoBehaviour
     Vector3 originalGravity;
 
     // VARIABLES para propulsión
-    public float propFuerza = 2;  // Multiplicador de fuerza para la propulsión
-    public float propDuracion = 2;   // Duración en segundos del efecto de la propulsión
-    public float propCd = 5;          // Tiempo en segundos que tarda en regenerarse la propulsión
-    public bool propActive = true;     // Indica si se puede usar la propulsión.
+    public float propFuerza = 2;		// Multiplicador de fuerza para la propulsión
+    public float propDuracion = 2;		// Duración en segundos del efecto de la propulsión
+    public float propCd = 5;			// Tiempo en segundos que tarda en regenerarse la propulsión
+    public bool propActive = true;		// Indica si se puede usar la propulsión.
     private float propTimer;            // Tiempo transcurrido desde la propulsión anterior (sólo se actualiza mientras propActive es FALSE)
     private float originalAcel;         // Para guardar el valor original de la aceleración
 
@@ -69,7 +69,6 @@ public class PlayerController : MonoBehaviour
 
 	Vector3 normal;
 	Collision collision;
-
 
 
 	// Start is called before the first frame update
@@ -321,11 +320,6 @@ public class PlayerController : MonoBehaviour
 			{
 				paralized = true;
 				AudioManager.PlaySound(AudioManager.Sound.PlayerShock);
-				/*
-				gm.pause = true;
-				gm.GameOver();
-				mesh.SetActive(false);
-				*/
 			}
 		} 
 	}
@@ -335,7 +329,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (propActive && !paralized && !GameManager.gm.pause && !GameManager.gm.godPanel && !GameManager.gm.win && !GameManager.gm.menu)
 		{
-			print("Propulsión!");   //  ¡Propulsión!
+			Debug.Log("Propulsión!");   //  ¡Propulsión!
 			AudioManager.PlaySound(AudioManager.Sound.PlayerDash);
 			aceleracion *= propFuerza;  // Aumenta la aceleración del personaje
 			propTimer = 0;          // Activa el cooldown

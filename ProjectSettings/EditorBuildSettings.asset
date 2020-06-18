@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c5915eba2ea7af24a83c66b05360b043
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Bloque_01.unity
     guid: 35904c56dce882b4a8473ac0b3bb8fbd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Bloque_02.unity
     guid: 5a2a147a292b45445aefa809f1f78f72
   - enabled: 0
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestBench.unity
     guid: 26675a94555d1164ca138b6140efbd55
+  - enabled: 1
+    path: Assets/Scenes/Bloque_FINAL.unity
+    guid: 7b27b4b0db0977e4fa89e2e811914a4d
   m_configObjects: {}

@@ -11,6 +11,7 @@ public class AddTimeZone : MonoBehaviour
 		if (collision.tag == "Player")
 		{
             GameManager.gm.timer += addTime;
+			HUD.i.AnimateTimer();
             Destroy(gameObject);
 		} 
 	}

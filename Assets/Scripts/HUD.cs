@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -8,8 +7,11 @@ using DG.Tweening;
 public class HUD : MonoBehaviour
 {
 	#region Variables locales
-	public static HUD i; 
 	
+	public static HUD i;
+
+	[SerializeField] private PlayerController pc;
+
 	public GameObject pausePanel;
 	public GameObject settingsPanel;
 	public GameObject exitPanel;
@@ -138,7 +140,7 @@ public class HUD : MonoBehaviour
 	{
 		// Pausa el juego
 		Time.timeScale = 0f;
-		//countdownPanel.SetActive(true);
+		//pc.propActive = false;
 		WinPanelScript.i.background.CrossFadeAlpha(1, 0, true);
 		WinPanelScript.i.background.CrossFadeAlpha(0, countdownDuration, true);
 		noScape = true;
@@ -150,7 +152,7 @@ public class HUD : MonoBehaviour
 
 		// Reanuda el juego
 		Time.timeScale = 1f;
-		countdownPanel.SetActive(false);
+		//pc.propActive = true;
 		noScape = false;
 		GameManager.gm.pause = false;
 
@@ -198,27 +200,12 @@ public class HUD : MonoBehaviour
     {
         Debug.Log("Showing timer for first time");
 		GameManager.gm.tutorialDone = true;
-		StartCoroutine( FirstTimeTimerCountdown() );    // Pausa y animación
-    }
+		//StartCoroutine( FirstTimeTimerCountdown() );    // Pausa y animación
+		AnimateTimer();
+	}
 
-    // Funcion para activar la cuenta atrás
-    public IEnumerator FirstTimeTimerCountdown()
-    {
-        // Pausa el juego
-        //Time.timeScale = 0.05f;
-        //countdownPanel.SetActive(true);
-        //noScape = true;
-
-        timerRectTransform.DOPunchScale(new Vector2(2.5f, 2.5f), firstTimeTimerDuration, 4,0);
-
-        // Espera un ratito
-        float keepGoingTime = Time.realtimeSinceStartup + firstTimeTimerDuration;
-        while (Time.realtimeSinceStartup < keepGoingTime)
-            yield return 0;
-
-        // Reanuda el juego
-        //Time.timeScale = 1f;
-        //noScape = false;
-
-    }
+	public void AnimateTimer()
+	{
+		timerRectTransform.DOPunchScale(new Vector2(2.5f, 2.5f), firstTimeTimerDuration, 4, 0);
+	}
 }
