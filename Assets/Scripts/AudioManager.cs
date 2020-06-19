@@ -60,7 +60,7 @@ public static class AudioManager
         Debug.Log("Play: " + sound);
         //Destroy
     }
-    public static void PlaySound(Sound sound, Transform emisor)
+    public static void PlaySound(Sound sound, Transform emisor, bool loop = false)
     {
         GameObject soundGameObject = new GameObject("Sound");
         soundGameObject.transform.position = emisor.position;
@@ -72,6 +72,7 @@ public static class AudioManager
         audioSource.spatialBlend = 1;
         audioSource.rolloffMode = AudioRolloffMode.Linear;
         audioSource.dopplerLevel = .8f;
+        audioSource.loop = loop;
         audioSource.Play();
         Debug.Log("Play: " + sound);
         //Destroy

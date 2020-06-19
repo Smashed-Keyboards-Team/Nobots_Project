@@ -232,7 +232,7 @@ public class HUD : MonoBehaviour
 		AnimateTimer();
 
 		// Por esto:
-		timerHolderTransform.DOMove(timerShownPosition.position, firstTimeTimerDuration);
+		//timerHolderTransform.DOMove(timerShownPosition.position, firstTimeTimerDuration);
 	}
 
 	public void AnimateTimer()

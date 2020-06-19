@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class DJBrain : MonoBehaviour
 {
     AudioSource audioSource;
-    AudioLowPassFilter lowPass;
+    [SerializeField] AudioLowPassFilter lowPass;
     [SerializeField] private float fadeStep = 0.1f;
 
     private void OnEnable()
@@ -43,6 +43,7 @@ public class DJBrain : MonoBehaviour
     {
         // Creamos AudioSource Auxiliar
         AudioSource auxiliarAudioSource = gameObject.AddComponent<AudioSource>();
+        auxiliarAudioSource.outputAudioMixerGroup = Resources.Load<AudioMixer>("AudioMixer").FindMatchingGroups("Music")[0];    // Asignar output AudioMixer Group MUSIC
         auxiliarAudioSource.clip = newMusic;
         auxiliarAudioSource.loop = true;
 

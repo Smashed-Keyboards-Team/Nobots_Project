@@ -7,12 +7,6 @@ public class ButtonScript : MonoBehaviour
 	[SerializeField] DoorScript door;
 	[SerializeField] GameObject explosionPrefab;
 	public int numBoton;
-	[SerializeField] AudioSource audioSource;
-
-	private void Start()
-	{
-		audioSource.clip = AudioManager.GetAudioClip(AudioManager.Sound.GeneratorEnv);
-	}
 
 	private void OnTriggerEnter(Collider collision)
 	{
@@ -22,9 +16,9 @@ public class ButtonScript : MonoBehaviour
             if (pc.destroyMode)
             {
                 door.SetBut(numBoton, true);
-                AudioManager.PlaySound(AudioManager.Sound.GeneratorDestroy);
-				GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
-				Destroy(explosion, 5);
+                AudioManager.PlaySound(AudioManager.Sound.GeneratorDestroy, transform);
+				GameObject explosion = Instantiate(explosionPrefab, transform.position + new Vector3(0,1), transform.rotation);
+				Destroy(explosion,1);
                 gameObject.SetActive(false);
             }
 		}

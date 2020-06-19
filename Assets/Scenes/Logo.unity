@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae003363d6c880469c3d25cc3b1c959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChange: 1
+  sceneChange: 0
 --- !u!82 &183380517
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1057,6 +1057,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'SCORE:'
       objectReference: {fileID: 0}
+    - target: {fileID: 6490900057786430893, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[13].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5178505955cd5c94784039c19efb6324, type: 3}
+    - target: {fileID: 6490900057786430893, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: soundAudioClipArray.Array.data[15].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bd625c9c2bf87c24d8dae5b3545c70a8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c8079ef6372d940b56fd73d84781da, type: 3}
 --- !u!224 &1457207180 stripped
