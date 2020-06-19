@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour
 {
-    public GameObject door;
+	[SerializeField] DoorScript door;
+	[SerializeField] GameObject explosionPrefab;
 	public int numBoton;
-
-	DoorScript ds;
+	[SerializeField] AudioSource audioSource;
 
 	private void Start()
 	{
-		ds = door.GetComponent<DoorScript>();
+		audioSource.clip = AudioManager.GetAudioClip(AudioManager.Sound.GeneratorEnv);
 	}
 
 	private void OnTriggerEnter(Collider collision)
@@ -21,9 +21,11 @@ public class ButtonScript : MonoBehaviour
             PlayerController pc = collision.GetComponent<PlayerController>();
             if (pc.destroyMode)
             {
-                ds.SetBut(numBoton, true);
+                door.SetBut(numBoton, true);
                 AudioManager.PlaySound(AudioManager.Sound.GeneratorDestroy);
-                this.gameObject.SetActive(false);
+				GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
+				Destroy(explosion, 5);
+                gameObject.SetActive(false);
             }
 		}
 	}

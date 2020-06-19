@@ -77,7 +77,7 @@ public static class AudioManager
         //Destroy
     }
 
-    private static AudioClip GetAudioClip(Sound sound)
+    public static AudioClip GetAudioClip(Sound sound)
     {
         foreach (GameAssets.SoundAudioClip soundAudioClip in GameAssets.i.soundAudioClipArray)
         {

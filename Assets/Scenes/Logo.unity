@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae003363d6c880469c3d25cc3b1c959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChange: 0
+  sceneChange: 1
 --- !u!82 &183380517
 AudioSource:
   m_ObjectHideFlags: 0
@@ -828,6 +828,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 950678880}
   m_CullTransparentMesh: 0
+--- !u!114 &1230988236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1181536593789283846, guid: 60c8079ef6372d940b56fd73d84781da,
+    type: 3}
+  m_PrefabInstance: {fileID: 1457207179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1457207179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -854,7 +866,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pc
       value: 
-      objectReference: {fileID: 1779851060}
+      objectReference: {fileID: 0}
     - target: {fileID: 1181536593789283846, guid: 60c8079ef6372d940b56fd73d84781da,
         type: 3}
       propertyPath: m_FontData.m_HorizontalOverflow
@@ -960,21 +972,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2556935505704601441, guid: 60c8079ef6372d940b56fd73d84781da,
-        type: 3}
-      propertyPath: preFadeInTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2556935505704601441, guid: 60c8079ef6372d940b56fd73d84781da,
-        type: 3}
-      propertyPath: fadeInTime
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2556935505704601441, guid: 60c8079ef6372d940b56fd73d84781da,
-        type: 3}
-      propertyPath: preScoreTime
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 1323162874320865678, guid: 60c8079ef6372d940b56fd73d84781da,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1024,6 +1021,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152321642065334728, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1230988236}
+    - target: {fileID: 6152321642065334728, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: minScoreForSilverL1
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152321642065334728, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: minScoreForSilverL2
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152321642065334728, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: minScoreForGoldL1
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6152321642065334728, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: minScoreForGoldL2
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593845240137455046, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_Name
+      value: WinPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1557765832070015849, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_Name
+      value: 'SCORE:'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c8079ef6372d940b56fd73d84781da, type: 3}
@@ -1222,18 +1254,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!114 &1779851060 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3510345502540280794, guid: 60c8079ef6372d940b56fd73d84781da,
-    type: 3}
-  m_PrefabInstance: {fileID: 1457207179}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad66531b63366d4da2319e646d7656e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2006663339 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6152321642065334728, guid: 60c8079ef6372d940b56fd73d84781da,

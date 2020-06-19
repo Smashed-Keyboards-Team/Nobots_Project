@@ -9,10 +9,19 @@ public class GameManager : MonoBehaviour
 	[HideInInspector] public static GameManager gm; // Unica variable para el gm accesible deste cualquier script
 	
 	//FOR TESTING
-    public Text textForTesting;
+    public Text timerText;
+	
+	[Header("Puntuación y rangos")]
 	public Text scoreText;
-	//public float countdown;
+	public int minScore4SilvL1;
+	public int minScore4GoldL1;
+	public int minScore4SilvL2;
+	public int minScore4GoldL2;
+	[SerializeField] string rangoBronce;
+	[SerializeField] string rangoPlata;
+	[SerializeField] string rangoOro;
 
+	[Space(10)]
 	public int scene;		// Mira que variable mas guay 
 
 	// Variable del HUD
@@ -100,7 +109,7 @@ public class GameManager : MonoBehaviour
 			}
 
 			score = timer * 10000;
-			scoreText.text = string.Concat(score);
+			//scoreText.text = string.Concat(score);
 
 			if (timer <= 0)
 			{
@@ -145,7 +154,14 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("win");
 		win = true;
-		
+
+		// Asignar puntuación
+		WinPanelScript.i.scoreText.text = string.Concat(score);
+
+		// Asignar rango
+		string rango = AsignarRango();
+		WinPanelScript.i.rangoText.text = rango;
+
 		// Feedback sonoro
 		AudioManager.PlaySound(AudioManager.Sound.WinSound);
 
@@ -195,6 +211,45 @@ public class GameManager : MonoBehaviour
 			case 4:
 				AudioManager.PlayMusic(AudioManager.Music.ML3);
 				break;
+		}
+	}
+
+	private string AsignarRango()
+	{
+		if (scene == 2)         // Bloque 1
+		{
+			if (score < minScore4SilvL1)
+			{
+				return rangoBronce;
+			}
+			else if (score < minScore4GoldL1)
+			{
+				return rangoPlata;
+			}
+			else
+			{
+				return rangoOro;
+			}
+		}
+		else if (scene == 3)    // Bloque 2
+		{
+			if (score < minScore4SilvL1)
+			{
+				return rangoBronce;
+			}
+			else if (score < minScore4GoldL1)
+			{
+				return rangoPlata;
+			}
+			else
+			{
+				return rangoOro;
+			}
+		}
+		else
+		{
+			Debug.LogError("Escena inexistente: Error al asignar rango");
+			return null;
 		}
 	}
 }

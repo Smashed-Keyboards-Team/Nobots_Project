@@ -8,7 +8,9 @@ public class WinPanelScript : MonoBehaviour
     #region Variables
     public static WinPanelScript i;
     public Image background;          // TODO: Pasar a HUD
-    public GameObject scorePanel;                       // TODO: Cambiar a CanvasGroup
+    public GameObject scorePanel;
+    public Text scoreText;
+    public Text rangoText;
     [Header("Parámetros temporales")]
     [SerializeField] private float preFadeInTime = 0;
     [SerializeField] private float fadeInTime;
@@ -47,7 +49,6 @@ public class WinPanelScript : MonoBehaviour
     /// <summary>
     /// Hace un fade in dejando la pantalla en negro.
     /// </summary>
-    public void FadeIn() { StartCoroutine(FadeI()); }
     private IEnumerator FadeI()
     {
         Debug.Log("FadeInWin");

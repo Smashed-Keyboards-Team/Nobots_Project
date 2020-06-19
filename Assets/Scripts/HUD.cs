@@ -19,13 +19,29 @@ public class HUD : MonoBehaviour
 	public GameObject winPanel;
 	public GameObject godPanel;
 	public GameObject countdownPanel;
+	
+	// Cambiar esto:
 	public Text textTimer;
+	public RectTransform timerRectTransform;
 
+	// Por esto:
+	[SerializeField] RectTransform timerHolderTransform;
+	[SerializeField] RectTransform timerDigitsTransform;
+	[SerializeField] Image timerDigit10;
+	[SerializeField] Image timerDigit1;
+	[SerializeField] Image timerDigitDec;
+	[SerializeField] Sprite[] timerDigits;   // las imagenes de los números del 0 al 9
+	//[SerializeField] Transform timerHiddenPosition;	// no cal
+	[SerializeField] Transform timerShownPosition;
+
+
+
+	//------
 	public float countdownDuration;
     public float firstTimeTimerDuration;
-    public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
+	public float addTimePunchDuration;
 
-    public RectTransform timerRectTransform;
+	public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
 
 	[HideInInspector] public GameObject propOnCd;
     #endregion
@@ -49,14 +65,28 @@ public class HUD : MonoBehaviour
             textTimer.text = null;
             return;
         }
-		if (!GameManager.gm.pause)
+		if (!GameManager.gm.pause && GameManager.gm.scene == 2 || GameManager.gm.scene == 3)	// sólo cuenta el tiempo en bloque 1 y 2
 		{
-			float timer = (float) System.Math.Round(GameManager.gm.timer, 1);
+			// UPDATE TIMER
+
+			// Cambiar esto:
+			float timer = (float)System.Math.Round(GameManager.gm.timer, 1);
 			textTimer.text = timer.ToString();
 			if (timer % 1 == 0)
 			{
 				textTimer.text += ",0";
 			}
+
+			// Por esto:
+			/*
+			float timer = GameManager.gm.timer;
+			int digit10 = (int)timer / 10;
+			int digit1 = (int)timer % 10;
+			float digitDec = (timer % 1) * 10;
+			timerDigit10.sprite = timerDigits[digit10];
+			timerDigit1.sprite = timerDigits[digit1];
+			timerDigitDec.sprite = timerDigits[(int)digitDec];
+			*/
 		}
 	}
 
@@ -101,10 +131,8 @@ public class HUD : MonoBehaviour
 	// Funcion para abrir panel de win
 	public void OpenWinPanel()
 	{
-		//winPanel.SetActive(true);
 		noScape = true;
 		WinPanelScript.ShowPanel();
-		//CursorClean();
 	}
 
 
@@ -200,12 +228,19 @@ public class HUD : MonoBehaviour
     {
         Debug.Log("Showing timer for first time");
 		GameManager.gm.tutorialDone = true;
-		//StartCoroutine( FirstTimeTimerCountdown() );    // Pausa y animación
+		// Cambiar esto:
 		AnimateTimer();
+
+		// Por esto:
+		timerHolderTransform.DOMove(timerShownPosition.position, firstTimeTimerDuration);
 	}
 
 	public void AnimateTimer()
 	{
+		// Cambiar esto:
 		timerRectTransform.DOPunchScale(new Vector2(2.5f, 2.5f), firstTimeTimerDuration, 4, 0);
+
+		// Por esto:
+		//timerDigitsTransform.DOPunchScale(new Vector2(2.5f, 2.5f), addTimePunchDuration, 4, 0);
 	}
 }

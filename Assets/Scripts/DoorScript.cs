@@ -5,11 +5,13 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     public bool[] botones = { false, false };
-    GameObject door;
+    [SerializeField] AudioSource audioSource;
+    //GameObject door;
 
     private void Start()
     {
-        door = this.gameObject;
+        //door = this.gameObject;
+        audioSource.clip = AudioManager.GetAudioClip(AudioManager.Sound.DoorEnv);
     }
 
     public void SetBut(int numBot, bool on)
@@ -22,9 +24,9 @@ public class DoorScript : MonoBehaviour
         }
         if (abre == true)
         {
-            door.SetActive(false);
+            gameObject.SetActive(false);
             AudioManager.PlaySound(AudioManager.Sound.DoorOpen);
         }
-        else door.SetActive(true);
+        else gameObject.SetActive(true);
     }
 }
