@@ -1072,8 +1072,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c2671bddb04eb447a4419121205fb9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textForTesting: {fileID: 1181536593789283846}
+  timerText: {fileID: 1181536593789283846}
   scoreText: {fileID: 1809844250760667077}
+  minScore4SilvL1: 10000
+  minScore4GoldL1: 20000
+  minScore4SilvL2: 10000
+  minScore4GoldL2: 20000
+  rangoBronce: C de Casi
+  rangoPlata: B de Bien
+  rangoOro: A de AALA!
   scene: 0
   pause: 0
   score: 0

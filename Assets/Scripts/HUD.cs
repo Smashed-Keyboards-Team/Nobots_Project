@@ -31,8 +31,8 @@ public class HUD : MonoBehaviour
 	[SerializeField] Image timerDigit1;
 	[SerializeField] Image timerDigitDec;
 	[SerializeField] Sprite[] timerDigits;   // las imagenes de los números del 0 al 9
-	//[SerializeField] Transform timerHiddenPosition;	// no cal
-	[SerializeField] Transform timerShownPosition;
+	[SerializeField] RectTransform timerHiddenPosition;
+	[SerializeField] RectTransform timerShownPosition;
 
 
 
@@ -62,13 +62,18 @@ public class HUD : MonoBehaviour
 	{
         if (GameManager.gm.tutorialDone == false && GameManager.gm.scene == 2)  // En el tutorial no muestra timer;
         {
-            textTimer.text = null;
-            return;
+			// Cambiar esto:
+            //textTimer.text = null;
+
+			// Por esto:
+			timerHolderTransform = timerHiddenPosition;
+
+			return;
         }
 		if (!GameManager.gm.pause && GameManager.gm.scene == 2 || GameManager.gm.scene == 3)	// sólo cuenta el tiempo en bloque 1 y 2
 		{
 			// UPDATE TIMER
-
+			/*
 			// Cambiar esto:
 			float timer = (float)System.Math.Round(GameManager.gm.timer, 1);
 			textTimer.text = timer.ToString();
@@ -76,17 +81,21 @@ public class HUD : MonoBehaviour
 			{
 				textTimer.text += ",0";
 			}
-
+			*/
 			// Por esto:
-			/*
+			//Calculo numeros
 			float timer = GameManager.gm.timer;
 			int digit10 = (int)timer / 10;
 			int digit1 = (int)timer % 10;
-			float digitDec = (timer % 1) * 10;
-			timerDigit10.sprite = timerDigits[digit10];
+			int digitDec = (int) (timer * 10 % 1);
+
+			// Update Sprites
+			if (digit10 == 0)
+				timerDigit10.sprite = null;
+			else
+				timerDigit10.sprite = timerDigits[digit10];
 			timerDigit1.sprite = timerDigits[digit1];
-			timerDigitDec.sprite = timerDigits[(int)digitDec];
-			*/
+			timerDigitDec.sprite = timerDigits[digitDec];
 		}
 	}
 
@@ -190,7 +199,6 @@ public class HUD : MonoBehaviour
 	public void GoToMainMenu()
 	{
 		SceneManager.LoadScene("MainMenu");
-		// falta decirle al GameManager que tranki, que vamos al menú
 	}
 
 	//Boton para salir del juego
@@ -229,18 +237,18 @@ public class HUD : MonoBehaviour
         Debug.Log("Showing timer for first time");
 		GameManager.gm.tutorialDone = true;
 		// Cambiar esto:
-		AnimateTimer();
+		//AnimateTimer();
 
 		// Por esto:
-		//timerHolderTransform.DOMove(timerShownPosition.position, firstTimeTimerDuration);
+		timerHolderTransform.DOMove(timerShownPosition.position, firstTimeTimerDuration);
 	}
 
 	public void AnimateTimer()
 	{
 		// Cambiar esto:
-		timerRectTransform.DOPunchScale(new Vector2(2.5f, 2.5f), firstTimeTimerDuration, 4, 0);
+		//timerRectTransform.DOPunchScale(new Vector2(2.5f, 2.5f), firstTimeTimerDuration, 4, 0);
 
 		// Por esto:
-		//timerDigitsTransform.DOPunchScale(new Vector2(2.5f, 2.5f), addTimePunchDuration, 4, 0);
+		timerDigitsTransform.DOPunchScale(new Vector2(2.5f, 2.5f), addTimePunchDuration, 4, 0);
 	}
 }

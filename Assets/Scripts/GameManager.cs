@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
 	[HideInInspector] public static GameManager gm; // Unica variable para el gm accesible deste cualquier script
 	
-	//FOR TESTING
+	//esto caduca ya
     public Text timerText;
 	
 	[Header("Puntuación y rangos")]
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 	public bool pause = false;
 
 	// Puntuación
-	public float score;
+	public int score;
 
     // Referencias al personaje
     [HideInInspector] public GameObject player;
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 				timer -= 1 * Time.deltaTime;
 			}
 
-			score = timer * 10000;
+			//score = timer * 10000;
 			//scoreText.text = string.Concat(score);
 
 			if (timer <= 0)
@@ -155,8 +155,11 @@ public class GameManager : MonoBehaviour
 		Debug.Log("win");
 		win = true;
 
+		// Calcular puntuacion
+		score = (int) (timer * 100) * 10;
+
 		// Asignar puntuación
-		WinPanelScript.i.scoreText.text = string.Concat(score);
+		WinPanelScript.i.scoreText.text = score.ToString();
 
 		// Asignar rango
 		string rango = AsignarRango();
