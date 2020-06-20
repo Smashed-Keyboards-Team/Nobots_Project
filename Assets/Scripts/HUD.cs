@@ -30,6 +30,7 @@ public class HUD : MonoBehaviour
 	[SerializeField] Image timerDigit10;
 	[SerializeField] Image timerDigit1;
 	[SerializeField] Image timerDigitDec;
+	[SerializeField] Image timerDigitCent;
 	[SerializeField] Sprite[] timerDigits;   // las imagenes de los números del 0 al 9
 	[SerializeField] RectTransform timerHiddenPosition;
 	[SerializeField] RectTransform timerShownPosition;
@@ -87,15 +88,17 @@ public class HUD : MonoBehaviour
 			float timer = GameManager.gm.timer;
 			int digit10 = (int)timer / 10;
 			int digit1 = (int)timer % 10;
-			int digitDec = (int) (timer * 10 % 1);
+			float digitDec =  timer * 10 % 10;
+			float digitCent = timer * 100 % 10;
 
 			// Update Sprites
-			if (digit10 == 0)
-				timerDigit10.sprite = null;
-			else
+			//if (digit10 == 0)
+				//timerDigit10.sprite = null;
+			//else
 				timerDigit10.sprite = timerDigits[digit10];
 			timerDigit1.sprite = timerDigits[digit1];
-			timerDigitDec.sprite = timerDigits[digitDec];
+			timerDigitDec.sprite = timerDigits[(int)digitDec];
+			timerDigitCent.sprite = timerDigits[(int)digitCent];
 		}
 	}
 
