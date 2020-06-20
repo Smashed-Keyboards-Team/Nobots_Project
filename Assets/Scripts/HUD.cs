@@ -19,6 +19,7 @@ public class HUD : MonoBehaviour
 	public GameObject winPanel;
 	public GameObject godPanel;
 	public GameObject countdownPanel;
+	public GameObject goPanel;
 	
 	// Cambiar esto:
 	public Text textTimer;
@@ -41,6 +42,8 @@ public class HUD : MonoBehaviour
 	public float countdownDuration;
     public float firstTimeTimerDuration;
 	public float addTimePunchDuration;
+	public float goDuration;
+	private float goCurrent;
 
 	public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
 
@@ -99,6 +102,16 @@ public class HUD : MonoBehaviour
 			timerDigit1.sprite = timerDigits[digit1];
 			timerDigitDec.sprite = timerDigits[(int)digitDec];
 			timerDigitCent.sprite = timerDigits[(int)digitCent];
+		}
+
+		if (goCurrent <= goDuration)
+		{
+			goCurrent += Time.deltaTime;
+		}
+		else
+		{
+			goPanel.SetActive(false);
+			goCurrent = 0;
 		}
 	}
 
@@ -185,16 +198,22 @@ public class HUD : MonoBehaviour
 		WinPanelScript.i.background.CrossFadeAlpha(0, countdownDuration, true);
 		noScape = true;
 
+		countdownPanel.SetActive(true);
+
 		// Espera un ratito
 		float pauseEndTime = Time.realtimeSinceStartup + countdownDuration;
 		while (Time.realtimeSinceStartup < pauseEndTime)
 			yield return 0;
+
+		countdownPanel.SetActive(false);
 
 		// Reanuda el juego
 		Time.timeScale = 1f;
 		//pc.propActive = true;
 		noScape = false;
 		GameManager.gm.pause = false;
+
+		goPanel.SetActive(true);
 
 	}
 
