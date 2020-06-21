@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
 			{
                 return;
 			}
-			if (!lockTimer)         // En el resto de escenas, resta tiempo (a no ser que esté bloqueado)
+			if (!lockTimer || !win)         // En el resto de escenas, resta tiempo (a no ser que esté bloqueado o que hayas ganado)
 			{
 				timer -= 1 * Time.deltaTime;
 			}

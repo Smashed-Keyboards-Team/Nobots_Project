@@ -10,6 +10,7 @@ public class Win : MonoBehaviour
         if (other.gameObject.tag.Equals("Player") && !won)
         {
             GameManager.gm.Win();
+            HUD.i.AnimateTimer();
             won = true;
         }
     }

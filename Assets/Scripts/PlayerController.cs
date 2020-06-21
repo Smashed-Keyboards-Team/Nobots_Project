@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     private float originalAcel;         // Para guardar el valor original de la aceleración
 
 	public float jumpStrength = 5000;       // Fuerza de salto
-	private bool ableToJump;   // Funcion para indicar si se puede saltar
+	private bool ableToJump;	// Funcion para indicar si se puede saltar
 
 	// Particulas del player
 	public GameObject electricityMesh;
@@ -75,8 +75,6 @@ public class PlayerController : MonoBehaviour
 	void Start()
     {
         // Encontrar Game Manager
-		//gm = FindObjectOfType<GameManager>();
-
 		GameManager.gm.pc = this.GetComponent<PlayerController>();
 
 		// Encontrar HUD
@@ -224,15 +222,15 @@ public class PlayerController : MonoBehaviour
 		}
 
 
-		if (!propActive)   // Cooldown: reactiva la propulsión cuando se complete el cooldown
+		if (propTimer < propCd)   // Cooldown: reactiva la propulsión cuando se complete el cooldown
         {
-            hud.boostBar.fillAmount += 1.0f/propCd * Time.deltaTime;
+            hud.boostBar.fillAmount += 1.0f/(propCd) * Time.deltaTime;
 			propTimer += Time.deltaTime;
             if (propTimer >= propDuracion)
             {
                 aceleracion = originalAcel; // Restaura el valor de la aceleración original
             }
-            if (propTimer >= propCd)
+            if (propTimer >= propCd-.1f)
                 propActive = true;
         }
 
@@ -331,7 +329,7 @@ public class PlayerController : MonoBehaviour
 		hud.goPanel.SetActive(false);
 		if (propActive && !paralized && !GameManager.gm.pause && !GameManager.gm.godPanel && !GameManager.gm.win && !GameManager.gm.menu)
 		{
-			hud.boostBar.fillAmount -= 100f;
+			hud.boostBar.fillAmount = 0;
 			Debug.Log("Propulsión!");   //  ¡Propulsión!
 			AudioManager.PlaySound(AudioManager.Sound.PlayerDash);
 			aceleracion *= propFuerza;  // Aumenta la aceleración del personaje

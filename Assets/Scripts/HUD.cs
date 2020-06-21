@@ -10,8 +10,6 @@ public class HUD : MonoBehaviour
 	
 	public static HUD i;
 
-	[SerializeField] private PlayerController pc;
-
 	public GameObject pausePanel;
 	public GameObject settingsPanel;
 	public GameObject exitPanel;
@@ -29,7 +27,8 @@ public class HUD : MonoBehaviour
 
 	// Por esto:
 	[SerializeField] RectTransform timerHolderTransform;
-	[SerializeField] RectTransform timerDigitsTransform;
+	[SerializeField] GameObject timerDigitsGameObject;
+	[SerializeField] Image timerDigit100;
 	[SerializeField] Image timerDigit10;
 	[SerializeField] Image timerDigit1;
 	[SerializeField] Image timerDigitDec;
@@ -44,7 +43,7 @@ public class HUD : MonoBehaviour
 	public float countdownDuration;
     public float firstTimeTimerDuration;
 	public float addTimePunchDuration;
-	public float goDuration = 3f;
+	public float goDuration = 1f;
 	public float goCurrent;
 
 	public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
@@ -72,51 +71,46 @@ public class HUD : MonoBehaviour
             //textTimer.text = null;
 
 			// Por esto:
-			timerHolderTransform = timerHiddenPosition;
-
+			timerHolderTransform.position = timerHiddenPosition.position;
+			Debug.Log("Oculta timer");
 			return;
         }
-		if (!GameManager.gm.pause && GameManager.gm.scene == 2 || GameManager.gm.scene == 3)	// sólo cuenta el tiempo en bloque 1 y 2
+		if (!GameManager.gm.pause && !GameManager.gm.win)
 		{
-			// UPDATE TIMER
-			/*
-			// Cambiar esto:
-			float timer = (float)System.Math.Round(GameManager.gm.timer, 1);
-			textTimer.text = timer.ToString();
-			if (timer % 1 == 0)
+			if (GameManager.gm.scene == 2 || GameManager.gm.scene == 3)	// sólo cuenta el tiempo en bloque 1 y 2
 			{
-				textTimer.text += ",0";
+				// UPDATE TIMER
+				
+				//Calculo numeros
+				float timer = GameManager.gm.timer;
+				int digit100 = (int) timer / 100;
+				int digit10 = ((int)timer / 10) % 10;
+				int digit1 = (int)timer % 10;
+				float digitDec = timer * 10 % 10;
+				float digitCent = timer * 100 % 10;
+
+				// Update Sprites
+				if (digit100 > 0)
+				{
+					timerDigit100.gameObject.SetActive(true);
+
+					timerDigit10.sprite = timerDigits[digit10];
+				}
+				else
+				{
+					timerDigit100.gameObject.SetActive(false);
+					if (digit10 == 0)
+						timerDigit10.gameObject.SetActive(false);
+					else
+					{
+						timerDigit10.gameObject.SetActive(true);
+						timerDigit10.sprite = timerDigits[digit10];
+					}
+				}
+				timerDigit1.sprite = timerDigits[digit1];
+				timerDigitDec.sprite = timerDigits[(int)digitDec];
+				timerDigitCent.sprite = timerDigits[(int)digitCent];
 			}
-			*/
-			// Por esto:
-			//Calculo numeros
-			float timer = GameManager.gm.timer;
-			int digit10 = (int)timer / 10;
-			int digit1 = (int)timer % 10;
-			float digitDec =  timer * 10 % 10;
-			float digitCent = timer * 100 % 10;
-
-			// Update Sprites
-			//if (digit10 == 0)
-				//timerDigit10.sprite = null;
-			//else
-				timerDigit10.sprite = timerDigits[digit10];
-			timerDigit1.sprite = timerDigits[digit1];
-			timerDigitDec.sprite = timerDigits[(int)digitDec];
-			timerDigitCent.sprite = timerDigits[(int)digitCent];
-		}
-
-		//ERROR: cuenta en el (donde no deberia) pero deja de contar una vez esta en gameplay, error producido al cambiar el cd del boost de gameobject a imagen ¯\_(ツ)_/¯
-		if (goCurrent <= goDuration)
-		{
-			goCurrent += Time.deltaTime;
-			Debug.Log("contando");
-		}
-		else
-		{
-			Debug.Log("mierda");
-			goPanel.SetActive(false);
-			goCurrent = 0;
 		}
 	}
 
@@ -198,10 +192,11 @@ public class HUD : MonoBehaviour
 	{
 		// Pausa el juego
 		Time.timeScale = 0f;
-		//pc.propActive = false;
+		//GameManager.gm.pc.propActive = false;
 		WinPanelScript.i.background.CrossFadeAlpha(1, 0, true);
 		WinPanelScript.i.background.CrossFadeAlpha(0, countdownDuration, true);
 		noScape = true;
+		
 
 		countdownPanel.SetActive(true);
 
@@ -214,14 +209,23 @@ public class HUD : MonoBehaviour
 
 		// Reanuda el juego
 		Time.timeScale = 1f;
-		//pc.propActive = true;
+		//GameManager.gm.pc.propActive = true;
 		noScape = false;
 		GameManager.gm.pause = false;
 
+		// GO Panel
 		goPanel.SetActive(true);
+		goPanel.GetComponent<Image>().CrossFadeAlpha(1, 0, false);	// pone alfa a 1
+		yield return new WaitForSeconds(goDuration);
+		goPanel.GetComponent<Image>().CrossFadeAlpha(0, .9f, true);
+
+		// TESTEANDO EFECTO>
+		goPanel.transform.DOPunchScale(new Vector3(1.2f, .9f, 1), 1, 0);
+
 	}
 
 	//ERROR: Esto no va y no se porque
+	/*
 	public void GoTime()
 	{
 		if(goPanel.active == true)
@@ -237,7 +241,7 @@ public class HUD : MonoBehaviour
 				goCurrent = 0;
 			}
 		}
-	}
+	} */
 
 	//Boton para ir al menu principal
 	public void GoToMainMenu()
@@ -289,10 +293,17 @@ public class HUD : MonoBehaviour
 
 	public void AnimateTimer()
 	{
-		// Cambiar esto:
-		//timerRectTransform.DOPunchScale(new Vector2(2.5f, 2.5f), firstTimeTimerDuration, 4, 0);
+		StartCoroutine(ParpadeoDigitsTimer());
+	}
 
-		// Por esto:
-		timerDigitsTransform.DOPunchScale(new Vector2(2.5f, 2.5f), addTimePunchDuration, 4, 0);
+	IEnumerator ParpadeoDigitsTimer()
+	{
+		for (int i = 0; i < 4; ++i)
+		{
+			yield return new WaitForSecondsRealtime(.3f);
+			timerDigitsGameObject.SetActive(false);
+			yield return new WaitForSecondsRealtime(.3f);
+			timerDigitsGameObject.SetActive(true);
+		}
 	}
 }

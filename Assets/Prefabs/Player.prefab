@@ -5316,6 +5316,7 @@ MonoBehaviour:
   aceleracion: 200
   aceleracionAngular: 45
   maxAngularSpeed: 55
+  destroyMode: 0
   rb: {fileID: 4085531520562911786}
   fallMultiplier: 2.5
   propFuerza: 20
@@ -5399,7 +5400,7 @@ GameObject:
   m_Layer: 9
   m_Name: upper_look
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
