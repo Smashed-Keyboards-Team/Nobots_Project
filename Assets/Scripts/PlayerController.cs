@@ -226,7 +226,8 @@ public class PlayerController : MonoBehaviour
 
 		if (!propActive)   // Cooldown: reactiva la propulsión cuando se complete el cooldown
         {
-            propTimer += Time.deltaTime;
+            hud.boostBar.fillAmount += 1.0f/propCd * Time.deltaTime;
+			propTimer += Time.deltaTime;
             if (propTimer >= propDuracion)
             {
                 aceleracion = originalAcel; // Restaura el valor de la aceleración original
@@ -327,8 +328,10 @@ public class PlayerController : MonoBehaviour
 	// Funcion de propulsion
 	public void Boost()
 	{
+		hud.goPanel.SetActive(false);
 		if (propActive && !paralized && !GameManager.gm.pause && !GameManager.gm.godPanel && !GameManager.gm.win && !GameManager.gm.menu)
 		{
+			hud.boostBar.fillAmount -= 100f;
 			Debug.Log("Propulsión!");   //  ¡Propulsión!
 			AudioManager.PlaySound(AudioManager.Sound.PlayerDash);
 			aceleracion *= propFuerza;  // Aumenta la aceleración del personaje

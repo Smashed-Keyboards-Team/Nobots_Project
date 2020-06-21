@@ -20,6 +20,8 @@ public class HUD : MonoBehaviour
 	public GameObject godPanel;
 	public GameObject countdownPanel;
 	public GameObject goPanel;
+
+	public Image boostBar;
 	
 	// Cambiar esto:
 	public Text textTimer;
@@ -42,8 +44,8 @@ public class HUD : MonoBehaviour
 	public float countdownDuration;
     public float firstTimeTimerDuration;
 	public float addTimePunchDuration;
-	public float goDuration;
-	private float goCurrent;
+	public float goDuration = 3f;
+	public float goCurrent;
 
 	public bool noScape = false;	// Si true, evita que entres en pausa pulsando ESC
 
@@ -104,12 +106,15 @@ public class HUD : MonoBehaviour
 			timerDigitCent.sprite = timerDigits[(int)digitCent];
 		}
 
+		//ERROR: cuenta en el (donde no deberia) pero deja de contar una vez esta en gameplay, error producido al cambiar el cd del boost de gameobject a imagen ¯\_(ツ)_/¯
 		if (goCurrent <= goDuration)
 		{
 			goCurrent += Time.deltaTime;
+			Debug.Log("contando");
 		}
 		else
 		{
+			Debug.Log("mierda");
 			goPanel.SetActive(false);
 			goCurrent = 0;
 		}
@@ -214,7 +219,24 @@ public class HUD : MonoBehaviour
 		GameManager.gm.pause = false;
 
 		goPanel.SetActive(true);
+	}
 
+	//ERROR: Esto no va y no se porque
+	public void GoTime()
+	{
+		if(goPanel.active == true)
+		{
+			if (goCurrent <= goDuration)
+			{
+				goCurrent += Time.deltaTime;
+				Debug.Log("contando");
+			}
+			else
+			{
+				goPanel.SetActive(false);
+				goCurrent = 0;
+			}
+		}
 	}
 
 	//Boton para ir al menu principal

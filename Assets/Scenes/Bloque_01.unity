@@ -1328,7 +1328,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249720902}
-  m_LocalRotation: {x: 0.13493101, y: 0.6941136, z: -0.13493171, w: 0.69411343}
+  m_LocalRotation: {x: 0.134931, y: 0.6941136, z: -0.1349317, w: 0.69411343}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5651,7 +5651,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255632397}
-  m_LocalRotation: {x: -0.16287501, y: -0.6880929, z: 0.16287479, w: -0.6880929}
+  m_LocalRotation: {x: -0.1628749, y: -0.6880929, z: 0.16287468, w: -0.6880929}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7987,6 +7987,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224385212671366871, guid: 6fe1a819dfd2457439f73d689e61fb11,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224385212671366697, guid: 6fe1a819dfd2457439f73d689e61fb11,
         type: 3}
       propertyPath: far clip plane
@@ -8006,11 +8011,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FocalLength
       value: 32.96973
-      objectReference: {fileID: 0}
-    - target: {fileID: 224385212671366871, guid: 6fe1a819dfd2457439f73d689e61fb11,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1584125924, guid: 6fe1a819dfd2457439f73d689e61fb11, type: 3}
       propertyPath: m_Enabled
@@ -9907,6 +9907,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Meta
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120720905558761465, guid: 613d3558ba8394941b0448df3514c1fb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120720905558761444, guid: 613d3558ba8394941b0448df3514c1fb,
         type: 3}

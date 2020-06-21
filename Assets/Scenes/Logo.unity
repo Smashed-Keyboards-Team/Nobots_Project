@@ -331,6 +331,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &373049521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3310756186457599909, guid: 60c8079ef6372d940b56fd73d84781da,
+    type: 3}
+  m_PrefabInstance: {fileID: 1457207179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &580942514
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +821,11 @@ PrefabInstance:
       propertyPath: goDuration
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1181536594434067612, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: boostBar
+      value: 
+      objectReference: {fileID: 373049521}
     - target: {fileID: 2440061102570956352, guid: 60c8079ef6372d940b56fd73d84781da,
         type: 3}
       propertyPath: m_IsActive
@@ -817,6 +834,41 @@ PrefabInstance:
     - target: {fileID: 6058967883159991462, guid: 60c8079ef6372d940b56fd73d84781da,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310756186789193311, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 163.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1181536593789283847, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593845240137455046, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310756186457599909, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310756186457599909, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310756186457599909, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_FillMethod
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310756186789193310, guid: 60c8079ef6372d940b56fd73d84781da,
+        type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
