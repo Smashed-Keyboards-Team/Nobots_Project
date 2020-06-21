@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
 		if (scene > 1)	// Actualiza el tiempo (Solo InGame)
 		{
-			if (scene == 2 && !tutorialDone)	// en la primera escena, mientras no hayas completado el tutorial, no hay timer
+			if (scene == 2 && !tutorialDone || scene == 4)	// en la primera escena, mientras no hayas completado el tutorial, no hay timer
 			{
                 return;
 			}
@@ -210,9 +210,11 @@ public class GameManager : MonoBehaviour
 				break;
 			case 3:
 				AudioManager.PlayMusic(AudioManager.Music.ML2);
+				Debug.Log("playing L2");
 				break;
 			case 4:
-				AudioManager.PlayMusic(AudioManager.Music.ML3);
+				AudioManager.PlayMusic(AudioManager.Music.Credits);
+				Debug.Log("playing credits");
 				break;
 		}
 	}

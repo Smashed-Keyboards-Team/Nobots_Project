@@ -40,8 +40,7 @@ public static class AudioManager
         MMM,
         Credits,
         ML1,
-        ML2,
-        ML3, 
+        ML2, 
     }
 
     //v  v  v  v  Codigo para usar audios  v  v  v  v
@@ -102,6 +101,7 @@ public static class AudioManager
         // Decirle que ponga el disco "music" con la DJHand
         AudioSource DJHand = DJ.GetComponent<AudioSource>();
         AudioClip musicClip = GetMusicClip(music);
+        
         if (DJHand.clip != musicClip)     //Solo cambiar en caso de cambiar de musica
         {
             DJ.GetComponent<DJBrain>().ChangeSong(musicClip);
@@ -115,6 +115,7 @@ public static class AudioManager
         {
             if (musicAudioClip.music == music)
             {
+                Debug.Log(musicAudioClip);
                 return musicAudioClip.audioClip;
             }
         }

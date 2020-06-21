@@ -65,7 +65,7 @@ public class HUD : MonoBehaviour
 
 	private void Update()
 	{
-        if (GameManager.gm.tutorialDone == false && GameManager.gm.scene == 2)  // En el tutorial no muestra timer;
+        if (GameManager.gm.tutorialDone == false && GameManager.gm.scene == 2 || GameManager.gm.scene == 4)  // En el tutorial no muestra timer;
         {
 			// Cambiar esto:
             //textTimer.text = null;
